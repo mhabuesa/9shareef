@@ -151,7 +151,7 @@
                                     </div>
 
                                     <!-- Hidden future date -->
-                                    <div id="countdown-target" data-target="2026-02-03 17:24:00" style="display:none;">
+                                    <div id="countdown-target" data-target="2026-02-26 18:06:00" style="display:none;">
                                     </div>
 
 
