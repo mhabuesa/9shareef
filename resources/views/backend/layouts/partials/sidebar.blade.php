@@ -1,6 +1,6 @@
 <nav id="sidebar" aria-label="Main Navigation">
     <div class="content-header">
-        <a class="fw-semibold text-dual" href="{{route('dashboard')}}">
+        <a class="fw-semibold text-dual" href="{{ route('dashboard') }}">
             <span class="smini-visible">
                 <i class="fa fa-circle-notch text-primary"></i>
             </span>
@@ -47,45 +47,83 @@
         <div class="content-side">
             <ul class="nav-main">
                 <li class="nav-main-item">
-                    <a class="nav-main-link {{request()->routeIs('dashboard') ? 'active' : ''}}" href="{{route('dashboard')}}">
+                    <a class="nav-main-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                        href="{{ route('dashboard') }}">
                         <i class="nav-main-link-icon si si-speedometer"></i>
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-main-heading">User Interface</li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                        aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon si si-energy"></i>
-                        <span class="nav-main-link-name">Blocks</span>
+                <li class="nav-main-heading">Category Management</li>
+                <li
+                    class="nav-main-item {{ request()->routeIs('category.*') ? 'open' : (request()->routeIs('subcategory.*') ? 'open' : '') }}">
+                    <a class="nav-main-link nav-main-link-submenu {{ request()->routeIs('category.*') ? 'active' : '' }}"
+                        data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                        <i class="nav-main-link-icon fas fa-file-invoice-dollar"></i>
+                        <span class="nav-main-link-name">Categories</span>
                     </a>
                     <ul class="nav-main-submenu">
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_blocks_styles.html">
-                                <span class="nav-main-link-name">Styles</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_blocks_options.html">
-                                <span class="nav-main-link-name">Options</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_blocks_forms.html">
-                                <span class="nav-main-link-name">Forms</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_blocks_themed.html">
-                                <span class="nav-main-link-name">Themed</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_blocks_api.html">
-                                <span class="nav-main-link-name">API</span>
+                            <a class="nav-main-link {{ request()->routeIs('category.index') ? 'active' : '' }}"
+                                href="{{ route('category.index') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-layer-group me-2"></i>Categories
+                                </span>
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-main-heading">
+                    </i> Post Management
+                </li>
+                <li class="nav-main-item {{ request()->routeIs('post.*') ? 'open' : '' }}">
+                    <a class="nav-main-link nav-main-link-submenu {{ request()->routeIs('post.*') ? 'active' : '' }}"
+                        data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+
+                        <i class="nav-main-link-icon fas fa-newspaper"></i>
+                        <span class="nav-main-link-name">Posts</span>
+                    </a>
+                    <ul class="nav-main-submenu">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->routeIs('post.create') ? 'active' : '' }}"
+                                href="{{ route('post.create') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-circle-plus me-2"></i> Add New Post
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->routeIs('post.index') ? 'active' : (request()->routeIs('post.show') ? 'active' : '') }}"
+                                href="{{ route('post.index') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-file-invoice me-2"></i> Post List
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->routeIs('post.trash') ? 'active' : '' }}"
+                                href="{{ route('post.trash') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-trash me-2"></i>Trash
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->routeIs('post.featured') ? 'active' : '' }}"
+                                href="{{ route('post.featured') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-star me-2"></i>Featured Posts
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link {{ request()->routeIs('banner.*') ? 'active' : '' }}"
+                        href="{{ route('banner.index') }}">
+                        <span class="nav-main-link-name">
+                            <i class="fas fa-bullhorn me-2"></i>Banner Management
+                        </span>
+                    </a>
                 </li>
             </ul>
         </div>

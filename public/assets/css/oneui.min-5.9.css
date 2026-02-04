@@ -19344,7 +19344,7 @@ small {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    height: 4rem
+    height: 3.5rem;
 }
 
 #page-header .content-header {
@@ -20910,8 +20910,8 @@ a.block.block-themed .btn-block-option:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4rem;
-    height: 4rem;
+    /* width: 3.5rem;
+    height: 3.5rem; */
     transition: opacity .25s ease-out, transform .25s ease-out
 }
 

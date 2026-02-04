@@ -4,9 +4,11 @@ namespace App\Traits;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+
 /**
  * image intervention v3
  */
+
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\WebpEncoder;
@@ -47,18 +49,16 @@ trait ImageSaveTrait
             $image->pad($width, $height, 'fff');
 
             $encoded = $image->encode(new WebpEncoder);
-            $return_path = 'uploads/' . $file_destination . '/' . time().'-'. Str::random(10) . '.webp';
+            $return_path = 'uploads/' . $file_destination . '/' . time() . '-' . Str::random(10) . '.webp';
             $encoded->save(public_path($return_path));
 
             return $return_path;
-        }
-        else
-        {
+        } else {
             /**
              * just save it (not recommended)
              */
             $encoded = $image->encode(new WebpEncoder);
-            $return_path = 'uploads/' . $file_destination . '/' . time().'-'. Str::random(10) . '.webp';
+            $return_path = 'uploads/' . $file_destination . '/' . time() . '-' . Str::random(10) . '.webp';
             $encoded->save(public_path($return_path));
             return $return_path;
         }
@@ -98,19 +98,17 @@ trait ImageSaveTrait
             $image->pad($width, $height, 'fff');
 
             $encoded = $image->encode(new WebpEncoder);
-            $return_path = 'uploads/' . $file_destination . '/' . time().'-'. Str::random(10) . '.webp';
+            $return_path = 'uploads/' . $file_destination . '/' . time() . '-' . Str::random(10) . '.webp';
             $encoded->save(public_path($return_path));
 
             File::delete($image_old_attribute);
             return $return_path;
-        }
-        else
-        {
+        } else {
             /**
              * just save it (not recommended)
              */
             $encoded = $image->encode(new WebpEncoder);
-            $return_path = 'uploads/' . $file_destination . '/' . time().'-'. Str::random(10) . '.webp';
+            $return_path = 'uploads/' . $file_destination . '/' . time() . '-' . Str::random(10) . '.webp';
             $encoded->save(public_path($return_path));
 
             File::delete($image_old_attribute);
@@ -131,5 +129,32 @@ trait ImageSaveTrait
         }
 
         File::delete($path);
+    }
+
+    private function processImageFromPath(
+        $sourcePath,
+        $destination,
+        $width = null,
+        $height = null
+    ): string {
+
+        if (!File::isDirectory(public_path('uploads/' . $destination))) {
+            File::makeDirectory(public_path('uploads/' . $destination), 0777, true);
+        }
+
+        $manager = new ImageManager(Driver::class);
+        $image = $manager->read($sourcePath);
+
+        if ($width && $height) {
+            $image->scale($width, $height);
+            $image->pad($width, $height, 'fff');
+        }
+
+        $fileName = time() . '-' . Str::random(10) . '.webp';
+        $finalPath = 'uploads/' . $destination . '/' . $fileName;
+
+        $image->encode(new WebpEncoder())->save(public_path($finalPath));
+
+        return $finalPath;
     }
 }
