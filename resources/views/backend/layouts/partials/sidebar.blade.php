@@ -75,8 +75,8 @@
                 <li class="nav-main-heading">
                     </i> Post Management
                 </li>
-                <li class="nav-main-item {{ request()->routeIs('post.*') ? 'open' : '' }}">
-                    <a class="nav-main-link nav-main-link-submenu {{ request()->routeIs('post.*') ? 'active' : '' }}"
+                <li class="nav-main-item {{ request()->routeIs('posts.*') ? 'open' : '' }}">
+                    <a class="nav-main-link nav-main-link-submenu {{ request()->routeIs('posts.*') ? 'active' : '' }}"
                         data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
 
                         <i class="nav-main-link-icon fas fa-newspaper"></i>
@@ -84,32 +84,32 @@
                     </a>
                     <ul class="nav-main-submenu">
                         <li class="nav-main-item">
-                            <a class="nav-main-link {{ request()->routeIs('post.create') ? 'active' : '' }}"
-                                href="{{ route('post.create') }}">
+                            <a class="nav-main-link {{ request()->routeIs('posts.create') ? 'active' : '' }}"
+                                href="{{ route('posts.create') }}">
                                 <span class="nav-main-link-name">
                                     <i class="fas fa-circle-plus me-2"></i> Add New Post
                                 </span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link {{ request()->routeIs('post.index') ? 'active' : (request()->routeIs('post.show') ? 'active' : '') }}"
-                                href="{{ route('post.index') }}">
+                            <a class="nav-main-link {{ request()->routeIs('posts.index') ? 'active' : (request()->routeIs('posts.show') ? 'active' : '') }}"
+                                href="{{ route('posts.index') }}">
                                 <span class="nav-main-link-name">
                                     <i class="fas fa-file-invoice me-2"></i> Post List
                                 </span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link {{ request()->routeIs('post.trash') ? 'active' : '' }}"
-                                href="{{ route('post.trash') }}">
+                            <a class="nav-main-link {{ request()->routeIs('posts.trash') ? 'active' : '' }}"
+                                href="{{ route('posts.trash') }}">
                                 <span class="nav-main-link-name">
                                     <i class="fas fa-trash me-2"></i>Trash
                                 </span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link {{ request()->routeIs('post.featured') ? 'active' : '' }}"
-                                href="{{ route('post.featured') }}">
+                            <a class="nav-main-link {{ request()->routeIs('posts.featured') ? 'active' : '' }}"
+                                href="{{ route('posts.featured') }}">
                                 <span class="nav-main-link-name">
                                     <i class="fas fa-star me-2"></i>Featured Posts
                                 </span>

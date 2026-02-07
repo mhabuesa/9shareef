@@ -3,7 +3,7 @@
 @section('title', 'Edit Post')
 @section('content')
     <div class="container-fluid">
-        <form action="{{ route('post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="block block-rounded">
@@ -279,7 +279,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Send AJAX request
-                            fetch("{{ route('post.gallery.delete') }}", {
+                            fetch("{{ route('posts.gallery.delete') }}", {
                                     method: 'DELETE',
                                     headers: {
                                         'Content-Type': 'application/json',

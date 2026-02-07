@@ -11,7 +11,7 @@
     <link rel="icon" sizes="16x16" href="{{asset('frontend')}}/assets/img/favicon.png">
 
     <!-- Title -->
-    <title> NoonPost. - Personal Blog HTML Template </title>
+    <title>@yield('title', 'App') | {{ config('app.name', '9 Shareef') }}</title>
 
     <!--Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/assets/css/bootstrap.min.css">

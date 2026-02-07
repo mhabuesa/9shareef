@@ -142,7 +142,7 @@
                 confirmButtonText: "Yes, Remove!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = "{{ route('post.featuredUpdate', ':id') }}";
+                    let url = "{{ route('posts.featuredUpdate', ':id') }}";
                     url = url.replace(':id', id);
                     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -181,7 +181,7 @@
                 confirmButtonText: "Yes, Remove!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = "{{ route('post.hotUpdate', ':id') }}";
+                    let url = "{{ route('posts.hotUpdate', ':id') }}";
                     url = url.replace(':id', id);
                     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 

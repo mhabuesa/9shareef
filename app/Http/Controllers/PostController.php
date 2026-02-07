@@ -155,7 +155,7 @@ class PostController extends Controller
         // dispatch job for heavy processing
         ProcessPostImages::dispatch($post->id, $mainImagePath, $galleryPaths);
 
-        return redirect()->route('post.index')->with('success', 'Post created successfully.');
+        return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
 
 
@@ -258,7 +258,7 @@ class PostController extends Controller
         ProcessPostImages::dispatch($post->id, $mainImagePath, $galleryPaths);
 
         return redirect()
-            ->route('post.index')
+            ->route('posts.index')
             ->with('success', 'Post updated successfully.');
     }
 

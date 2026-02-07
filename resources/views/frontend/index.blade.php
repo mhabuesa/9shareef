@@ -1,3 +1,4 @@
+@section('title', 'Home')
 @extends('frontend.layouts.app')
 @section('content')
     <!--slider-five-->
@@ -15,7 +16,7 @@
                                         <div class="slider__item-content">
                                             <a href="blog-grid.html" class="category">{{ $banner->post->category->name }}</a>
                                             <h1 class="slider__title">
-                                                <a href="post-default.html"
+                                                <a href="{{ route('post.details', $banner->post->slug) }}"
                                                     class="slider__title-link">{{ $banner->post->title }}</a>
                                             </h1>
                                             <ul class="slider__meta list-inline">
@@ -57,40 +58,42 @@
                     <div class="theiaStickySidebar">
                         <div class="row masonry-items">
                             @foreach ($posts as $key => $post)
-                            <!--Post-1-->
-                            <div class="col-xl-6 col-lg-6  masonry-item">
-                                <div class="post-card post-card--default">
-                                    <div class="post-card__image">
-                                        <a href="post-default.html">
-                                            <img src="{{ asset($post->image) }}" alt="">
-                                        </a>
-                                    </div>
+                                <!--Post-1-->
+                                <div class="col-xl-6 col-lg-6  masonry-item">
+                                    <div class="post-card post-card--default">
+                                        <div class="post-card__image">
+                                            <a href="{{ route('post.details', $post->slug) }}">
+                                                <img src="{{ asset($post->image) }}" alt="">
+                                            </a>
+                                        </div>
 
-                                    <div class="post-card__content">
-                                        <a href="blog-grid.html" class="category">{{ $post->category?->name }}</a>
-                                        <h5 class="post-card__title">
-                                            <a href="post-default.html" class="post-card__title-link">{{ $post->title }}</a>
-                                        </h5>
-                                        <p class="post-card__exerpt">{{ Str::limit($post->short_description, 100, '...') }}
-                                        </p>
+                                        <div class="post-card__content">
+                                            <a href="blog-grid.html" class="category">{{ $post->category?->name }}</a>
+                                            <h5 class="post-card__title">
+                                                <a href="{{ route('post.details', $post->slug) }}"
+                                                    class="post-card__title-link">{{ $post->title }}</a>
+                                            </h5>
+                                            <p class="post-card__exerpt">
+                                                {{ Str::limit($post->short_description, 100, '...') }}
+                                            </p>
 
-                                        <ul class="post-card__meta list-inline">
-                                            <li class="post-card__meta-item">
-                                                @php
-                                                    $created = $post->created_at;
-                                                @endphp
+                                            <ul class="post-card__meta list-inline">
+                                                <li class="post-card__meta-item">
+                                                    @php
+                                                        $created = $post->created_at;
+                                                    @endphp
 
-                                                @if ($created->diffInDays(now()) >= 1)
-                                                    {{ $created->format('d M Y') }}
-                                                @else
-                                                    {{ $created->diffForHumans() }}
-                                                @endif
-                                            </li>
-                                        </ul>
+                                                    @if ($created->diffInDays(now()) >= 1)
+                                                        {{ $created->format('d M Y') }}
+                                                    @else
+                                                        {{ $created->diffForHumans() }}
+                                                    @endif
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--/-->
+                                <!--/-->
                             @endforeach
 
 
@@ -168,7 +171,8 @@
                                 <!--post 1-->
                                 <li class="widget__latest-posts__item">
                                     <div class="widget__latest-posts-image">
-                                        <a href="post-default.html" class="widget__latest-posts-link">
+                                        <a href="{{ route('post.details', $post->slug) }}"
+                                            class="widget__latest-posts-link">
                                             <img src="{{ asset('frontend') }}/assets/img/latest/1.jpg" alt="..."
                                                 class="widget__latest-posts-img">
                                         </a>
@@ -176,7 +180,8 @@
                                     <div class="widget__latest-posts-count">1</div>
                                     <div class="widget__latest-posts__content">
                                         <p class="widget__latest-posts-title">
-                                            <a href="post-default.html" class="widget__latest-posts-link">5 Things
+                                            <a href="{{ route('post.details', $post->slug) }}"
+                                                class="widget__latest-posts-link">5 Things
                                                 I Wish I Knew Before Traveling to Malaysia</a>
                                         </p>
                                         <small class="widget__latest-posts-date">
@@ -189,7 +194,8 @@
                                 <!--post 2-->
                                 <li class="widget__latest-posts__item">
                                     <div class="widget__latest-posts-image">
-                                        <a href="post-default.html" class="widget__latest-posts-link">
+                                        <a href="{{ route('post.details', $post->slug) }}"
+                                            class="widget__latest-posts-link">
                                             <img src="{{ asset('frontend') }}/assets/img/latest/2.jpg" alt="..."
                                                 class="widget__latest-posts-img">
                                         </a>
@@ -197,7 +203,8 @@
                                     <div class="widget__latest-posts-count">2</div>
                                     <div class="widget__latest-posts__content">
                                         <p class="widget__latest-posts-title">
-                                            <a href="post-default.html" class="widget__latest-posts-link">Everything you
+                                            <a href="{{ route('post.details', $post->slug) }}"
+                                                class="widget__latest-posts-link">Everything you
                                                 need to know about
                                                 visiting the Amazon.</a>
                                         </p>
@@ -211,7 +218,8 @@
                                 <!--post 3-->
                                 <li class="widget__latest-posts__item">
                                     <div class="widget__latest-posts-image">
-                                        <a href="post-default.html" class="widget__latest-posts-link">
+                                        <a href="{{ route('post.details', $post->slug) }}"
+                                            class="widget__latest-posts-link">
                                             <img src="{{ asset('frontend') }}/assets/img/latest/3.jpg" alt="..."
                                                 class="widget__latest-posts-img">
                                         </a>
@@ -219,7 +227,8 @@
                                     <div class="widget__latest-posts-count">3</div>
                                     <div class="widget__latest-posts__content">
                                         <p class="widget__latest-posts-title">
-                                            <a href="post-default.html" class="widget__latest-posts-link">How to
+                                            <a href="{{ route('post.details', $post->slug) }}"
+                                                class="widget__latest-posts-link">How to
                                                 spend interesting vacation after hard work?</a>
                                         </p>
                                         <small class="widget__latest-posts-date">
@@ -232,7 +241,8 @@
                                 <!--post 4-->
                                 <li class="widget__latest-posts__item">
                                     <div class="widget__latest-posts-image">
-                                        <a href="post-default.html" class="widget__latest-posts-link">
+                                        <a href="{{ route('post.details', $post->slug) }}"
+                                            class="widget__latest-posts-link">
                                             <img src="{{ asset('frontend') }}/assets/img/latest/4.jpg" alt="..."
                                                 class="widget__latest-posts-img">
                                         </a>
@@ -240,7 +250,8 @@
                                     <div class="widget__latest-posts-count">4</div>
                                     <div class="widget__latest-posts__content">
                                         <p class="widget__latest-posts-title">
-                                            <a href="post-default.html" class="widget__latest-posts-link">10 Best
+                                            <a href="{{ route('post.details', $post->slug) }}"
+                                                class="widget__latest-posts-link">10 Best
                                                 and Most Beautiful Places to Visit in Italy</a>
                                         </p>
                                         <small class="widget__latest-posts-date">

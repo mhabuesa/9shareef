@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     });
 
     // Post Routes
-    Route::controller(PostController::class)->name('post.')->prefix('post')->group(function () {
+    Route::controller(PostController::class)->name('posts.')->prefix('post')->group(function () {
         Route::get('/trash', 'trash')->name('trash');
         Route::get('/restore/{id}', 'restore')->name('restore');
         Route::get('/permanentlydelete/{id}', 'permanentlydelete')->name('permanentlydelete');
@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     // Resource Controller
     Route::resources([
         'profile' => ProfileController::class,
-        'post' => PostController::class,
+        'posts' => PostController::class,
     ]);
 });
 

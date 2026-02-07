@@ -112,7 +112,7 @@
                 confirmButtonText: "Yes, Restore it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = "{{ route('post.restore', ':id') }}";
+                    let url = "{{ route('posts.restore', ':id') }}";
                     url = url.replace(':id', id);
                     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -151,7 +151,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = "{{ route('post.permanentlydelete', ':id') }}";
+                    let url = "{{ route('posts.permanentlydelete', ':id') }}";
                     url = url.replace(':id', id);
                     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
