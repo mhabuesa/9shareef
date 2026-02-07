@@ -163,7 +163,7 @@
                         <div class="widget">
                             <h5 class="widget__title">Featured Posts</h5>
                             <ul class="widget__latest-posts">
-                                @forelse ($featuredPosts as $featured_post)
+                                @forelse ($featuredPosts as $sl => $featured_post)
                                     <li class="widget__latest-posts__item">
                                         <div class="widget__latest-posts-image">
                                             <a href="{{ route('post.details', $featured_post->slug) }}"
@@ -172,7 +172,7 @@
                                                     alt="{{ $featured_post->title }}" class="widget__latest-posts-img">
                                             </a>
                                         </div>
-                                        <div class="widget__latest-posts-count">1</div>
+                                        <div class="widget__latest-posts-count">{{ $sl + 1 }}</div>
                                         <div class="widget__latest-posts__content">
                                             <p class="widget__latest-posts-title">
                                                 <a href="{{ route('post.details', $featured_post->slug) }}"

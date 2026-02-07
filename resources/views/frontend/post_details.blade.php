@@ -123,7 +123,7 @@
                         <div class="widget">
                             <h5 class="widget__title">Latest Posts</h5>
                             <ul class="widget__latest-posts">
-                                @foreach ($latestPosts as $latest_post)
+                                @foreach ($latestPosts as $sl => $latest_post)
                                     <li class="widget__latest-posts__item">
                                         <div class="widget__latest-posts-image">
                                             <a href="{{ route('post.details', $latest_post->slug) }}"
@@ -132,7 +132,7 @@
                                                     alt="{{ $latest_post->title }}" class="widget__latest-posts-img">
                                             </a>
                                         </div>
-                                        <div class="widget__latest-posts-count">1</div>
+                                        <div class="widget__latest-posts-count">{{ $sl + 1 }}</div>
                                         <div class="widget__latest-posts__content">
                                             <p class="widget__latest-posts-title">
                                                 <a href="{{ route('post.details', $latest_post->slug) }}"
@@ -156,7 +156,7 @@
                         <div class="widget">
                             <h5 class="widget__title">Related Posts</h5>
                             <ul class="widget__latest-posts">
-                                @foreach ($relatedPosts as $rel_post)
+                                @foreach ($relatedPosts as $sl => $rel_post)
                                     <li class="widget__latest-posts__item">
                                         <div class="widget__latest-posts-image">
                                             <a href="{{ route('post.details', $rel_post->slug) }}"
@@ -165,7 +165,7 @@
                                                     class="widget__latest-posts-img">
                                             </a>
                                         </div>
-                                        <div class="widget__latest-posts-count">1</div>
+                                        <div class="widget__latest-posts-count">{{ $sl + 1 }}</div>
                                         <div class="widget__latest-posts__content">
                                             <p class="widget__latest-posts-title">
                                                 <a href="{{ route('post.details', $rel_post->slug) }}"
