@@ -26,4 +26,9 @@ class Post extends Model
     {
         return $this->hasMany(Gallery::class);
     }
+
+    public function scopePublished($query)
+    {
+        return $query->where('status', 'published');
+    }
 }

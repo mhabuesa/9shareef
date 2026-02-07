@@ -200,7 +200,7 @@
                         <div class="col-md-4 m-auto">
                             <div class="form-check form-block">
                                 <input class="form-check-input" type="radio" value="published" id="published"
-                                    name="status" checked="">
+                                    name="status" {{ $post->status == 'published' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="published">
                                     <span class="d-flex align-items-center justify-content-center">
                                         <i class="fa-solid fa-globe text-success"></i>
@@ -214,7 +214,7 @@
                         <div class="col-md-4 m-auto">
                             <div class="form-check form-block">
                                 <input class="form-check-input" type="radio" id="draft" name="status"
-                                    value="draft">
+                                    value="draft" {{ $post->status == 'draft' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="draft">
                                     <span class="d-flex align-items-center justify-content-center">
                                         <i class="fa-solid fa-file-lines text-warning"></i>
@@ -228,7 +228,7 @@
                         <div class="col-md-4 m-auto">
                             <div class="form-check form-block">
                                 <input class="form-check-input" type="radio" value="scheduled" id="scheduled"
-                                    name="status">
+                                    name="status" {{ $post->status == 'scheduled' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="scheduled">
                                     <span class="d-flex align-items-center justify-content-center">
                                         <i class="fa-solid fa-calendar-days text-danger"></i>

@@ -51,13 +51,13 @@
     @endif
 
     <!--blog-grid-->
-    <section class="blog-home-5">
+    <section class="mt-130 mb-30">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-9 mt-30 side-content">
                     <div class="theiaStickySidebar">
                         <div class="row masonry-items">
-                            @foreach ($posts as $key => $post)
+                            @forelse ($posts as $key => $post)
                                 <!--Post-1-->
                                 <div class="col-xl-6 col-lg-6  masonry-item">
                                     <div class="post-card post-card--default">
@@ -94,29 +94,24 @@
                                     </div>
                                 </div>
                                 <!--/-->
-                            @endforeach
+                            @empty
+                                <div class="col-12">
+                                    <h5 class="text-center">No Post Found</h5>
+                                </div>
+                            @endforelse
 
 
 
                         </div>
 
                         <!--pagination-->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <ul class="pagination list-inline">
-                                    <li class="pagination__item pagination__item--active"><a href="#"
-                                            class="pagination__link">1</a></li>
-                                    <li class="pagination__item"><a href="#" class="pagination__link">2</a>
-                                    </li>
-                                    <li class="pagination__item"><a href="#" class="pagination__link">3</a>
-                                    </li>
-                                    <li class="pagination__item"><a href="#" class="pagination__link">4</a>
-                                    </li>
-                                    <li class="pagination__item"><a href="#" class="pagination__link"><i
-                                                class="bi bi-arrow-right pagination__icon"></i></a></li>
-                                </ul>
+                        @if ($posts->count() > 10)
+                            <div class="row">
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <a href="javascript:void(0)" class="category btn p-3">View More Posts</a>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-xl-3 max-width side-sidebar">
@@ -164,102 +159,42 @@
                         <!-- Countdown end -->
 
 
-                        <!--widget-Latest-Posts-->
+                        <!--widget-featured-Posts-->
                         <div class="widget">
-                            <h5 class="widget__title">Latest Posts</h5>
+                            <h5 class="widget__title">Featured Posts</h5>
                             <ul class="widget__latest-posts">
-                                <!--post 1-->
-                                <li class="widget__latest-posts__item">
-                                    <div class="widget__latest-posts-image">
-                                        <a href="{{ route('post.details', $post->slug) }}"
-                                            class="widget__latest-posts-link">
-                                            <img src="{{ asset('frontend') }}/assets/img/latest/1.jpg" alt="..."
-                                                class="widget__latest-posts-img">
-                                        </a>
-                                    </div>
-                                    <div class="widget__latest-posts-count">1</div>
-                                    <div class="widget__latest-posts__content">
-                                        <p class="widget__latest-posts-title">
-                                            <a href="{{ route('post.details', $post->slug) }}"
-                                                class="widget__latest-posts-link">5 Things
-                                                I Wish I Knew Before Traveling to Malaysia</a>
-                                        </p>
-                                        <small class="widget__latest-posts-date">
-                                            <i class="bi bi-clock-fill widget__latest-posts-icon"></i>January 15,
-                                            2022
-                                        </small>
-                                    </div>
-                                </li>
+                                @forelse ($featuredPosts as $featured_post)
+                                    <li class="widget__latest-posts__item">
+                                        <div class="widget__latest-posts-image">
+                                            <a href="{{ route('post.details', $featured_post->slug) }}"
+                                                class="widget__latest-posts-link">
+                                                <img src="{{ asset($featured_post->image) }}"
+                                                    alt="{{ $featured_post->title }}" class="widget__latest-posts-img">
+                                            </a>
+                                        </div>
+                                        <div class="widget__latest-posts-count">1</div>
+                                        <div class="widget__latest-posts__content">
+                                            <p class="widget__latest-posts-title">
+                                                <a href="{{ route('post.details', $featured_post->slug) }}"
+                                                    class="widget__latest-posts-link">{{ $featured_post->title }}</a>
+                                            </p>
+                                            <small class="widget__latest-posts-date">
+                                                <i class="bi bi-clock-fill widget__latest-posts-icon"></i>
+                                                @if ($featured_post->created_at->diffInDays(now()) >= 1)
+                                                    {{ $featured_post->created_at->format('d M Y') }}
+                                                @else
+                                                    {{ $featured_post->created_at->diffForHumans() }}
+                                                @endif
+                                            </small>
+                                        </div>
+                                    </li>
+                                @empty
+                                    <li class="widget__latest-posts__item">
+                                        <p class="widget__latest-posts-title">No Featured posts available.</p>
+                                    </li>
+                                @endforelse
 
-                                <!--post 2-->
-                                <li class="widget__latest-posts__item">
-                                    <div class="widget__latest-posts-image">
-                                        <a href="{{ route('post.details', $post->slug) }}"
-                                            class="widget__latest-posts-link">
-                                            <img src="{{ asset('frontend') }}/assets/img/latest/2.jpg" alt="..."
-                                                class="widget__latest-posts-img">
-                                        </a>
-                                    </div>
-                                    <div class="widget__latest-posts-count">2</div>
-                                    <div class="widget__latest-posts__content">
-                                        <p class="widget__latest-posts-title">
-                                            <a href="{{ route('post.details', $post->slug) }}"
-                                                class="widget__latest-posts-link">Everything you
-                                                need to know about
-                                                visiting the Amazon.</a>
-                                        </p>
-                                        <small class="widget__latest-posts-date">
-                                            <i class="bi bi-clock-fill widget__latest-posts-icon"></i>January 15,
-                                            2022
-                                        </small>
-                                    </div>
-                                </li>
 
-                                <!--post 3-->
-                                <li class="widget__latest-posts__item">
-                                    <div class="widget__latest-posts-image">
-                                        <a href="{{ route('post.details', $post->slug) }}"
-                                            class="widget__latest-posts-link">
-                                            <img src="{{ asset('frontend') }}/assets/img/latest/3.jpg" alt="..."
-                                                class="widget__latest-posts-img">
-                                        </a>
-                                    </div>
-                                    <div class="widget__latest-posts-count">3</div>
-                                    <div class="widget__latest-posts__content">
-                                        <p class="widget__latest-posts-title">
-                                            <a href="{{ route('post.details', $post->slug) }}"
-                                                class="widget__latest-posts-link">How to
-                                                spend interesting vacation after hard work?</a>
-                                        </p>
-                                        <small class="widget__latest-posts-date">
-                                            <i class="bi bi-clock-fill widget__latest-posts-icon"></i>January 15,
-                                            2022
-                                        </small>
-                                    </div>
-                                </li>
-
-                                <!--post 4-->
-                                <li class="widget__latest-posts__item">
-                                    <div class="widget__latest-posts-image">
-                                        <a href="{{ route('post.details', $post->slug) }}"
-                                            class="widget__latest-posts-link">
-                                            <img src="{{ asset('frontend') }}/assets/img/latest/4.jpg" alt="..."
-                                                class="widget__latest-posts-img">
-                                        </a>
-                                    </div>
-                                    <div class="widget__latest-posts-count">4</div>
-                                    <div class="widget__latest-posts__content">
-                                        <p class="widget__latest-posts-title">
-                                            <a href="{{ route('post.details', $post->slug) }}"
-                                                class="widget__latest-posts-link">10 Best
-                                                and Most Beautiful Places to Visit in Italy</a>
-                                        </p>
-                                        <small class="widget__latest-posts-date">
-                                            <i class="bi bi-clock-fill widget__latest-posts-icon"></i>January 15,
-                                            2022
-                                        </small>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
 
@@ -267,139 +202,16 @@
                         <div class="widget">
                             <h5 class="widget__title">Categories</h5>
                             <ul class="widget__categories">
-                                <li class="widget__categories-item">
-                                    <a href="blog-grid.html" class="category widget__categories-link">Livestyle</a>
-                                    <span class="ml-auto widget__categories-number">22 Posts</span>
-                                </li>
-                                <li class="widget__categories-item">
-                                    <a href="blog-grid.html" class="category widget__categories-link">travel</a>
-                                    <span class="ml-auto widget__categories-number">25 Posts</span>
-                                </li>
-                                <li class="widget__categories-item">
-                                    <a href="blog-grid.html" class="category widget__categories-link">food</a>
-                                    <span class="ml-auto widget__categories-number">15 Posts</span>
-                                </li>
-                                <li class="widget__categories-item">
-                                    <a href="blog-grid.html" class="category widget__categories-link">fashion</a>
-                                    <span class="ml-auto widget__categories-number">18 Posts</span>
-                                </li>
-                                <li class="widget__categories-item">
-                                    <a href="blog-grid.html" class="category widget__categories-link">interior</a>
-                                    <span class="ml-auto widget__categories-number">21 Posts</span>
-                                </li>
-                                <li class="widget__categories-item">
-                                    <a href="blog-grid.html" class="category widget__categories-link">art &
-                                        design</a>
-                                    <span class="ml-auto widget__categories-number">14 Posts</span>
-                                </li>
-
-
-
+                                @foreach ($categories as $category)
+                                    <li class="widget__categories-item">
+                                        <a href="blog-grid.html"
+                                            class="category widget__categories-link">{{ $category->name }}</a>
+                                        <span class="ml-auto widget__categories-number">{{ $category->posts()->count() }}
+                                            Posts</span>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
-
-                        <!--widget-instagram-->
-                        <div class="widget">
-                            <h5 class="widget__title">Instagram</h5>
-                            <ul class="widget-instagram widget__instagram">
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/1.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/2.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/3.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/4.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/5.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/6.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                        <!--widget-tags-->
-                        <div class="widget">
-                            <h5 class="widget__title">Tags</h5>
-                            <ul class="list-inline widget__tags">
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">Travel</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">nature</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">tips</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">forest</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">Torism</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">fashion</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">livestyle</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">health</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">food</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">breakfast</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">hacks</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">interior</a>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                        <!--widget-ads-->
-                        <div class="widget">
-                            <h5 class="widget__title">ads</h5>
-
-                            <div class="widget__ads">
-                                <a href="#" class="widget__ads-link">
-                                    <img src="{{ asset('frontend') }}/assets/img/ads/ads3.jpg" alt=""
-                                        class="widget__ads-img">
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>

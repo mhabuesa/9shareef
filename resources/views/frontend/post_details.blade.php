@@ -113,125 +113,6 @@
                                 </div>
                             @endif
                         </div>
-
-                        <!--widget-comments-->
-                        <div class="widget mb-50">
-                            <div class="widget__comments">
-                                <h5 class="widget__comments-title">3 Comments</h5>
-                                <ul class="widget__comments-items">
-                                    <li class="widget__comments-item">
-                                        <img src="{{ asset('frontend') }}/assets/img/user/1.jpg" alt=""
-                                            class="widget__comments-img">
-                                        <div class="widget__comments-content">
-                                            <ul class="widget__comments-info list-inline">
-                                                <li class="widget__comments-info__item">Mohammed Ali</li>
-                                                <li class="dot"></li>
-                                                <li class="widget__comments-info__item"> January 15, 2021</li>
-                                            </ul>
-                                            <p class="widget__comments-text">Lorem ipsum dolor, sit amet consectetur
-                                                adipisicing elit. Repellendus at doloremque adipisci eum placeat quod non
-                                                fugiat aliquid sit similique!
-                                            </p>
-
-                                            <a href="#" class="btn-link">
-                                                <i class="bi bi-reply-fill"></i> Reply
-                                            </a>
-
-                                        </div>
-                                    </li>
-
-                                    <li class="widget__comments-item">
-                                        <img src="{{ asset('frontend') }}/assets/img/user/2.jpg" alt=""
-                                            class="widget__comments-img">
-                                        <div class="widget__comments-content">
-                                            <ul class="widget__comments-info list-inline">
-                                                <li class="widget__comments-info__item">Simon Albert</li>
-                                                <li class="dot"></li>
-                                                <li class="widget__comments-info__item"> January 15, 2021</li>
-                                            </ul>
-                                            <p class="widget__comments-text">Lorem ipsum dolor, sit amet consectetur
-                                                adipisicing elit. Repellendus at doloremque adipisci eum placeat quod non
-                                                fugiat aliquid sit similique!
-                                            </p>
-
-                                            <a href="#" class="btn-link">
-                                                <i class="bi bi-reply-fill"></i> Reply
-                                            </a>
-
-                                        </div>
-                                    </li>
-
-                                    <li class="widget__comments-item">
-                                        <img src="{{ asset('frontend') }}/assets/img/user/1.jpg" alt=""
-                                            class="widget__comments-img">
-                                        <div class="widget__comments-content">
-                                            <ul class="widget__comments-info list-inline">
-                                                <li class="widget__comments-info__item">Mohammed Ali</li>
-                                                <li class="dot"></li>
-                                                <li class="widget__comments-info__item"> January 15, 2021</li>
-                                            </ul>
-                                            <p class="widget__comments-text">Lorem ipsum dolor, sit amet consectetur
-                                                adipisicing elit. Repellendus at doloremque adipisci eum placeat quod non
-                                                fugiat aliquid sit similique!
-                                            </p>
-
-                                            <a href="#" class="btn-link">
-                                                <i class="bi bi-reply-fill"></i> Reply
-                                            </a>
-
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!--Leave-comments-->
-                            <form class="widget__form" action="#" method="POST" id="main_contact_form">
-                                <h5 class="widget__form-title">Leave a Reply</h5>
-                                <p class="widget__form-desc">Your email adress will not be published ,Requied fileds are
-                                    marked*.</p>
-                                <div class="alert alert-success " style="display: none" role="alert">
-                                    Your message was sent successfully.
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <textarea name="message" id="message" cols="30" rows="5" class="form-control widget__form-input"
-                                                placeholder="Message*" required="required"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" name="name" id="name"
-                                                class="form-control widget__form-input" placeholder="Name*"
-                                                required="required">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" name="email" id="email"
-                                                class="form-control widget__form-input" placeholder="Email*"
-                                                required="required">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 mb-20">
-                                        <div class="form-group">
-                                            <input type="text" name="website" id="website"
-                                                class="form-control widget__form-input" placeholder="website">
-                                        </div>
-                                        <label class="widget__form-label">
-                                            <input name="name" type="checkbox" value="1" required="required">
-                                            <span>save my name , email and website in this browser for the next time I
-                                                comment.</span>
-                                        </label>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" name="submit" class="btn-custom">
-                                            Send Comment
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
 
@@ -242,13 +123,13 @@
                         <div class="widget">
                             <h5 class="widget__title">Latest Posts</h5>
                             <ul class="widget__latest-posts">
-                                @foreach ($posts as $latest_post)
+                                @foreach ($latestPosts as $latest_post)
                                     <li class="widget__latest-posts__item">
                                         <div class="widget__latest-posts-image">
                                             <a href="{{ route('post.details', $latest_post->slug) }}"
                                                 class="widget__latest-posts-link">
-                                                <img src="{{ asset($latest_post->image) }}" alt="{{ $latest_post->title }}"
-                                                    class="widget__latest-posts-img">
+                                                <img src="{{ asset($latest_post->image) }}"
+                                                    alt="{{ $latest_post->title }}" class="widget__latest-posts-img">
                                             </a>
                                         </div>
                                         <div class="widget__latest-posts-count">1</div>
@@ -271,12 +152,12 @@
                             </ul>
                         </div>
 
-                        <!--widget-Releated Posts-->
+                        <!--widget-Related Posts-->
                         <div class="widget">
-                            <h5 class="widget__title">Releated Posts</h5>
+                            <h5 class="widget__title">Related Posts</h5>
                             <ul class="widget__latest-posts">
-                                @foreach ($releated as $rel_post)
-                                     <li class="widget__latest-posts__item">
+                                @foreach ($relatedPosts as $rel_post)
+                                    <li class="widget__latest-posts__item">
                                         <div class="widget__latest-posts-image">
                                             <a href="{{ route('post.details', $rel_post->slug) }}"
                                                 class="widget__latest-posts-link">
@@ -302,148 +183,23 @@
                                     </li>
                                 @endforeach
                         </div>
-
-                        <!--widget-instagram-->
+                        <!--widget-categories-->
                         <div class="widget">
-                            <h5 class="widget__title">Instagram</h5>
-                            <ul class="widget-instagram widget__instagram">
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/1.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/2.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/3.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/4.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/5.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-                                <li class="widget__instagram-item">
-                                    <a class="widget__instagram-link" href="#">
-                                        <img src="{{ asset('frontend') }}/assets/img/instagram/6.jpg" alt=""
-                                            class="widget__instagram-img">
-                                    </a>
-                                </li>
-
+                            <h5 class="widget__title">Categories</h5>
+                            <ul class="widget__categories">
+                                @foreach ($categories as $category)
+                                    <li class="widget__categories-item">
+                                        <a href="blog-grid.html"
+                                            class="category widget__categories-link">{{ $category->name }}</a>
+                                        <span class="ml-auto widget__categories-number">{{ $category->posts()->count() }}
+                                            Posts</span>
+                                    </li>
+                                @endforeach
                             </ul>
-                        </div>
-
-                        <!--widget-tags-->
-                        <div class="widget">
-                            <h5 class="widget__title">Tags</h5>
-                            <ul class="list-inline widget__tags">
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">Travel</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">nature</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">tips</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">forest</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">Torism</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">fashion</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">livestyle</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">health</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">food</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">breakfast</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">hacks</a>
-                                </li>
-                                <li class="widget__tags-item">
-                                    <a href="blog-grid.html" class="widget__tags-link">interior</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!--widget-ads-->
-                        <div class="widget">
-                            <h5 class="widget__title">ads</h5>
-                            <div class="widget__ads">
-                                <a href="#" class="widget__ads-link">
-                                    <img src="{{ asset('frontend') }}/assets/img/ads/ads3.jpg" alt=""
-                                        class="widget__ads-img">
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section><!--/-->
-
-    <!--newslettre-->
-    <section class="newslettre__section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 col-md-10 col-sm-11 m-auto">
-                    <div class="newslettre">
-                        <div class="newslettre__info ">
-                            <h3 class="newslettre__title">Get The Best Blog Stories into Your inbox!</h3>
-                            <p class="newslettre__desc"> Sign up for free and be the first to get notified about new posts.
-                            </p>
-                        </div>
-
-                        <form action="#" class="newslettre__form">
-                            <input type="email" class="newslettre__form-input form-control"
-                                placeholder="Your email adress" required="required">
-                            <button class="newslettre__form-submit" type="submit">Subscribe</button>
-                        </form>
-
-                        <ul class="list-inline social-media social-media--layout-three">
-                            <li class="social-media__item">
-                                <a href="#" class="social-media__link"><i class="bi bi-facebook"></i>Facebook</a>
-                            </li>
-
-                            <li class="social-media__item">
-                                <a href="#" class="social-media__link"><i class="bi bi-instagram"></i>Instagram</a>
-                            </li>
-                            <li class="social-media__item">
-                                <a href="#" class="social-media__link"><i class="bi bi-twitter-x"></i>Twitter</a>
-                            </li>
-                            <li class="social-media__item">
-                                <a href="#" class="social-media__link"><i class="bi bi-youtube"></i>Youtube</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection

@@ -196,7 +196,7 @@ class PostController extends Controller
         /* ---------------- Schedule Logic ---------------- */
         $scheduledAt = null;
         $createdAt = $post->created_at;
-        $status = 'published';
+        $status = $request->input('status', $post->status);
 
         if ($request->filled('scheduled_at')) {
             $scheduleTime = \Carbon\Carbon::parse($request->scheduled_at);

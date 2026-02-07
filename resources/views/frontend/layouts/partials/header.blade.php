@@ -4,10 +4,11 @@
                 <!-- logo -->
                 <div class="logo">
                     <a class="logo__link logo--dark" href="{{ route('index') }}">
-                        <img src="{{asset('frontend')}}/assets/img/logo/logo-dark.png" alt="" class="logo__img">
+                        <img src="{{ asset('frontend') }}/assets/img/logo/logo-dark.png" alt="" class="logo__img">
                     </a>
                     <a class="logo__link logo--light" href="{{ route('index') }}">
-                        <img src="{{asset('frontend')}}/assets/img/logo/logo-white.png" alt="" class="logo__img">
+                        <img src="{{ asset('frontend') }}/assets/img/logo/logo-white.png" alt=""
+                            class="logo__img">
                     </a>
                 </div><!--/-->
 
@@ -18,22 +19,20 @@
                             <ul class="navbar-nav ">
                                 <!--Homes -->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}" href="{{ route('index') }}">Home</a>
+                                    <a class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}"
+                                        href="{{ route('index') }}">Home</a>
                                 </li>
 
                                 <!--Posts features -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle " href="javascript:void(0)" id="navbarDropdown2"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">Post features</a>
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                                     <ul class="dropdown-menu ">
-                                        <li><a class="dropdown-item " href="post-default.html">post default </a></li>
-                                        <li><a class="dropdown-item" href="post-left-sidebar.html">post left sidebar
-                                            </a></li>
-                                        <li><a class="dropdown-item" href="post-no-sidebar.html">post no sidebar</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="post-video.html">post video </a></li>
-                                        <li><a class="dropdown-item" href="post-audio.html">post audio </a></li>
-                                        <li><a class="dropdown-item" href="post-gallery.html">post gallery </a></li>
+                                        @foreach ($categories as $category)
+                                            <li>
+                                                <a class="dropdown-item " href="post-default.html">{{ $category->name}} </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </li>
 
@@ -51,9 +50,8 @@
 
                                 <!--Pages-->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        id="navbarDropdown4" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false"> pages </a>
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown4"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false"> pages </a>
                                     <ul class="dropdown-menu ">
                                         <li><a class="dropdown-item" href="author.html">author </a></li>
                                         <li><a class="dropdown-item" href="about.html">about us </a> </li>
