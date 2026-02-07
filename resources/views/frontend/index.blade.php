@@ -108,7 +108,7 @@
                         @if ($posts->count() > 10)
                             <div class="row">
                                 <div class="col-lg-12 d-flex justify-content-center">
-                                    <a href="javascript:void(0)" class="category btn p-3">View More Posts</a>
+                                    <a href="javascript:void(0)" class="category btn p-3 mb-4">View More Posts</a>
                                 </div>
                             </div>
                         @endif
