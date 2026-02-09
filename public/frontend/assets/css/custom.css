@@ -1,136 +1,151 @@
+/* =====================================================
+   Countdown Text (Top Content)
+   ===================================================== */
 .countdown_text span {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     color: #05541a;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    display: block;
 }
+
 .countdown_text p {
-    font-size: 14px;
+    font-size: 13px;
     color: #333333;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     font-weight: 500;
 }
+
 .countdown {
-    font-size: 16px;
+    font-size: 14px;
     color: #000000;
     font-weight: 500;
 }
+
 #countdown_message {
-    font-size: 18px;
+    font-size: 15px;
     color: #05541a;
     font-weight: 600;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
-/* Countdown Start */
-/* Sticky Box Position */
+/* =====================================================
+   Sticky Countdown Box
+   ===================================================== */
 .sticky-box {
     position: fixed;
-    top: 90px; /* navbar height অনুযায়ী adjust করো */
-    right: 30px;
-    width: 320px;
+    top: 85px;
+    right: 20px;
+    width: 280px;
     z-index: 9999;
     transition: top 0.4s ease;
 }
 
 /* Scroll Down Effect */
 .sticky-box.dropped-down {
-    top: 120px;
+    top: 105px;
 }
 
 /* Box Design */
 .countdown-wrapper {
     background: rgba(15, 23, 42, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(9px);
-    border-radius: 16px;
-    padding: 15px;
-    color: #fff;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 12px;
+    color: #ffffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Title */
+/* =====================================================
+   Title
+   ===================================================== */
 .countdown-title {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    text-align: center;
 }
 
+/* Live Dot */
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: red;
     border-radius: 50%;
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.4;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
 }
 
-/* Grid */
+/* =====================================================
+   Countdown Grid
+   ===================================================== */
 .countdown-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 6px;
 }
 
 /* Item */
 .countdown-item {
     background: rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 5px;
+    border-radius: 10px;
+    padding: 4px;
     text-align: center;
 }
 
+/* Number */
 .countdown-number {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     color: #38bdf8;
+    line-height: 1.2;
 }
 
 .countdown-number.danger {
     color: #f87171;
 }
 
+/* Label */
 .countdown-label {
-    font-size: 11px;
+    font-size: 10px;
     color: #94a3b8;
     text-transform: uppercase;
 }
 
-/* Footer */
-.countdown-footer {
-    text-align: center;
-    font-size: 12px;
-    margin-top: 12px;
-    color: #cbd5f5;
-}
-
+/* =====================================================
+   Ramadan Expired Message
+   ===================================================== */
 .ramadan-text {
-    margin-top: 10px;
+    margin-top: 6px;
     text-align: center;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 700;
     color: #22c55e;
     animation: fadeInScale 0.8s ease forwards;
 }
 
+.ramadan-text span {
+    display: block;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Animation */
 @keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
     to {
         opacity: 1;
@@ -138,4 +153,49 @@
     }
 }
 
-/* Countdown End */
+/* =====================================================
+   Mobile Optimization
+   ===================================================== */
+@media (max-width: 768px) {
+
+    .sticky-box {
+        width: 240px;
+        right: 12px;
+        top: 70px;
+    }
+
+    .countdown-wrapper {
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    .countdown-title {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .countdown-grid {
+        gap: 5px;
+    }
+
+    .countdown-item {
+        padding: 4px 3px;
+        border-radius: 8px;
+    }
+
+    .countdown-number {
+        font-size: 15px;
+    }
+
+    .countdown-label {
+        font-size: 9px;
+    }
+
+    .ramadan-text {
+        font-size: 14px;
+    }
+
+    .ramadan-text span {
+        font-size: 13px;
+    }
+}
