@@ -226,20 +226,22 @@
 /* Optional: smaller size on mobile */
 @media (max-width: 768px) {
     #toggle-countdown span {
-        font-size: 14px;
+        font-size: 6px;
     }
 }
 
 #toggle-countdown {
     position: absolute;
     top: 0px;
-    right: 32px;
+    left: 230px;
     cursor: pointer;
     z-index: 10;
     color: red;
 }
 
 #expand-btn {
-    font-size: 35px;
+    bottom: -30px;
+    font-size: 41px;
     cursor: pointer;
+    position: absolute;
 }
