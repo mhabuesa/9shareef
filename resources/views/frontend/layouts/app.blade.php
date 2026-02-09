@@ -67,6 +67,8 @@
     @include('frontend.layouts.partials.search')
     <!--Search-form end-->
 
+    @include('frontend.layouts.partials.countdown')
+
     <!--plugins -->
     <script src="{{asset('frontend')}}/assets/js/jquery.min.js"></script>
     <script src="{{asset('frontend')}}/assets/js/bootstrap.bundle.min.js"></script>
@@ -78,6 +80,7 @@
 
     <!-- JS main  -->
     <script src="{{asset('frontend')}}/assets/js/main.js"></script>
+    <script src="{{asset('frontend')}}/assets/js/custom.js"></script>
 
     @stack('footer_scripts')
 

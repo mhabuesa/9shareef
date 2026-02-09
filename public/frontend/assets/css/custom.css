@@ -1,10 +1,10 @@
-.countdown_text span{
+.countdown_text span {
     font-size: 18px;
     font-weight: 600;
     color: #05541a;
     margin-bottom: 5px;
 }
-.countdown_text p{
+.countdown_text p {
     font-size: 14px;
     color: #333333;
     margin-bottom: 10px;
@@ -22,3 +22,120 @@
     text-align: center;
     margin-top: 10px;
 }
+
+/* Countdown Start */
+/* Sticky Box Position */
+.sticky-box {
+    position: fixed;
+    top: 90px; /* navbar height অনুযায়ী adjust করো */
+    right: 30px;
+    width: 320px;
+    z-index: 9999;
+    transition: top 0.4s ease;
+}
+
+/* Scroll Down Effect */
+.sticky-box.dropped-down {
+    top: 120px;
+}
+
+/* Box Design */
+.countdown-wrapper {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(9px);
+    border-radius: 16px;
+    padding: 15px;
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Title */
+.countdown-title {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Grid */
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Item */
+.countdown-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 5px;
+    text-align: center;
+}
+
+.countdown-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #38bdf8;
+}
+
+.countdown-number.danger {
+    color: #f87171;
+}
+
+.countdown-label {
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+/* Footer */
+.countdown-footer {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 12px;
+    color: #cbd5f5;
+}
+
+.ramadan-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #22c55e;
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Countdown End */
