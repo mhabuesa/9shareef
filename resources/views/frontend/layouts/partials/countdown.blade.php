@@ -1,13 +1,17 @@
-<!-- Sticky Countdown Notification -->
 <div id="sticky-notification" class="sticky-box" data-countdown="2026-02-26 18:06:00">
+    <!-- Toggle Buttons -->
+    <div id="toggle-countdown">
+        <span id="collapse-btn" class="btn btn-danger btn-sm p-1">
+            <i class="fa fa-minus"></i>
+        </span> <!-- minus -->
+    </div>
+    <span id="expand-btn" style="display:none;">&#128337;</span> <!-- clock -->
+
     <div class="countdown-wrapper">
         <div id="countdown-area">
-            <h4 class="countdown-title text-white mb-0">
-                মহাপবিত্র ৯ই রমাদ্বান শরীফ
+            <h4 class="countdown-title text-dark mb-2">
+                ৯ই রমাদ্বান শরীফ আসতে আর মাত্র
             </h4>
-            <span class="mb-2 d-block text-center">আসতে আর মাত্র</span>
-
-            <!-- Countdown Area -->
             <div class="countdown-grid">
                 <div class="countdown-item">
                     <div id="days" class="countdown-number">00</div>
@@ -27,12 +31,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Expired Message -->
         <div id="ramadan-message" style="display:none;" class="ramadan-text">
-            <span class="text-white fw-bold d-block">আহলাও ওয়া সাহলান</span>
+            <span class="text-dark fw-bold d-block">আহলাও ওয়া সাহলান</span>
             <span class="fw-bold">৯ই রমাদ্বান শরীফ মুবারক হো!</span>
         </div>
     </div>
-
 </div>

@@ -8,19 +8,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- favicon -->
-    <link rel="icon" sizes="16x16" href="{{asset('frontend')}}/assets/img/favicon.png">
+    <link rel="icon" sizes="16x16" href="{{ asset('frontend') }}/assets/img/favicon.png">
 
     <!-- Title -->
     <title>@yield('title', 'App') | {{ config('app.name', '9 Shareef') }}</title>
 
     <!--Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/assets/css/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/swiper-bundle.min.css">
+
+    <!-- Font Awesome Free CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 
     <!-- main style -->
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/custom.css">
 </head>
 
 <body>
@@ -70,17 +77,17 @@
     @include('frontend.layouts.partials.countdown')
 
     <!--plugins -->
-    <script src="{{asset('frontend')}}/assets/js/jquery.min.js"></script>
-    <script src="{{asset('frontend')}}/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('frontend')}}/assets/js/swiper-bundle.min.js"></script>
-    <script src="{{asset('frontend')}}/assets/js/masonry.min.js"></script>
-    <script src="{{asset('frontend')}}/assets/js/theia-sticky-sidebar.min.js"></script>
-    <script src="{{asset('frontend')}}/assets/js/ajax-contact.js"></script>
-    <script src="{{asset('frontend')}}/assets/js/switch.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/jquery.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/swiper-bundle.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/masonry.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/theia-sticky-sidebar.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/ajax-contact.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/switch.js"></script>
 
     <!-- JS main  -->
-    <script src="{{asset('frontend')}}/assets/js/main.js"></script>
-    <script src="{{asset('frontend')}}/assets/js/custom.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/main.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/custom.js"></script>
 
     @stack('footer_scripts')
 

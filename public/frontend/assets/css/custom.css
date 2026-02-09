@@ -35,8 +35,8 @@
    ===================================================== */
 .sticky-box {
     position: fixed;
-    top: 85px;
-    right: 20px;
+    bottom: 20px;
+    left: 20px;
     width: 280px;
     z-index: 9;
     transition: top 0.4s ease;
@@ -44,16 +44,17 @@
 
 /* Scroll Down Effect */
 .sticky-box.dropped-down {
-    top: 105px;
+    bottom: 35px;
 }
 
 /* Box Design */
 .countdown-wrapper {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgb(249 249 255 / 75%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     border-radius: 14px;
-    padding: 12px;
+    padding: 9px;
+    width: 250px;
     color: #ffffff;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
 }
@@ -64,12 +65,8 @@
 .countdown-title {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 6px;
     font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 8px;
-    text-align: center;
+    font-size: 14px;
 }
 
 /* Live Dot */
@@ -82,9 +79,15 @@
 }
 
 @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* =====================================================
@@ -93,20 +96,27 @@
 .countdown-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
 }
 
 /* Item */
 .countdown-item {
-    background: rgba(255, 255, 255, 0.08);
+    /* background: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
-    padding: 4px;
+    padding: 2px;
     text-align: center;
+    width: 45px; */
+
+    background: rgb(255 255 255 / 32%);
+    border-radius: 10px;
+    padding: 2px;
+    text-align: center;
+    width: 45px;
+    border: 2px solid #008b0040;
 }
 
 /* Number */
 .countdown-number {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     color: #38bdf8;
     line-height: 1.2;
@@ -118,7 +128,7 @@
 
 /* Label */
 .countdown-label {
-    font-size: 10px;
+    font-size: 9px;
     color: #94a3b8;
     text-transform: uppercase;
 }
@@ -157,45 +167,79 @@
    Mobile Optimization
    ===================================================== */
 @media (max-width: 768px) {
-
     .sticky-box {
-        width: 240px;
-        right: 12px;
-        top: 83px;
+        width: 200px; /* choto kore dilam */
+        bottom: 30px; /* screen bottom e thakbe */
+        left: auto;
     }
 
     .countdown-wrapper {
-        padding: 10px;
-        border-radius: 12px;
+        padding: 6px 8px; /* kom padding */
+        border-radius: 10px;
     }
 
     .countdown-title {
-        font-size: 14px;
-        margin-bottom: 6px;
+        font-size: 12px; /* choto title */
+        margin-bottom: 4px;
+        text-align: center;
     }
 
     .countdown-grid {
-        gap: 5px;
+        gap: 4px; /* grid spacing kom */
     }
 
     .countdown-item {
-        padding: 4px 3px;
-        border-radius: 8px;
+        padding: 3px 2px; /* item padding kom */
+        border-radius: 6px;
+        width: 38px; /* item width choto */
     }
 
     .countdown-number {
-        font-size: 15px;
+        font-size: 13px; /* number font choto */
+        line-height: 1;
     }
 
     .countdown-label {
-        font-size: 9px;
+        font-size: 8px; /* label font choto */
     }
 
     .ramadan-text {
-        font-size: 14px;
+        font-size: 12px; /* expired message choto */
+        margin-top: 4px;
     }
 
     .ramadan-text span {
-        font-size: 13px;
+        font-size: 11px;
+        line-height: 1.2;
     }
+}
+
+#toggle-countdown span {
+    font-size: 6px;
+    cursor: pointer;
+}
+
+#toggle-countdown span:hover {
+    color: #22c55e;
+}
+
+/* Optional: smaller size on mobile */
+@media (max-width: 768px) {
+    #toggle-countdown span {
+        font-size: 14px;
+    }
+}
+
+#toggle-countdown {
+    position: absolute;
+    top: 0px;
+    right: 32px;
+    cursor: pointer;
+    z-index: 10;
+    color: red;
+}
+
+#expand-btn {
+    font-size: 35px;
+    cursor: pointer;
 }
