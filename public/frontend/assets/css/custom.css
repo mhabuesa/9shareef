@@ -212,6 +212,9 @@
         font-size: 11px;
         line-height: 1.2;
     }
+    #expand-btn {
+        left: 17px;
+    }
 }
 
 #toggle-countdown span {
@@ -241,6 +244,7 @@
 
 #expand-btn {
     bottom: -30px;
+
     font-size: 41px;
     cursor: pointer;
     position: absolute;
