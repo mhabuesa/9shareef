@@ -1,5 +1,5 @@
 <!-- Sticky Countdown Notification -->
-<div id="sticky-notification" class="sticky-box" data-countdown="2026-02-10 22:11:00">
+<div id="sticky-notification" class="sticky-box" data-countdown="2026-02-26 18:06:00">
     <div class="countdown-wrapper">
         <div id="countdown-area">
             <h4 class="countdown-title text-white mb-0">
