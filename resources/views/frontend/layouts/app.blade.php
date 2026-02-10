@@ -22,12 +22,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
     <!-- main style -->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/custom.css">
+
+    @stack('header_scripts')
 </head>
 
 <body>
@@ -56,8 +55,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <p class="footer__copyright-text">© Copyright 2024
-                            <a href="#" class="footer__copyright-link">AssiaGroupe</a>, All rights reserved.
+                        <p class="footer__copyright-text">© Copyright {{ date('Y') }}
+                            <a href="{{ route('index') }}" class="footer__copyright-link">SAAB</a>, All rights reserved.
                         </p>
                     </div>
                     <div class="btn-back-top">
@@ -82,7 +81,6 @@
     <script src="{{ asset('frontend') }}/assets/js/swiper-bundle.min.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/masonry.min.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/theia-sticky-sidebar.min.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/ajax-contact.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/switch.js"></script>
 
     <!-- JS main  -->

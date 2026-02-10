@@ -17,6 +17,28 @@ class PostController extends Controller
         $next = Post::where('id', '>', $post->id)->orderBy('id', 'asc')->first();
         $relatedPosts = Post::where('category_id', $post->category_id)->where('id', '!=', $post->id)->published()->latest()->take(5)->get();
         $categories = Category::where('status', 1)->orderBy('priority', 'asc')->get();
+    
+        $images = [
+            [
+                'id' => 1,
+                'src' => asset('images/gallery/1.jpg'),
+                'category' => 'nature',
+                'title' => 'Misty Peaks',
+            ],
+            [
+                'id' => 2,
+                'src' => asset('images/gallery/2.jpg'),
+                'category' => 'urban',
+                'title' => 'Neon City',
+            ],
+            [
+                'id' => 3,
+                'src' => asset('images/gallery/3.jpg'),
+                'category' => 'portrait',
+                'title' => 'Desert Boy',
+            ],
+        ];
+
         return view('frontend.post_details', compact(
             'post',
             'previous',

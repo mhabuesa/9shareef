@@ -25,12 +25,13 @@
 
                                 <!--Posts features -->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle " href="javascript:void(0)" id="navbarDropdown2"
+                                    <a class="nav-link dropdown-toggle {{ request()->routeIs('category.*') ? 'active' : '' }}" href="javascript:void(0)" id="navbarDropdown2"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                                     <ul class="dropdown-menu ">
                                         @foreach ($categories as $category)
                                             <li>
-                                                <a class="dropdown-item " href="post-default.html">{{ $category->name}} </a>
+                                                <a class="dropdown-item " href="{{ route('category', $category->slug) }}">{{ $category->name }}
+                                                </a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -62,9 +63,13 @@
                                     </ul>
                                 </li>
 
+                                <!--Countdown-->
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('countdown') ? 'active' : '' }}" href="{{ route('countdown') }}"> Countdown </a>
+                                </li>
                                 <!--contact -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html"> contact </a>
+                                    <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}"> contact </a>
                                 </li>
                             </ul>
                         </div>

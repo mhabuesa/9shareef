@@ -18,4 +18,9 @@ class HomeController extends Controller
         $categories = Category::where('status', 1)->orderBy('priority', 'asc')->get();
         return view('frontend.index', compact('banners', 'posts', 'featuredPosts', 'categories'));
     }
+
+    public function countdown()
+    {
+        return view('frontend.countdown');
+    }
 }
