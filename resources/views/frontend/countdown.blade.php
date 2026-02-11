@@ -3,24 +3,18 @@
 @push('header_scripts')
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/countdown.css">
     <style>
-        @font-face {
-            font-family: Sirajee_Humayra;
-            src: url(https://9shareef.com/frontend/assets/fonts/bangla/Li_Sirajee_Humayra_Unicode.ttf);
-        }
-
-        @font-face {
-            font-family: LiMahfujAK;
-            src: url(https://9shareef.com/frontend/assets/fonts/bangla/LiMahfujAKUnicode.ttf);
-        }
 
         @font-face {
             font-family: Alinur;
-            src: url(https://9shareef.com/frontend/assets/fonts/bangla/LiAlinurTarunyaUnicode-Regular.ttf);
+            src: url({{asset('frontend')}}/assets/css/font/bangla/Alinur.ttf);
         }
-
         .newslettre__section,
         .sticky-box {
             display: none
+        }
+
+        #title , .socod{
+            font-family: Alinur !important;
         }
     </style>
 @endpush
@@ -37,23 +31,16 @@
 
 
                         <div id="title">
-
-
-
                             <div class="mt-5">
                                 <div class="webdev text-center">মহাসম্মানিত ও মহাপবিত্র</div>
 
                                 <div class="socod text-center">৯ই রমাদ্বান শরীফ</div>
                                 <div class="third text-center">(১৪৪৭ হিজরী)</div>
-
                             </div>
 
                             <div class="title3">
                                 <p style="text-align: center;">আসতে আর মাত্র বাকি</p>
                             </div>
-
-
-
                         </div>
 
 
