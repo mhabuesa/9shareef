@@ -1,7 +1,7 @@
 @section('title', 'Countdown')
 @extends('frontend.layouts.app')
 @push('header_scripts')
-<link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/countdown.css">
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/countdown.css">
     <style>
         @font-face {
             font-family: Sirajee_Humayra;
@@ -17,7 +17,9 @@
             font-family: Alinur;
             src: url(https://9shareef.com/frontend/assets/fonts/bangla/LiAlinurTarunyaUnicode-Regular.ttf);
         }
-        .newslettre__section, .sticky-box{
+
+        .newslettre__section,
+        .sticky-box {
             display: none
         }
     </style>

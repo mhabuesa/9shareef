@@ -557,7 +557,7 @@
     }
 
     #countdown {
-        margin-top: 100px;
+        margin-top: 80px;
     }
 }
 
@@ -640,7 +640,6 @@
     #countdown .number {
         font-size: 8.5vw;
         position: relative;
-        padding-bottom: 8vw;
     }
 
     #countdown .number .text {
@@ -702,7 +701,6 @@
     #countdown .number {
         font-size: 8.5vw;
         position: relative;
-        padding-bottom: 8vw;
     }
 
     #countdown .number .text {
@@ -760,7 +758,6 @@
     #countdown .number {
         font-size: 8.5vw;
         position: relative;
-        padding-bottom: 8vw;
     }
 
     #countdown .number .text {
@@ -825,13 +822,12 @@
     }
 
     #countdown {
-        margin-top: 75px;
+        margin-top: 30px;
     }
 
     #countdown .number {
         font-size: 8.5vw;
         position: relative;
-        padding-bottom: 8vw;
     }
 
     #countdown .number .text {
