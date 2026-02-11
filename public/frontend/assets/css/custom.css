@@ -1,3 +1,14 @@
+@font-face {
+    font-family: "SolaimanLipi";
+    src: url("https://static.wfonts.com/data/2016/04/29/solaimanlipi/SolaimanLipi_22-02-2012.ttf")
+        format("ttf");
+    font-display: swap;
+}
+
+body {
+    font-family: "SolaimanLipi" !important;
+}
+
 /* =====================================================
    Countdown Text (Top Content)
    ===================================================== */
