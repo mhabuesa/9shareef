@@ -79,6 +79,9 @@
 
                                             <ul class="post-card__meta list-inline">
                                                 <li class="post-card__meta-item">
+                                                    {{$post->views}} Views
+                                                </li>
+                                                <li class="post-card__meta-item px-3">
                                                     @php
                                                         $created = $post->created_at;
                                                     @endphp
@@ -116,49 +119,6 @@
                 </div>
                 <div class="col-xl-3 max-width side-sidebar">
                     <div class="theiaStickySidebar">
-                        <!--widget-Countdown-->
-                        <div class="widget px-4">
-                            <div class="widget__author">
-                                <div class="widget__author-top">
-                                    <a href="author.html" class="widget__author-link">
-                                        <img src="{{ asset('frontend') }}/assets/img/logo/9shareef.jpg" alt=""
-                                            class="widget__author-img">
-                                    </a>
-                                </div>
-                                <div class="widget__author-content">
-
-                                    <!-- Countdown Display -->
-                                    <div class="widget__countdown">
-                                        <div class="countdown_text">
-                                            <span class="countdown_title">মহাপবিত্র ৯ই রমাদ্বান শরীফ</span>
-                                            <p class="">
-                                                আসতে আর মাত্র
-                                            </p>
-                                        </div>
-                                        <div class="countdown">
-                                            <span id="countdown-days">0</span> Days
-                                            <span id="countdown-hours">0</span> Hours
-                                            <span id="countdown-minutes">0</span> Minutes
-                                            <span id="countdown-seconds">0</span> Seconds
-                                        </div>
-                                    </div>
-
-                                    <!-- Countdown message (hidden initially) -->
-                                    <div id="countdown_message" style="display:none;">
-                                        ৯ই রমাদ্বান শরীফ মুবারক হো!
-                                    </div>
-
-                                    <!-- Hidden future date -->
-                                    <div id="countdown-target" data-target="2026-02-26 18:06:00" style="display:none;">
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Countdown end -->
-
-
                         <!--widget-featured-Posts-->
                         <div class="widget">
                             <h5 class="widget__title">Featured Posts</h5>
@@ -191,6 +151,46 @@
                                 @empty
                                     <li class="widget__latest-posts__item">
                                         <p class="widget__latest-posts-title">No Featured posts available.</p>
+                                    </li>
+                                @endforelse
+
+
+                            </ul>
+                        </div>
+
+
+                        <!--widget-Most-Visited-Posts-->
+                        <div class="widget">
+                            <h5 class="widget__title">Most Visited Posts</h5>
+                            <ul class="widget__latest-posts">
+                                @forelse ($mostVisited as $sl => $post)
+                                    <li class="widget__latest-posts__item">
+                                        <div class="widget__latest-posts-image">
+                                            <a href="{{ route('post.details', $post->slug) }}"
+                                                class="widget__latest-posts-link">
+                                                <img src="{{ asset($post->image) }}" alt="{{ $post->title }}"
+                                                    class="widget__latest-posts-img">
+                                            </a>
+                                        </div>
+                                        <div class="widget__latest-posts-count">{{ $sl + 1 }}</div>
+                                        <div class="widget__latest-posts__content">
+                                            <p class="widget__latest-posts-title">
+                                                <a href="{{ route('post.details', $post->slug) }}"
+                                                    class="widget__latest-posts-link">{{ $post->title }}</a>
+                                            </p>
+                                            <small class="widget__latest-posts-date">
+                                                <i class="bi bi-clock-fill widget__latest-posts-icon"></i>
+                                                @if ($post->created_at->diffInDays(now()) >= 1)
+                                                    {{ $post->created_at->format('d M Y') }}
+                                                @else
+                                                    {{ $post->created_at->diffForHumans() }}
+                                                @endif
+                                            </small>
+                                        </div>
+                                    </li>
+                                @empty
+                                    <li class="widget__latest-posts__item">
+                                        <p class="widget__latest-posts-title">No Most Visited posts available.</p>
                                     </li>
                                 @endforelse
 

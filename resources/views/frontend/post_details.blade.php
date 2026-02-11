@@ -66,7 +66,11 @@
                                 <a href="blog-grid.html" class="category">{{ $post->category->name }}</a>
                                 <h2 class="post-single__title">{{ $post->title }}</h2>
                                 <ul class="post-single__meta list-inline">
-                                    <li class="post-single__meta-item "> {{ date('F j, Y', strtotime($post->created_at)) }}
+                                    <li class="post-single__meta-item ">
+                                        {{ $post->views }} Views
+                                    </li>
+                                    <li class="post-single__meta-item px-3">
+                                        {{ date('F j, Y', strtotime($post->created_at)) }}
                                     </li>
                                 </ul>
                             </div>
