@@ -21,10 +21,10 @@
         </td>
         <td class="text-center">
             <div class="d-flex">
-                <a href="{{ route('posts.show', $post->id) }}" class="border-0 btn btn-sm">
+                <a href="{{ route('admin.posts.show', $post->id) }}" class="border-0 btn btn-sm">
                     <i class="fa fa-eye text-secondary fa-xl"></i>
                 </a>
-                <a href="{{ route('posts.edit', $post->id) }}" class="border-0 btn btn-sm">
+                <a href="{{ route('admin.posts.edit', $post->id) }}" class="border-0 btn btn-sm">
                     <i class="fa fa-pencil text-secondary fa-xl"></i>
                 </a>
                 <button type="button" class="border-0 btn btn-sm" onclick="deletepost(this)"

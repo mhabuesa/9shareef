@@ -3,7 +3,7 @@
 @section('title', 'Add Post')
 @section('content')
     <div class="container-fluid">
-        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="block block-rounded">
                 <div class="block-header block-header-default">

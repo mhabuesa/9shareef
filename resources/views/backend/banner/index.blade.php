@@ -71,7 +71,7 @@
                         </h3>
                     </div>
                     <div class="block-content block-content-full overflow-x-auto">
-                        <form action="{{ route('banner.store') }}" method="POST">
+                        <form action="{{ route('admin.banner.store') }}" method="POST">
                             @csrf
                             <div class="mb-4">
                                 <label class="form-label">Post <span class="text-danger">*</span></label>
@@ -176,7 +176,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = "{{ route('banner.destroy', ':id') }}";
+                    let url = "{{ route('admin.banner.destroy', ':id') }}";
                     url = url.replace(':id', id);
                     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -223,7 +223,7 @@
 
         function updateBannerStatusAjax(element) {
             const id = $(element).data('id');
-            let url = "{{ route('banner.status.update', ':id') }}";
+            let url = "{{ route('admin.banner.status.update', ':id') }}";
             url = url.replace(':id', id);
 
             $.ajax({
@@ -291,7 +291,7 @@
             resetErrors();
 
             $.ajax({
-                url: "{{ route('banner.update') }}",
+                url: "{{ route('admin.banner.update') }}",
                 type: "POST",
                 data: {
                     _token: "{{ csrf_token() }}",

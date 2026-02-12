@@ -72,7 +72,7 @@
                         </h3>
                     </div>
                     <div class="block-content block-content-full overflow-x-auto">
-                        <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-4">
                                 <label class="form-label" for="category_name">Category Name</label>
@@ -171,7 +171,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = "{{ route('category.destroy', ':id') }}";
+                    let url = "{{ route('admin.category.destroy', ':id') }}";
                     url = url.replace(':id', id);
                     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -218,7 +218,7 @@
 
         function updateCategoryStatusAjax(element) {
             const id = $(element).data('id');
-            let url = "{{ route('category.status.update', ':id') }}";
+            let url = "{{ route('admin.category.status.update', ':id') }}";
             url = url.replace(':id', id);
 
             $.ajax({
@@ -281,7 +281,7 @@
             resetErrors();
 
             $.ajax({
-                url: "{{ route('category.update') }}",
+                url: "{{ route('admin.category.update') }}",
                 type: "POST",
                 data: {
                     _token: "{{ csrf_token() }}",

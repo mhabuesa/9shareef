@@ -30,7 +30,7 @@ class BannerController extends Controller
             'priority' => $priority,
         ]);
 
-        return redirect()->route('banner.index')->with('success', 'Banner created successfully.');
+        return redirect()->route('admin.banner.index')->with('success', 'Banner created successfully.');
     }
 
     public function destroy($id)

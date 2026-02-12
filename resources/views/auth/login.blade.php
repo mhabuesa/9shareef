@@ -28,7 +28,7 @@
               <p class="fw-medium text-muted">
                 Welcome, please login.
               </p>
-              <form class="js-validation-signin" action="{{ route('login') }}" method="POST">
+              <form class="js-validation-signin" action="{{ route('admin.login') }}" method="POST">
                     @csrf
                 <div class="py-3">
                   <div class="mb-4">

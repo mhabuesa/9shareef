@@ -22,7 +22,7 @@
                                 data-target="#one-dashboard-search-orders" data-class="d-none">
                                 <i class="fa fa-search"></i>
                             </button>
-                            <a href="{{ route('posts.create') }}" class="badge bg-primary p-2"> <i class="fa fa-plus"></i>
+                            <a href="{{ route('admin.posts.create') }}" class="badge bg-primary p-2"> <i class="fa fa-plus"></i>
                                 Add
                                 New Post </a>
                         </div>
@@ -98,7 +98,7 @@
             button.find('.spinner-border').removeClass('d-none');
 
             $.ajax({
-                url: "{{ route('posts.getList.ajax') }}",
+                url: "{{ route('admin.posts.getList.ajax') }}",
                 data: {
                     page: currentPage,
                     search: currentSearch,
@@ -165,7 +165,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let url = "{{ route('posts.destroy', ':id') }}";
+                    let url = \"{{ route('admin.posts.destroy', ':id') }}\";
                     url = url.replace(':id', id);
                     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 

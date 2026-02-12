@@ -15,7 +15,7 @@
                     <h2 class="h4 fw-normal text-white-75">
                         {{ auth()->user()->name }}
                     </h2>
-                    <a class="btn btn-alt-secondary" href="{{ route('dashboard') }}">
+                    <a class="btn btn-alt-secondary" href="{{ route('admin.dashboard') }}">
                         <i class="fa fa-fw fa-arrow-left text-danger"></i> Back to Dashboard
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                     <h3 class="block-title">Profile</h3>
                 </div>
                 <div class="block-content">
-                    <form action="{{ route('profile.update', auth()->user()->id) }}" method="POST"
+                    <form action="{{ route('admin.profile.update', auth()->user()->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -82,7 +82,7 @@
                     <h3 class="block-title">Change Password</h3>
                 </div>
                 <div class="block-content">
-                    <form action="{{ route('profile.password', auth()->user()) }}" method="POST">
+                    <form action="{{ route('admin.profile.password', auth()->user()) }}" method="POST">
                         @csrf
                         <div class="row push">
                             <div class="col-lg-8 col-xl-5 m-auto">

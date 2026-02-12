@@ -104,7 +104,7 @@ class ProfileController extends Controller
             'image' => $image_name ?? $user->image,
         ]);
 
-        return redirect()->route('profile.index')->with('success', 'Profile Updated Successfully');
+        return redirect()->route('admin.profile.index')->with('success', 'Profile Updated Successfully');
     }
 
 
@@ -121,7 +121,7 @@ class ProfileController extends Controller
 
         // Check if the current password matches
         if (!Hash::check($request->current_password, $user->password)) {
-            return redirect()->route('profile.index')->with('error', 'Current Password does not match');
+            return redirect()->route('admin.profile.index')->with('error', 'Current Password does not match');
         }
 
         // Update the password
@@ -129,7 +129,7 @@ class ProfileController extends Controller
         $user->save();
 
         // Redirect with success message
-        return redirect()->route('profile.index')->with('success', 'Password Updated Successfully');
+        return redirect()->route('admin.profile.index')->with('success', 'Password Updated Successfully');
     }
 
 }

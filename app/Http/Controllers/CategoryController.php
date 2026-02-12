@@ -36,7 +36,7 @@ class CategoryController extends Controller
         ]);
 
 
-        return redirect()->route('category.index')->with('success', 'Category added successfully.');
+        return redirect()->route('admin.category.index')->with('success', 'Category added successfully.');
     }
 
 

@@ -13,8 +13,8 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 Route::controller(PostController::class)->group(function () {
-    Route::get('/posts/{slug?}', 'post')->name('post');
     Route::get('/post/{post:slug}', 'post_details')->name('post.details');
+    Route::get('/posts/{slug?}', 'post')->name('post');
 });
 
 Route::controller(ContactController::class)->group(function () {
