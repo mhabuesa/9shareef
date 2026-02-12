@@ -75,7 +75,7 @@ class PostController extends Controller
     public function loadPost_ajax(Request $request)
     {
         $page   = $request->page ?? 1;
-        $limit  = 1;
+        $limit  = 10;
         $offset = ($page - 1) * $limit;
 
         $query = Post::where('status', 'published');
