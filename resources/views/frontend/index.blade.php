@@ -120,7 +120,7 @@
                 <div class="col-xl-3 max-width side-sidebar">
                     <div class="theiaStickySidebar">
                         <!--widget-featured-Posts-->
-                        <div class="widget">
+                        <div class="widget pb-3">
                             <h5 class="widget__title">Featured Posts</h5>
                             <ul class="widget__latest-posts">
                                 @forelse ($featuredPosts as $sl => $featured_post)
@@ -157,8 +157,11 @@
                                         <p class="widget__latest-posts-title">No Featured posts available.</p>
                                     </li>
                                 @endforelse
-
-
+                                {{-- @if ($featuredPosts ->count() > 5) --}}
+                                    <li class="widget__latest-posts__item">
+                                        <a href="{{ route('posts','featured') }}" class="category m-auto">View More</a>
+                                    </li>
+                                {{-- @endif --}}
                             </ul>
                         </div>
 

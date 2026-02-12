@@ -4,7 +4,7 @@
             <span class="smini-visible">
                 <i class="fa fa-circle-notch text-primary"></i>
             </span>
-            <span class="smini-hide fs-5 tracking-wider">OneUI</span>
+            <span class="smini-hide fs-5 tracking-wider">{{config('app.name')}}</span>
         </a>
         <div>
             <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"

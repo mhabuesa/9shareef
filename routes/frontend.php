@@ -14,7 +14,8 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(PostController::class)->group(function () {
     Route::get('/post/{post:slug}', 'post_details')->name('post.details');
-    Route::get('/posts/{slug?}', 'post')->name('post');
+    Route::get('/posts/{slug?}', 'posts')->name('posts');
+    Route::get('/loadPost/ajax', 'loadPost_ajax')->name('loadPost.ajax');
 });
 
 Route::controller(ContactController::class)->group(function () {

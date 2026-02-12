@@ -42,7 +42,7 @@ class PostController extends Controller
         // ];
 
 
-        return view('frontend.post_details', compact(
+        return view('frontend.posts.post_details', compact(
             'post',
             'previous',
             'next',
@@ -51,7 +51,58 @@ class PostController extends Controller
             'categories'));
     }
 
-    public function post(){
-        dd('test');
+
+    public function posts(Request $request, $slug = null){
+        // Featured Posts
+        if ($slug === 'featured') {
+            $pageTitle = 'Featured Posts';
+        }
+
+        // Category Posts
+        elseif ($slug) {
+            $category = Category::where('slug', $slug)->firstOrFail();
+            $pageTitle = $category->name;
+        }
+
+        // All Posts
+        else {
+            $pageTitle = 'All Posts';
+        }
+
+        return view('frontend.posts.posts', compact('slug', 'pageTitle'));
     }
+
+    public function loadPost_ajax(Request $request)
+    {
+        $page   = $request->page ?? 1;
+        $limit  = 1;
+        $offset = ($page - 1) * $limit;
+
+        $query = Post::where('status', 'published');
+
+        // Featured
+        if ($request->slug === 'featured') {
+            $query->where('is_featured', 1);
+        }
+
+        // Category
+        elseif ($request->slug) {
+            $category = Category::where('slug', $request->slug)->first();
+            if ($category) {
+                $query->where('category_id', $category->id);
+            }
+        }
+
+        $query->latest();
+
+        $total = $query->count();
+
+        $posts = $query->skip($offset)->take($limit)->get();
+
+        return response()->json([
+            'data'    => view('frontend.posts.partials.post_row', compact('posts'))->render(),
+            'hasMore' => $total > $offset + $limit,
+        ]);
+    }
+
 }
