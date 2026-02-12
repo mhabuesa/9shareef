@@ -1,6 +1,6 @@
                             @forelse ($posts as $key => $post)
                                 <!--Post-1-->
-                                <div class="col-lg-3 col-md-3">
+                                <div class="col-xl-3 col-lg-3  masonry-item">
                                     <div class="post-card post-card--default">
                                         <div class="post-card__image">
                                             <a href="{{ route('post.details', $post->slug) }}">
@@ -10,10 +10,10 @@
 
                                         <div class="post-card__content">
                                             <a href="blog-grid.html" class="category">{{ $post->category?->name }}</a>
-                                            <h4 class="post-card__title">
+                                            <h5 class="post-card__title">
                                                 <a href="{{ route('post.details', $post->slug) }}"
                                                     class="post-card__title-link">{{ $post->title }}</a>
-                                            </h4>
+                                            </h5>
                                             <p class="post-card__exerpt">
                                                 {{ Str::limit($post->short_description, 100, '...') }}
                                             </p>
