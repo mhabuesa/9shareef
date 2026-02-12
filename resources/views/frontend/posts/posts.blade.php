@@ -3,7 +3,7 @@
 @section('content')
     <!--blog-grid-->
     <section class="mt-130 mb-30">
-        <div class="container-fluid" style="transform: none;position:relative;min-height: 449px;">
+        <div class="container-fluid" style="transform: none;">
             <div class="row">
                 <div class="col-xl-12 mt-30 side-content">
                     <div class="theiaStickySidebar">
@@ -14,7 +14,7 @@
                         <!--pagination-->
                         <div id="loadMore" class="row">
                             <div class="col-lg-12 d-flex justify-content-center">
-                                <span class="btn-text category btn p-3 mb-4">View Load More</span>
+                                <span class="btn-text category btn p-3 mb-4">View More Posts</span>
                                 <span class="spinner-border spinner-border-sm d-none" role="status"
                                     aria-hidden="true"></span>
                             </div>
@@ -48,6 +48,9 @@
                         $("#postContainer").html("");
                     }
                     $("#postContainer").append(res.data);
+
+                    // Reinitialize masonry layout
+                    $(".masonry-items").masonry('reloadItems').masonry('layout');
 
                     if (!res.hasMore) {
                         button.hide();
