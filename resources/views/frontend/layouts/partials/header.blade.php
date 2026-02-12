@@ -42,7 +42,7 @@
                                     <a class="nav-link  dropdown-toggle" href="javascript:void(0)" id="navbarDropdown3"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false"> blogs </a>
                                     <ul class="dropdown-menu ">
-                                        <li><a class="dropdown-item " href="blog-grid.html">Blog grid</a></li>
+                                        <li><a class="dropdown-item " href="{{ route('post') }}">Blog grid</a></li>
                                         <li><a class="dropdown-item" href="blog-masonry.html">Blog masonry</a></li>
                                         <li><a class="dropdown-item" href="blog-list.html">Blog list</a></li>
                                         <li><a class="dropdown-item" href="blog-classic.html">Blog classic</a></li>

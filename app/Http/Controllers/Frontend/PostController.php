@@ -50,4 +50,8 @@ class PostController extends Controller
             'latestPosts',
             'categories'));
     }
+
+    public function post(){
+        dd('test');
+    }
 }
