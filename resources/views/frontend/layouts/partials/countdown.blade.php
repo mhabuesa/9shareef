@@ -1,4 +1,4 @@
-    <div id="sticky-notification" class="sticky-box" data-countdown="2026-02-26 18:06:00">
+<div id="sticky-notification" class="sticky-box" data-countdown="2026-02-26 18:06:00">
         <!-- Toggle Buttons -->
         <div id="toggle-countdown">
             <span id="collapse-btn" class="btn btn-danger btn-sm p-1">
@@ -6,7 +6,7 @@
             </span> <!-- minus -->
         </div>
         <span id="expand-btn" style="display:none;">
-          <i class="fa-solid fa-hourglass-start" style="color: #f67280;"></i>
+            <i class="fa-solid fa-hourglass-start" style="color: #f67280;"></i>
         </span> <!-- clock -->
 
         <a href="{{ route('countdown') }}">

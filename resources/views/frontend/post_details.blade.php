@@ -69,7 +69,7 @@
                                     <li class="post-single__meta-item ">
                                         {{ $post->views }} Views
                                     </li>
-                                    <li class="post-single__meta-item px-3">
+                                    <li class="post-single__meta-item ">
                                         {{ date('F j, Y', strtotime($post->created_at)) }}
                                     </li>
                                 </ul>
@@ -241,6 +241,10 @@
                                                     {{ $latest_post->created_at->diffForHumans() }}
                                                 @endif
                                             </small>
+                                            <small class="widget__latest-posts-date">
+                                                <i class="bi bi-eye widget__latest-posts-icon"></i>
+                                                {{ $latest_post->views }}
+                                            </small>
                                         </div>
                                     </li>
                                 @endforeach
@@ -273,6 +277,10 @@
                                                 @else
                                                     {{ $rel_post->created_at->diffForHumans() }}
                                                 @endif
+                                            </small>
+                                            <small class="widget__latest-posts-date">
+                                                <i class="bi bi-eye widget__latest-posts-icon"></i>
+                                                {{ $rel_post->views }}
                                             </small>
                                         </div>
                                     </li>

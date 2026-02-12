@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Models\Banner;
+use App\Models\Category;
 use App\Models\Post;
+use App\Observers\BannerObserver;
+use App\Observers\CategoryObserver;
 use App\Observers\PostObserver;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,5 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
        Post::observe(PostObserver::class);
+       Category::observe(CategoryObserver::class);
+       Banner::observe(BannerObserver::class);
     }
 }
