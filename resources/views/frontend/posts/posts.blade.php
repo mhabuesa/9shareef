@@ -29,6 +29,7 @@
     <script>
         let currentPage = 1;
         let currentSlug = "{{ $slug ?? '' }}";
+        let search = "{{ $search ?? '' }}";
 
         function loadOrders(reset = false) {
             let button = $("#loadMore");
@@ -41,6 +42,8 @@
                 data: {
                     page: currentPage,
                     slug: currentSlug,
+                    slug: currentSlug,
+                    search: search,
                 },
                 cache: false,
                 success: function(res) {

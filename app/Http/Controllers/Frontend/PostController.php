@@ -53,6 +53,8 @@ class PostController extends Controller
 
 
     public function posts(Request $request, $slug = null){
+
+        $search = $request->search;
         // Featured Posts
         if ($slug === 'featured') {
             $pageTitle = 'Featured Posts';
@@ -64,12 +66,16 @@ class PostController extends Controller
             $pageTitle = $category->name;
         }
 
+        // Search Posts
+        elseif ($search) {
+            $pageTitle = 'Search Posts';
+        }
+
         // All Posts
         else {
             $pageTitle = 'All Posts';
         }
-
-        return view('frontend.posts.posts', compact('slug', 'pageTitle'));
+        return view('frontend.posts.posts', compact('slug','search', 'pageTitle'));
     }
 
     public function loadPost_ajax(Request $request)
@@ -93,10 +99,17 @@ class PostController extends Controller
             }
         }
 
+        // 🔥 Search Filter
+        if ($request->search) {
+            $query->where(function ($q) use ($request) {
+                $q->where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('short_description', 'like', '%' . $request->search . '%');
+            });
+        }
+
         $query->latest();
 
         $total = $query->count();
-
         $posts = $query->skip($offset)->take($limit)->get();
 
         return response()->json([
@@ -104,5 +117,6 @@ class PostController extends Controller
             'hasMore' => $total > $offset + $limit,
         ]);
     }
+
 
 }
