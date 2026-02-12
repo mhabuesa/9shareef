@@ -7,21 +7,61 @@ use App\Models\Banner;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
-        $banners = Banner::with('post')->where('status', 1)->orderBy('priority', 'asc')->get();
-        $posts = Post::latest()->published()->take(11)->get();
-        $featuredPosts = Post::where('is_featured', 1)->latest()->take(5)->get();
-        $categories = Category::where('status', 1)->orderBy('priority', 'asc')->get();
-        $mostVisited = Post::where('status', 'published')
-                    ->orderByDesc('views')
-                    ->take(6)
-                    ->get();
-        return view('frontend.index', compact('banners', 'posts', 'featuredPosts', 'categories', 'mostVisited'));
+        $banners = Cache::remember('home_banners', 1800, function () {
+            return Banner::with('post')
+                ->where('status', 1)
+                ->orderBy('priority', 'asc')
+                ->get();
+        });
+
+        $posts = Cache::remember('home_latest_posts', 1800, function () {
+            return Post::published()
+                ->latest()
+                ->select('id', 'title', 'slug', 'image', 'views', 'created_at', 'category_id', 'short_description')
+                ->take(11)
+                ->get();
+        });
+
+        $featuredPosts = Cache::remember('home_featured_posts', 1800, function () {
+            return Post::published()
+                ->where('is_featured', 1)
+                ->latest()
+                ->select('id', 'title', 'slug', 'image', 'views', 'created_at')
+                ->take(5)
+                ->get();
+        });
+
+        $categories = Cache::remember('home_categories', 3600, function () {
+            return Category::where('status', 1)
+                ->orderBy('priority', 'asc')
+                ->get();
+        });
+
+        $mostVisited = Cache::remember('home_most_visited', 1800, function () {
+            return Post::published()
+                ->where('views', '>', 0)
+                ->orderByDesc('views')
+                ->select('id', 'title', 'slug', 'image', 'views', 'created_at')
+                ->take(6)
+                ->get();
+        });
+
+        return view('frontend.index', compact(
+            'banners',
+            'posts',
+            'featuredPosts',
+            'categories',
+            'mostVisited'
+        ));
     }
+
 
     public function countdown()
     {

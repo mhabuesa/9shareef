@@ -79,7 +79,7 @@
 
                                             <ul class="post-card__meta list-inline">
                                                 <li class="post-card__meta-item">
-                                                    {{$post->views}} Views
+                                                    {{ $post->views }} Views
                                                 </li>
                                                 <li class="post-card__meta-item px-3">
                                                     @php
@@ -146,6 +146,10 @@
                                                     {{ $featured_post->created_at->diffForHumans() }}
                                                 @endif
                                             </small>
+                                            <small class="widget__latest-posts-date">
+                                                <i class="bi bi-eye widget__latest-posts-icon"></i>
+                                                {{ $featured_post->views }}
+                                            </small>
                                         </div>
                                     </li>
                                 @empty
@@ -180,11 +184,17 @@
                                             </p>
                                             <small class="widget__latest-posts-date">
                                                 <i class="bi bi-clock-fill widget__latest-posts-icon"></i>
-                                                @if ($post->created_at->diffInDays(now()) >= 1)
-                                                    {{ $post->created_at->format('d M Y') }}
-                                                @else
-                                                    {{ $post->created_at->diffForHumans() }}
+                                                @if ($post->created_at)
+                                                    @if ($post->created_at->diffInDays(now()) >= 1)
+                                                        {{ $post->created_at->format('d M Y') }}
+                                                    @else
+                                                        {{ $post->created_at->diffForHumans() }}
+                                                    @endif
                                                 @endif
+                                            </small>
+                                            <small class="widget__latest-posts-date">
+                                                <i class="bi bi-eye widget__latest-posts-icon"></i>
+                                                {{ $post->views }}
                                             </small>
                                         </div>
                                     </li>
