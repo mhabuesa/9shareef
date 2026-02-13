@@ -125,6 +125,14 @@
                         </span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link {{ request()->routeIs('admin.contact') ? 'active' : '' }}"
+                        href="{{ route('admin.contact', 'unread') }}">
+                        <span class="nav-main-link-name">
+                            <i class="fas fa-message me-2"></i>Message Box
+                        </span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

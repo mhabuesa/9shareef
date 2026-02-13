@@ -3,22 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-
     public function index()
     {
         $categories = Category::orderBy('priority', 'asc')->get();
+
         return view('backend.category.index', compact('categories'));
     }
-
 
     public function store(Request $request)
     {
@@ -35,10 +33,8 @@ class CategoryController extends Controller
             'priority' => $priority,
         ]);
 
-
         return redirect()->route('admin.category.index')->with('success', 'Category added successfully.');
     }
-
 
     public function destroy(string $id)
     {
@@ -49,6 +45,7 @@ class CategoryController extends Controller
             $category->delete();
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
@@ -65,6 +62,7 @@ class CategoryController extends Controller
             ]);
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
@@ -74,15 +72,15 @@ class CategoryController extends Controller
     public function updateAjax(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:categories,name,' . $request->id,
-            'slug' => 'required|unique:categories,slug,' . $request->id,
-            'priority' => 'required|integer'
+            'name' => 'required|unique:categories,name,'.$request->id,
+            'slug' => 'required|unique:categories,slug,'.$request->id,
+            'priority' => 'required|integer',
         ]);
 
         // Return the validation errors
         if ($validator->fails()) {
             return response()->json([
-                'errors' => $validator->errors()
+                'errors' => $validator->errors(),
             ]);
         }
 
@@ -97,7 +95,7 @@ class CategoryController extends Controller
         Session::flash('success', 'Category updated successfully');
 
         return response()->json([
-            'success' => true
+            'success' => true,
         ]);
     }
 }

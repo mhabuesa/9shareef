@@ -12,7 +12,7 @@ class BannerObserver
      */
     public function created(Banner $banner): void
     {
-       $this->clearHomeCache();
+        $this->clearHomeCache();
     }
 
     /**

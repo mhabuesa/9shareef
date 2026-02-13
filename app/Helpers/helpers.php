@@ -6,10 +6,6 @@ use Illuminate\Support\Str;
 if (! function_exists('media')) {
     /**
      * Return media asset or fallback placeholder
-     *
-     * @param string|null $path
-     * @param string $fallback
-     * @return string
      */
     function media(?string $path, string $fallback = 'frontend/images/common/placeHolder.jpg'): string
     {
@@ -25,11 +21,6 @@ if (! function_exists('shortTitle')) {
     /**
      * Truncate text by character limit,
      * then extend to nearest space and add dots if needed.
-     *
-     * @param string $text
-     * @param int $limit
-     * @param string $dots
-     * @return string
      */
     function shortTitle(string $text, int $limit = 45, string $dots = '...'): string
     {
@@ -48,6 +39,6 @@ if (! function_exists('shortTitle')) {
             $cut = Str::substr($text, 0, $spacePos);
         }
 
-        return rtrim($cut) . $dots;
+        return rtrim($cut).$dots;
     }
 }

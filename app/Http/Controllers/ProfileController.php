@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
+use App\Traits\ImageSaveTrait;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use App\Traits\ImageSaveTrait;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
     use ImageSaveTrait;
+
     /**
      * Display a listing of the resource.
      */
@@ -75,6 +74,7 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
     /**
      * Update the specified resource in storage.
      */
@@ -85,12 +85,12 @@ class ProfileController extends Controller
         // Validate the request
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'email' => 'required|email|unique:users,email,'.$user->id,
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
-            if (!empty($user->image)) {
+            if (! empty($user->image)) {
                 $this->deleteImage(public_path($user->image));
             }
 
@@ -107,7 +107,6 @@ class ProfileController extends Controller
         return redirect()->route('admin.profile.index')->with('success', 'Profile Updated Successfully');
     }
 
-
     public function profile_password(Request $request, User $profile)
     {
         // Validate the request
@@ -120,7 +119,7 @@ class ProfileController extends Controller
         $user = $profile;
 
         // Check if the current password matches
-        if (!Hash::check($request->current_password, $user->password)) {
+        if (! Hash::check($request->current_password, $user->password)) {
             return redirect()->route('admin.profile.index')->with('error', 'Current Password does not match');
         }
 
@@ -131,5 +130,4 @@ class ProfileController extends Controller
         // Redirect with success message
         return redirect()->route('admin.profile.index')->with('success', 'Password Updated Successfully');
     }
-
 }

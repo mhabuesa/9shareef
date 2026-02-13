@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Banner;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -13,6 +13,7 @@ class BannerController extends Controller
     {
         $banners = Banner::orderBy('priority', 'asc')->get();
         $posts = Post::pluck('title', 'id');
+
         return view('backend.banner.index', compact('banners', 'posts'));
     }
 
@@ -42,6 +43,7 @@ class BannerController extends Controller
             $banner->delete();
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
@@ -58,6 +60,7 @@ class BannerController extends Controller
             ]);
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
@@ -75,7 +78,7 @@ class BannerController extends Controller
             ->update(['priority' => $request->priority]);
 
         return response()->json([
-            'success' => true
+            'success' => true,
         ]);
     }
 }

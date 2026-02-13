@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Post;
-use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Post;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -41,7 +41,6 @@ class PostController extends Controller
         //     ],
         // ];
 
-
         return view('frontend.posts.post_details', compact(
             'post',
             'previous',
@@ -51,8 +50,8 @@ class PostController extends Controller
             'categories'));
     }
 
-
-    public function posts(Request $request, $slug = null){
+    public function posts(Request $request, $slug = null)
+    {
 
         $search = $request->search;
         // Featured Posts
@@ -75,13 +74,14 @@ class PostController extends Controller
         else {
             $pageTitle = 'All Posts';
         }
-        return view('frontend.posts.posts', compact('slug','search', 'pageTitle'));
+
+        return view('frontend.posts.posts', compact('slug', 'search', 'pageTitle'));
     }
 
     public function loadPost_ajax(Request $request)
     {
-        $page   = $request->page ?? 1;
-        $limit  = 10;
+        $page = $request->page ?? 1;
+        $limit = 10;
         $offset = ($page - 1) * $limit;
 
         $query = Post::where('status', 'published');
@@ -102,8 +102,8 @@ class PostController extends Controller
         // 🔥 Search Filter
         if ($request->search) {
             $query->where(function ($q) use ($request) {
-                $q->where('title', 'like', '%' . $request->search . '%')
-                ->orWhere('short_description', 'like', '%' . $request->search . '%');
+                $q->where('title', 'like', '%'.$request->search.'%')
+                    ->orWhere('short_description', 'like', '%'.$request->search.'%');
             });
         }
 
@@ -113,10 +113,8 @@ class PostController extends Controller
         $posts = $query->skip($offset)->take($limit)->get();
 
         return response()->json([
-            'data'    => view('frontend.posts.partials.post_row', compact('posts'))->render(),
+            'data' => view('frontend.posts.partials.post_row', compact('posts'))->render(),
             'hasMore' => $total > $offset + $limit,
         ]);
     }
-
-
 }

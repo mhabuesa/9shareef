@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
@@ -29,42 +29,34 @@ class ContactController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required',
-        'email' => 'required|email',
-        'subject' => 'required',
-        'message' => 'required',
-        'captcha_answer' => 'required|numeric',
-        'n1' => 'required|numeric',
-        'n2' => 'required|numeric',
-        'op' => 'required|string',
-    ]);
-
-    $n1 = $request->n1;
-    $n2 = $request->n2;
-    $op = $request->op;
-    $correct = $op === '+' ? $n1 + $n2 : $n1 - $n2;
-
-    if ((int)$request->captcha_answer !== $correct) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Wrong captcha answer!'
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'message' => 'required',
+            'captcha_answer' => 'required|numeric',
+            'n1' => 'required|numeric',
+            'n2' => 'required|numeric',
+            'op' => 'required|string',
         ]);
+
+        $n1 = $request->n1;
+        $n2 = $request->n2;
+        $op = $request->op;
+        $correct = $op === '+' ? $n1 + $n2 : $n1 - $n2;
+
+        if ((int) $request->captcha_answer !== $correct) {
+            return redirect()->back()->with('error', 'Wrong captcha answer!');
+        }
+
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
+
+        return redirect()->back()->with('success', 'Message Sended!');
     }
-
-    Contact::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'subject' => $request->subject,
-        'message' => $request->message,
-    ]);
-    return response()->json([
-        'status' => true,
-        'message' => 'Message Sended!'
-    ]);
-}
-
-
-
 }

@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Post;
+use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
-
     public function index()
     {
         $banners = Cache::remember('home_banners', 1800, function () {
@@ -61,7 +59,6 @@ class HomeController extends Controller
             'mostVisited'
         ));
     }
-
 
     public function countdown()
     {

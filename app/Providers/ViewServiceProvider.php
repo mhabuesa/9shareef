@@ -20,9 +20,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-            view()->composer('frontend.layouts.partials.header', function ($view) {
-                $categories = Category::where('status', 1)->orderBy('priority', 'asc')->get();
-                $view->with('categories', $categories);
-            });
+        view()->composer('frontend.layouts.partials.header', function ($view) {
+            $categories = Category::where('status', 1)->orderBy('priority', 'asc')->get();
+            $view->with('categories', $categories);
+        });
     }
 }

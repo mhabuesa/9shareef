@@ -25,8 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-       Post::observe(PostObserver::class);
-       Category::observe(CategoryObserver::class);
-       Banner::observe(BannerObserver::class);
+        Post::observe(PostObserver::class);
+        Category::observe(CategoryObserver::class);
+        Banner::observe(BannerObserver::class);
     }
 }

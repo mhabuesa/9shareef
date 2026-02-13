@@ -4,7 +4,6 @@ namespace App\Observers;
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
 
 class CategoryObserver
 {

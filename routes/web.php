@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\BannerController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
@@ -31,6 +32,14 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::post('/update', 'updateAjax')->name('update');
     });
 
+    // Contact Routes
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/contact/{slug?}', 'contact')->name('contact');
+        Route::get('/contact/show/{id}', 'show')->name('contact.show');
+        Route::post('/contact/sendMessage', 'sendMessage')->name('contact.sendMessage');
+        Route::post('/contact/reply/{id}', 'reply')->name('contact.reply');
+        Route::post('/contact/delete', 'delete')->name('contact.delete');
+    });
 
     // Extra Routes of resource controllers can be defined here
     // Profile Routes
@@ -57,9 +66,5 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     ]);
 });
 
-
-
-
-
-require __DIR__ . '/auth.php';
-require __DIR__ . '/frontend.php';
+require __DIR__.'/auth.php';
+require __DIR__.'/frontend.php';

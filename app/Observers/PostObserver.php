@@ -44,10 +44,10 @@ class PostObserver
      */
     public function forceDeleted(Post $post): void
     {
-         $this->clearHomeCache();
+        $this->clearHomeCache();
     }
 
-     private function clearHomeCache()
+    private function clearHomeCache()
     {
         Cache::forget('home_latest_posts');
         Cache::forget('home_featured_posts');

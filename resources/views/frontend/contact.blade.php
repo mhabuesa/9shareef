@@ -1,4 +1,4 @@
-@section('title', 'Countdown')
+@section('title', 'Contact')
 @extends('frontend.layouts.app')
 @push('header_scripts')
     <!-- Extra CSS Libraries -->
@@ -19,8 +19,7 @@
                             </iframe>
 
                         </div>
-                        <form action="{{ route('contact.store') }}" method="POST" id="main_contact_form"
-                            class="widget__form">
+                        <form action="{{ route('contact.store') }}" method="POST" class="widget__form">
                             @csrf
                             <h5 class="widget__form-title">Feel free to contact any time.</h5>
                             <div class="alert alert-success d-none" id="successMsg"></div>
@@ -112,7 +111,7 @@
             Toastify({
                 text,
                 duration: 3000,
-                gravity: "bottom",
+                gravity: "top",
                 position: "right",
                 close: true,
                 stopOnFocus: true,
@@ -123,6 +122,18 @@
             }).showToast();
         }
     </script>
+
+    @session('success')
+    <script>
+        showToast('{{ session('success') }}', 'success');
+    </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            showToast('{{ session('error') }}', 'error');
+        </script>
+    @endif
 
 
     <script>
@@ -161,38 +172,6 @@
                     submitBtn.disabled = true;
                     err.classList.remove('d-none');
                 }
-            });
-
-            // AJAX submit
-            document.getElementById('main_contact_form').addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                fetch(this.action, {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                            'Accept': 'application/json'
-                        },
-                        body: new FormData(this)
-                    })
-                    .then(res => {
-                        if (!res.ok) throw new Error('Network error');
-                        return res.json();
-                    })
-                    .then(res => {
-                        if (res.status) {
-                            showToast(res.message, 'success');
-                            this.reset();
-                            submitBtn.disabled = true;
-                            generateCaptcha();
-                        } else {
-                            showToast(res.message, 'error');
-                        }
-                    })
-                    .catch(err => {
-                        errorToastBody.innerText = 'Something went wrong!';
-                        errorToast.show();
-                    });
             });
         });
     </script>

@@ -3,18 +3,23 @@
 @push('header_scripts')
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/countdown.css">
     <style>
-
         @font-face {
             font-family: Alinur;
-            src: url({{asset('frontend')}}/assets/css/font/bangla/Alinur.ttf);
+            src: url({{ asset('frontend') }}/assets/css/font/bangla/Alinur.ttf);
         }
+
         .newslettre__section,
         .sticky-box {
             display: none
         }
 
-        #title , .socod{
+        .webdev,
+        .socod {
             font-family: Alinur !important;
+        }
+
+        .post-card__title-link {
+            background-image: none;
         }
     </style>
 @endpush
@@ -32,14 +37,21 @@
 
                         <div id="title">
                             <div class="mt-5">
-                                <div class="webdev text-center">মহাসম্মানিত ও মহাপবিত্র</div>
+                                <div class="webdev text-center">
+                                    <span class="post-card__title-link">মহাসম্মানিত ও মহাপবিত্র</span>
+                                </div>
 
-                                <div class="socod text-center">৯ই রমাদ্বান শরীফ</div>
-                                <div class="third text-center">(১৪৪৭ হিজরী)</div>
+                                <div class="socod text-center">
+                                    <span class="post-card__title-link">৯ই রমাদ্বান শরীফ</span>
+                                </div>
+                                <div class="third text-center">
+                                    <span class="post-card__title-link">(১৪৪৭ হিজরী)</span>
+                                </div>
                             </div>
 
-                            <div class="title3">
-                                <p style="text-align: center;">আসতে আর মাত্র বাকি</p>
+                            <div class="title3 text-center mt-4">
+                                <span class="post-card__title-link title3" style="text-align: center;">আসতে আর মাত্র
+                                    বাকি</span>
                             </div>
                         </div>
 
@@ -79,7 +91,7 @@
 
 
 
-                        <div id="countdown" class="">
+                        <div id="countdown" class="post-card__title-link">
                             <div class="number">
                                 <span class="days time"></span>
                                 <span class="text">Days</span>

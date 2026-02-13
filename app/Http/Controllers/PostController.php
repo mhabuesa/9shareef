@@ -2,39 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\Post;
-use App\Models\Gallery;
-use App\Models\Category;
-use App\Models\PostMeta;
-use App\Models\Subcategory;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use App\Jobs\FacebookPostJob;
-use App\Jobs\TelegramPostJob;
-use App\Jobs\PostToTwitterJob;
-use App\Traits\ImageSaveTrait;
 use App\Jobs\ProcessPostImages;
-use App\Services\TwitterService;
-use App\Jobs\FacebookPostDeleteJob;
+use App\Models\Category;
+use App\Models\Gallery;
+use App\Models\Post;
+use App\Traits\ImageSaveTrait;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
     // use Image Process Trait;
     use ImageSaveTrait;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return  view('backend.post.index');
+        return view('backend.post.index');
     }
+
     public function getList(Request $request)
     {
         $search = $request->input('search');
-        $page   = $request->page ?? 1;
-        $limit  = 10;
+        $page = $request->page ?? 1;
+        $limit = 10;
         $offset = ($page - 1) * $limit;
         $query = Post::latest();
 
@@ -51,10 +46,10 @@ class PostController extends Controller
         $posts = $query->skip($offset)->take($limit)->get();
 
         return response()->json([
-            'data'    => view('backend.post.partials.post_rows', [
+            'data' => view('backend.post.partials.post_rows', [
                 'posts' => $posts,
-                'page'   => $page,
-                'limit'  => $limit,
+                'page' => $page,
+                'limit' => $limit,
                 'offset' => $offset,
             ])->render(),
             'hasMore' => $total > $offset + $limit,
@@ -67,6 +62,7 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::where('status', 1)->orderBy('priority', 'asc')->get();
+
         return view('backend.post.create', compact('categories'));
     }
 
@@ -90,9 +86,6 @@ class PostController extends Controller
             Post::where('slug', $slug)->exists()
         );
 
-
-
-
         $scheduledAt = null;
         $createdAt = now();
         $status = 'published';
@@ -111,7 +104,6 @@ class PostController extends Controller
                 $status = 'published';
             }
         }
-
 
         /* ---------------- Create Post ---------------- */
         $post = Post::create([
@@ -158,13 +150,13 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
     }
 
-
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
         $post = Post::find($id);
+
         return view('backend.post.show', compact('post'));
     }
 
@@ -175,7 +167,8 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $categories = Category::where('status', 1)->get();
-        return  view('backend.post.edit', compact('post', 'categories'));
+
+        return view('backend.post.edit', compact('post', 'categories'));
     }
 
     /**
@@ -272,12 +265,12 @@ class PostController extends Controller
             }
 
             $gallery->delete();
+
             return response()->json(['success' => true, 'message' => 'Image deleted successfully'], 200);
         }
 
         return response()->json(['success' => false, 'message' => 'Image not found.']);
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -288,7 +281,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         try {
-            //Status Change
+            // Status Change
             $post->update([
                 'status' => 'draft',
             ]);
@@ -296,6 +289,7 @@ class PostController extends Controller
             $post->delete();
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
@@ -305,6 +299,7 @@ class PostController extends Controller
     public function trash()
     {
         $posts = Post::onlyTrashed()->latest()->get();
+
         return view('backend.post.trash', compact('posts'));
     }
 
@@ -320,6 +315,7 @@ class PostController extends Controller
             $post->restore();
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
@@ -330,8 +326,6 @@ class PostController extends Controller
     {
         $post = Post::withTrashed()->find($id);
         $gallery = Gallery::where('post_id', $id)->get();
-
-
 
         try {
             // Delete Image
@@ -348,6 +342,7 @@ class PostController extends Controller
             $post->forceDelete();
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
@@ -357,6 +352,7 @@ class PostController extends Controller
     public function featured()
     {
         $featuredPosts = Post::where('is_featured', 1)->latest()->get();
+
         return view('backend.post.featured', compact('featuredPosts'));
     }
 
@@ -371,11 +367,13 @@ class PostController extends Controller
             ]);
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 
         return response()->json(['success' => true, 'message' => 'Post Removed From Featured'], 200);
     }
+
     public function hotUpdate($id)
     {
 
@@ -387,6 +385,7 @@ class PostController extends Controller
             ]);
         } catch (\Exception $e) {
             Log::error($e);
+
             return error($e->getMessage());
         }
 

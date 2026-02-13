@@ -1,10 +1,10 @@
 #countdown {
     font-family: "Alinur";
-    color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 65px;
+    margin-top: 45px;
     margin-bottom: 100px;
 
     .number {
@@ -248,14 +248,13 @@
     padding-right: 20px;
 }
 
-.title3 p {
+.title3 span {
     margin: 18px 0 0 0;
     font-family: "Alinur";
     font-size: 40px;
     color: #000000;
     font-weight: 500;
     -webkit-text-stroke: 0.5px #250000;
-    -webkit-text-fill-color: #000000;
     margin-bottom: -50px;
 }
 
@@ -468,7 +467,7 @@
         font-size: 100px;
     }
 
-    .title3 p {
+    .title3 span {
         margin-top: 18px;
     }
 
@@ -542,7 +541,7 @@
         margin-top: 90px;
     }
 
-    /* .title3 p {
+    /* .title3 span {
 
           margin: 10px 0 0 0;
           font-family: 'Bangla', sans-serif;
@@ -625,7 +624,7 @@
         margin-bottom: -30px;
     }
 
-    .title3 p {
+    .title3 span {
         font-family: "Alinur", sans-serif;
         font-size: 40px;
         color: #ffffff;
@@ -689,7 +688,7 @@
         text-shadow: 0px 0px 0px #ffffff;
     }
 
-    .title3 p {
+    .title3 span {
         margin: 80px 0 -50px 0;
         font-size: 25px;
     }
@@ -743,7 +742,7 @@
         text-shadow: 1px 1px 2px #ffffff;
     }
 
-    .title3 p {
+    .title3 span {
         font-family: "Alinur", sans-serif;
         font-size: 32px;
         color: #ffffff;
@@ -816,13 +815,13 @@
         margin-top: 20px;
     }
 
-    .title3 p {
+    .title3 span {
         margin: 15px 0 0 0;
         font-size: 20px;
     }
 
     #countdown {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     #countdown .number {
@@ -885,7 +884,7 @@
         margin-top: 25px;
     }
 
-    .title3 p {
+    .title3 span {
         margin: 30px 0 0 0;
         font-size: 25px;
 
