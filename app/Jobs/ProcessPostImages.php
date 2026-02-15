@@ -35,7 +35,7 @@ class ProcessPostImages implements ShouldQueue
         if ($this->mainImage) {
             $source = storage_path('app/public/'.$this->mainImage);
 
-            $finalPath = $this->processImageFromPath($source, 'post');
+            $finalPath = $this->processImageFromPath($source, 'post','700','378');
 
             $post->update(['image' => $finalPath]);
         }

@@ -71,6 +71,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'title' => 'required',
             'category_id' => 'required',
@@ -105,6 +106,7 @@ class PostController extends Controller
             }
         }
 
+        $trackId = soundcloudTrackId($request->audio_url);
         /* ---------------- Create Post ---------------- */
         $post = Post::create([
             'title' => $request->title,
@@ -113,7 +115,7 @@ class PostController extends Controller
             'short_description' => $request->short_description,
             'description' => $request->description,
             'video_url' => $request->video_url,
-            'audio_url' => $request->audio_url,
+            'audio_url' => $trackId,
             'status' => $status,
             'scheduled_at' => $scheduledAt,
             'is_featured' => $request->has('featuredPost') ? 1 : 0,

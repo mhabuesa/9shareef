@@ -12,14 +12,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $banners = Cache::remember('home_banners', 1800, function () {
+        $banners = Cache::remember('home_banners', 10800, function () {
             return Banner::with('post')
                 ->where('status', 1)
                 ->orderBy('priority', 'asc')
                 ->get();
         });
 
-        $posts = Cache::remember('home_latest_posts', 1800, function () {
+        $posts = Cache::remember('home_latest_posts', 10800, function () {
             return Post::published()
                 ->latest()
                 ->select('id', 'title', 'slug', 'image', 'views', 'created_at', 'category_id', 'short_description')
@@ -27,7 +27,7 @@ class HomeController extends Controller
                 ->get();
         });
 
-        $featuredPosts = Cache::remember('home_featured_posts', 1800, function () {
+        $featuredPosts = Cache::remember('home_featured_posts', 10800, function () {
             return Post::published()
                 ->where('is_featured', 1)
                 ->latest()
@@ -36,13 +36,13 @@ class HomeController extends Controller
                 ->get();
         });
 
-        $categories = Cache::remember('home_categories', 3600, function () {
+        $categories = Cache::remember('home_categories', 10800, function () {
             return Category::where('status', 1)
                 ->orderBy('priority', 'asc')
                 ->get();
         });
 
-        $mostVisited = Cache::remember('home_most_visited', 1800, function () {
+        $mostVisited = Cache::remember('home_most_visited', 10800, function () {
             return Post::published()
                 ->where('views', '>', 0)
                 ->orderByDesc('views')

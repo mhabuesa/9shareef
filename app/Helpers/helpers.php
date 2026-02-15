@@ -2,43 +2,60 @@
 
 use Illuminate\Support\Str;
 
-// Generate media asset URL
-if (! function_exists('media')) {
-    /**
-     * Return media asset or fallback placeholder
-     */
-    function media(?string $path, string $fallback = 'frontend/images/common/placeHolder.jpg'): string
-    {
-        if (! empty($path)) {
-            return asset($path);
-        }
+    // Generate media asset URL
+    if (! function_exists('media')) {
+        /**
+         * Return media asset or fallback placeholder
+         */
+        function media(?string $path, string $fallback = 'frontend/images/common/placeHolder.jpg'): string
+        {
+            if (! empty($path)) {
+                return asset($path);
+            }
 
-        return asset($fallback);
+            return asset($fallback);
+        }
     }
-}
 
-if (! function_exists('shortTitle')) {
-    /**
-     * Truncate text by character limit,
-     * then extend to nearest space and add dots if needed.
-     */
-    function shortTitle(string $text, int $limit = 45, string $dots = '...'): string
-    {
-        // Empty or short text
-        if (Str::length($text) <= $limit) {
-            return $text;
+    if (! function_exists('shortTitle')) {
+        /**
+         * Truncate text by character limit,
+         * then extend to nearest space and add dots if needed.
+         */
+        function shortTitle(string $text, int $limit = 45, string $dots = '...'): string
+        {
+            // Empty or short text
+            if (Str::length($text) <= $limit) {
+                return $text;
+            }
+
+            // Take first N characters
+            $cut = Str::substr($text, 0, $limit);
+
+            // Find next space after limit
+            $spacePos = Str::position($text, ' ', $limit);
+
+            if ($spacePos !== false) {
+                $cut = Str::substr($text, 0, $spacePos);
+            }
+
+            return rtrim($cut).$dots;
         }
-
-        // Take first N characters
-        $cut = Str::substr($text, 0, $limit);
-
-        // Find next space after limit
-        $spacePos = Str::position($text, ' ', $limit);
-
-        if ($spacePos !== false) {
-            $cut = Str::substr($text, 0, $spacePos);
-        }
-
-        return rtrim($cut).$dots;
     }
-}
+
+    if (! function_exists('soundcloudTrackId')) {
+        function soundcloudTrackId($iframe)
+        {
+            if (empty($iframe)) {
+                return null;
+            }
+
+            $decoded = urldecode(urldecode($iframe));
+
+            if (preg_match('/(\d{6,})/', $decoded, $matches)) {
+                return $matches[1];
+            }
+
+            return null;
+        }
+    }
