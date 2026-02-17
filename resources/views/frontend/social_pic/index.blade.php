@@ -25,7 +25,7 @@
                     <div class="contact">
                         <div class="text-center">
                             <h3 class="contact__title mb-3 text-start">Profile Pic</h3>
-                            <img src="{{ asset($data->profile_pic) }}" alt="profile pic" loading="lazy"
+                            <img src="{{ asset($data?->profile_pic) }}" alt="profile pic" loading="lazy"
                                 class="lazy-img img-fluid">
                             <a href="{{ route('social.pic.download', 'profile_pic') }}" class="btn btn-primary mt-3 w-25">Download</a>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="contact">
                         <div class="text-center">
                             <h3 class="contact__title mb-3 text-start">Cover Pic</h3>
-                            <img src="{{ asset($data->cover_pic) }}" alt="cover pic" loading="lazy"
+                            <img src="{{ asset($data?->cover_pic) }}" alt="cover pic" loading="lazy"
                                 class="lazy-img img-fluid">
                             <a href="{{ route('social.pic.download', 'cover_pic') }}"
                                 class="btn btn-primary mt-3 w-25">Download</a>
