@@ -38,9 +38,9 @@
                                 </li>
 
                                 <!--Gallery-->
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link {{ request()->routeIs('countdown') ? 'active' : '' }}" href="{{ route('countdown') }}"> Gallery </a>
-                                </li>
+                                </li> --}}
 
                                 <!--Countdown-->
                                 <li class="nav-item">

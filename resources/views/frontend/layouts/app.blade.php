@@ -26,6 +26,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/assets/css/custom.css">
 
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     @stack('header_scripts')
 </head>
 
@@ -86,6 +89,66 @@
     <!-- JS main  -->
     <script src="{{ asset('frontend') }}/assets/js/main.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/custom.js"></script>
+
+    <!-- Toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- Toastify -->
+    <script>
+        // Ajax setup
+        const csrf = $('meta[name="csrf-token"]').attr('content');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': csrf
+            }
+        });
+
+
+        // Toast
+        function showToast(text, type = 'success') {
+            let bg;
+            switch (type) {
+                case 'error':
+                    from = '#ff5b5c';
+                    to = '#ff5b5c';
+                    break;
+                case 'success':
+                    from = '#f67280';
+                    to = '#f88a9a';
+                    break;
+                default:
+                    from = '#00b09b';
+                    to = '#96c93d';
+                    break;
+            }
+            console.log(type, bg);
+
+            Toastify({
+                text,
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                close: true,
+                stopOnFocus: true,
+                style: {
+                    background: `linear-gradient(to right, ${from}, ${to})`
+                },
+                onClick: function() {}
+            }).showToast();
+        }
+    </script>
+
+    @session('success')
+    <script>
+        showToast('{{ session('success') }}', 'success');
+    </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            showToast('{{ session('error') }}', 'error');
+        </script>
+    @endif
 
     @stack('footer_scripts')
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ProcessPostImages;
+use App\Jobs\SubscriberJob;
 use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\Post;
@@ -122,6 +123,9 @@ class PostController extends Controller
             'created_at' => $createdAt,
         ]);
 
+        /* ---------------- Full URL ---------------- */
+        $post->full_url = config('app.url') . '/post/' . $post->slug;
+
         /* ---------------- Meta Information ---------------- */
         if ($request->filled('meta_title')) {
             $post->meta()->create([
@@ -148,6 +152,7 @@ class PostController extends Controller
 
         // dispatch job for heavy processing
         ProcessPostImages::dispatch($post->id, $mainImagePath, $galleryPaths);
+        SubscriberJob::dispatch($post);
 
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
     }

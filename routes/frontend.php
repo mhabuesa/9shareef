@@ -9,6 +9,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/countdown', 'countdown')->name('countdown');
     Route::get('/category/{category:slug}', 'category')->name('category');
+    Route::post('/subscriber/store', 'subscriber_store')->name('subscriber.store');
 });
 
 Route::controller(PostController::class)->group(function () {

@@ -9,9 +9,10 @@
                                     new posts. </p>
                             </div>
 
-                            <form action="#" class="newslettre__form">
+                            <form action="{{ route('subscriber.store') }}" class="newslettre__form" method="POST">
+                                @csrf
                                 <input type="email" class="newslettre__form-input form-control"
-                                    placeholder="Your email adress" required="required">
+                                    placeholder="Your email adress" required="required" name="email">
                                 <button class="newslettre__form-submit" type="submit">Subscribe</button>
                             </form>
 

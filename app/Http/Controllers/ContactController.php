@@ -85,7 +85,7 @@ class ContactController extends Controller
 
         SendEmailJob::dispatch($info);
 
-        return redirect()->route('admin.contact', 'replied')->with('success', 'Message replied successfully.');
+        return redirect()->back()->with('success', 'Message replied successfully.');
     }
 
     public function sendMessage(Request $request)
@@ -143,7 +143,7 @@ class ContactController extends Controller
             default:
                 Contact::whereIn('id', $ids)->delete();
                 return redirect()
-                    ->route('admin.contact', 'trash')
+                    ->back()
                     ->with('success', 'Messages moved to trash.');
         }
     }

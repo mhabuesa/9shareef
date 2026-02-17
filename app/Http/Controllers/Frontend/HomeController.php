@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Subscriber;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
@@ -63,5 +65,19 @@ class HomeController extends Controller
     public function countdown()
     {
         return view('frontend.countdown');
+    }
+
+    public function subscriber_store(Request $request) {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+        $exists= Subscriber::where('email', $request->email)->first();
+        if (!$exists) {
+            Subscriber::create([
+                'email' => $request->email
+            ]);
+        }
+
+        return redirect()->back()->with('success','Subscribed Successfully');
     }
 }

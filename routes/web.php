@@ -12,6 +12,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     Route::controller(HomeController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
+        Route::get('/subscriber', 'subscriber')->name('subscriber');
     });
 
     // Category Routes
@@ -68,3 +69,4 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 require __DIR__.'/frontend.php';
+require __DIR__.'/quiz.php';

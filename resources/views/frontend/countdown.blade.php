@@ -93,19 +93,19 @@
 
                         <div id="countdown" class="post-card__title-link">
                             <div class="number">
-                                <span class="days time"></span>
+                                <span class="days time" id="days">00</span>
                                 <span class="text">Days</span>
                             </div>
                             <div class="number">
-                                <span class="hours time"></span>
+                                <span class="hours time" id="hours">00</span>
                                 <span class="text">Hours</span>
                             </div>
                             <div class="number">
-                                <span class="minutes time"></span>
+                                <span class="minutes time" id="minutes">00</span>
                                 <span class="text">Minutes</span>
                             </div>
                             <div class="number">
-                                <span class="seconds time"></span>
+                                <span class="seconds time" id="seconds">00</span>
                                 <span class="text">Seconds</span>
                             </div>
 
@@ -141,7 +141,7 @@
 @endsection
 @push('footer_scripts')
     <!-- JS here -->
-    <script src="https://9shareef.com/frontend/assets/js/jquery.min.js"></script>
+    {{-- <script src="https://9shareef.com/frontend/assets/js/jquery.min.js"></script>
     <script src="https://9shareef.com/frontend/assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://9shareef.com/frontend/assets/js/swipper-bundle.min.js"></script>
     <script src="https://9shareef.com/frontend/assets/js/jquery.meanmenu.min.js"></script>
@@ -153,5 +153,5 @@
 
     <script src="https://9shareef.com/frontend/assets/js/script2.js"></script>
     <script src="https://9shareef.com/frontend/assets/js/script.js"></script>
-    <script type="module" src="https://9shareef.com/frontend/assets/js/particles.js"></script>
+    <script type="module" src="https://9shareef.com/frontend/assets/js/particles.js"></script> --}}
 @endpush
