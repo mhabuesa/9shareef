@@ -10,6 +10,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/countdown', 'countdown')->name('countdown');
     Route::get('/category/{category:slug}', 'category')->name('category');
     Route::post('/subscriber/store', 'subscriber_store')->name('subscriber.store');
+    Route::get('/socialPic', 'social_pic')->name('social.pic');
+    Route::get('/socialPic/download/{data}', 'social_pic_download')->name('social.pic.download');
 });
 
 Route::controller(PostController::class)->group(function () {

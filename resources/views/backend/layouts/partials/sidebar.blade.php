@@ -141,6 +141,14 @@
                         </span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link {{ request()->routeIs('admin.social.index') ? 'active' : '' }}"
+                        href="{{ route('admin.social.index') }}">
+                        <span class="nav-main-link-name">
+                            <i class="fas fa-users me-2"></i>Social Pic
+                        </span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\SocialPic;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -67,17 +68,47 @@ class HomeController extends Controller
         return view('frontend.countdown');
     }
 
-    public function subscriber_store(Request $request) {
+    public function subscriber_store(Request $request)
+    {
         $request->validate([
             'email' => 'required|email'
         ]);
-        $exists= Subscriber::where('email', $request->email)->first();
+        $exists = Subscriber::where('email', $request->email)->first();
         if (!$exists) {
             Subscriber::create([
                 'email' => $request->email
             ]);
         }
 
-        return redirect()->back()->with('success','Subscribed Successfully');
+        return redirect()->back()->with('success', 'Subscribed Successfully');
+    }
+
+    public function social_pic()
+    {
+        $data = SocialPic::first();
+        return view('frontend.social_pic.index', compact('data'));
+    }
+
+    public function social_pic_download($data)
+    {
+        $file = SocialPic::first();
+
+        if (!$file) {
+            abort(404);
+        }
+
+        if ($data === 'profile_pic') {
+            $filePath = public_path($file->profile_pic);
+        } elseif ($data === 'cover_pic') {
+            $filePath = public_path($file->cover_pic);
+        } else {
+            abort(404);
+        }
+
+        if (!file_exists($filePath)) {
+            abort(404);
+        }
+
+        return response()->download($filePath);
     }
 }

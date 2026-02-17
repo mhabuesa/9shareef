@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('views')->default(0)->after('id');
+        Schema::create('social_pics', function (Blueprint $table) {
+            $table->id();
+            $table->string('year')->nullable();
+            $table->string('profile_pic')->nullable();
+            $table->string('cover_pic')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('social_pics');
     }
 };
