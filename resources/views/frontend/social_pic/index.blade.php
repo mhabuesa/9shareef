@@ -3,9 +3,9 @@
 @push('header_scripts')
     <style>
         /* .footer,
-        .newslettre__section {
-            display: none !important;
-        } */
+            .newslettre__section {
+                display: none !important;
+            } */
 
         .lazy-img {
             opacity: 0;
@@ -27,7 +27,8 @@
                             <h3 class="contact__title mb-3 text-start">Profile Pic</h3>
                             <img src="{{ asset($data?->profile_pic) }}" alt="profile pic" loading="lazy"
                                 class="lazy-img img-fluid">
-                            <a href="{{ route('social.pic.download', 'profile_pic') }}" class="btn btn-primary mt-3 w-25">Download</a>
+                            <a href="{{ route('social.pic.download', 'profile_pic') }}"
+                                class="btn btn-primary mt-3 w-25">Download</a>
                         </div>
                     </div>
                     <div class="contact">
@@ -37,6 +38,18 @@
                                 class="lazy-img img-fluid">
                             <a href="{{ route('social.pic.download', 'cover_pic') }}"
                                 class="btn btn-primary mt-3 w-25">Download</a>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <div class="text-center">
+                            <h3 class="contact__title mb-3 text-start">Theme Qaseedah Shareef</h3>
+                            <div class="text-center">
+                               <div class="audio">
+                                 <audio src="{{ asset('uploads') }}/audio/themeQs-1447.mp3" controls></audio>
+                               </div>
+                                <a href="{{ asset('uploads') }}/audio/themeQs-1447.mp3" download
+                                    class="btn btn-primary mt-3 w-25">Download</a>
+                            </div>
                         </div>
                     </div>
                 </div>
