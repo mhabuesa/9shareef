@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SocializeController;
 use App\Http\Controllers\SocialPicController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,9 +45,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     });
 
     // Contact Routes
-    Route::controller(SocialPicController::class)->name('social.')->prefix('social')->group(function () {
+    Route::controller(SocializeController::class)->name('social.')->prefix('social')->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::post('/update', 'update')->name('update');
+        Route::post('/picture/update', 'picture_update')->name('picture.update');
+        Route::post('/theme/update', 'theme_update')->name('theme.update');
     });
 
     // Extra Routes of resource controllers can be defined here

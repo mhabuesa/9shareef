@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\SocialPic;
+use App\Models\Socialize;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -85,13 +85,13 @@ class HomeController extends Controller
 
     public function social_pic()
     {
-        $data = SocialPic::first();
-        return view('frontend.social_pic.index', compact('data'));
+        $data = Socialize::first();
+        return view('frontend.socialize.picture', compact('data'));
     }
 
     public function social_pic_download($data)
     {
-        $file = SocialPic::first();
+        $file = Socialize::first();
 
         if (!$file) {
             abort(404);
@@ -110,5 +110,11 @@ class HomeController extends Controller
         }
 
         return response()->download($filePath);
+    }
+
+    public function themeQs()
+    {
+        $data = Socialize::first();
+        return view('frontend.socialize.themeQs', compact('data'));
     }
 }

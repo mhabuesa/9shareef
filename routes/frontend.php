@@ -12,6 +12,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/subscriber/store', 'subscriber_store')->name('subscriber.store');
     Route::get('/socialPic', 'social_pic')->name('social.pic');
     Route::get('/socialPic/download/{data}', 'social_pic_download')->name('social.pic.download');
+    Route::get('/themeQs', 'themeQs')->name('themeQs');
 });
 
 Route::controller(PostController::class)->group(function () {
