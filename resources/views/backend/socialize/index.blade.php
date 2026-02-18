@@ -83,7 +83,7 @@
                             <div class="row">
                                 <div class="col-lg-6 m-auto">
                                     <div class="mb-2 text-center">
-                                        <audio src="{{ asset($socialize?->themeQS) }}" controls></audio>
+                                        <audio src="{{ asset($socialize?->themeQs) }}" controls></audio>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label" for="audio">Audio </label>
