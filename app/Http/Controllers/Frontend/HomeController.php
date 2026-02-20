@@ -117,4 +117,9 @@ class HomeController extends Controller
         $data = Socialize::first();
         return view('frontend.socialize.themeQs', compact('data'));
     }
+
+    public function mobile_wallpaper()
+    {
+        return view('frontend.socialize.mobile_wallpaper');
+    }
 }

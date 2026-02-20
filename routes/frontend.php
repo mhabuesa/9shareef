@@ -13,6 +13,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/socialPic', 'social_pic')->name('social.pic');
     Route::get('/socialPic/download/{data}', 'social_pic_download')->name('social.pic.download');
     Route::get('/themeQs', 'themeQs')->name('themeQs');
+    Route::get('/mobile/wallpaper', 'mobile_wallpaper')->name('mobile.wallpaper');
 });
 
 Route::controller(PostController::class)->group(function () {

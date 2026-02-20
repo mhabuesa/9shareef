@@ -1,4 +1,4 @@
-@section('title', 'Countdown')
+@section('title', '404 Error')
 @extends('frontend.layouts.app')
 @section('content')
     <!--Page404-->
