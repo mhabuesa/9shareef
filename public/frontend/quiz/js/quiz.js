@@ -80,15 +80,15 @@ nextBtn.addEventListener("click", function () {
         }
     }
 
-    // Step 1 (q1 required)
+    // Step 1 (question1 required)
     if (currentStep === 1) {
-        if (!$("input[name='q1']:checked").length) {
+        if (!$("input[name='question1']:checked").length) {
             showToast("প্রশ্নের উত্তর নির্বাচন করুন", "error");
             return;
         }
     }
 
-    // Step 2 (q2 required)
+    // Step 2 (question2 required)
     if (currentStep === 2) {
         const lakabValue = $("#lakab").val().trim();
 
@@ -98,9 +98,9 @@ nextBtn.addEventListener("click", function () {
         }
     }
 
-    // Step 3 (q3 required)
+    // Step 3 (question3 required)
     if (currentStep === 3) {
-        if (!$("input[name='q3']:checked").length) {
+        if (!$("input[name='question3']:checked").length) {
             showToast("এই প্রশ্নের উত্তর নির্বাচন করুন", "error");
             return;
         }
@@ -132,14 +132,15 @@ nextBtn.addEventListener("click", function () {
         }
     }
 
-    // Step 4-8 (Textarea Required)
-    if (currentStep >= 6 && currentStep <= 8) {
+    // Step 6 (Textarea Required)
+    if (currentStep === 6) {
         const textarea = steps[currentStep].querySelector("textarea");
         if (textarea.value.trim() === "") {
-            showToast("এই প্রশ্নের উত্তর লিখুন", "error");
+            showToast("সঠিক উত্তর লিখুন", "error");
             return;
         }
     }
+
 
     // ================= PUZZLE CHECK =================
     if (currentStep === steps.length - 1) {
@@ -281,13 +282,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let raw = setTimerEl.innerText.trim();
     if (!raw) return;
 
+    // FIX common format mistake
+    raw = raw.replace(/\s+/g, " ");
+
     const parts = raw.split(" ");
+    if (parts.length < 3) return;
+
     const datePart = parts[0];
     const timePart = parts[1];
     const ampm = parts[2];
 
     const dateSplit = datePart.split(":");
     const timeSplit = timePart.split(":");
+
+    if (dateSplit.length !== 3 || timeSplit.length !== 2) return;
 
     let year = parseInt(dateSplit[0]);
     let month = parseInt(dateSplit[1]) - 1;
@@ -301,28 +309,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const targetDate = new Date(year, month, day, hour, minute, 0);
 
-    let hasReloaded = sessionStorage.getItem("quizReloaded");
-
     const timerInterval = setInterval(function () {
 
         const now = new Date();
         const distance = targetDate - now;
 
         if (distance <= 0) {
-
             countdownEl.innerText = "00:00:00";
-
-            const secondsNow = now.getSeconds();
-
-            // শুধু 57-59 second এ একবার reload
-            if (!hasReloaded && secondsNow >= 57) {
-
-                sessionStorage.setItem("quizReloaded", "true");
-                clearInterval(timerInterval);
-                location.reload();
-
-            }
-
+            clearInterval(timerInterval);
             return;
         }
 

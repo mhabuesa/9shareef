@@ -37,7 +37,7 @@
                 <div class="timer text-end fw-bold fs-5">
                     <i class="fas fa-stopwatch"></i>
                     <span class="countdown">00:00</span>
-                    <div class="set_timer d-none">2026:02:23 05:55 PM</div>
+                    <div class="set_timer d-none">2026:02:24 10:55 PM</div>
                 </div>
                 <img class="img-fluid" src="{{ asset('frontend') }}/image/noor.png" alt="">
                 <h2 class="text-center fw-bold" id="welcome">আহলাও ওয়া সাহলান</h2>
@@ -71,19 +71,19 @@
                 <div class="quiz-step">
                     <h5 class="mb-3">১। আইয়্যামে নূর উনায় ৯ ভাষায় মিলাদ শরীফ কবে অনুষ্ঠিত হবে?</h5>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q1" value="১ম রমাদ্বান শরীফ">
+                        <input class="form-check-input" type="radio" name="question1" value="১ম রমাদ্বান শরীফ">
                         <label class="form-check-label">১ম রমাদ্বান শরীফ</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q1" value="৩রা রমাদ্বান শরীফ">
+                        <input class="form-check-input" type="radio" name="question1" value="৩রা রমাদ্বান শরীফ">
                         <label class="form-check-label">৩রা রমাদ্বান শরীফ</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q1" value="৭ম রমাদ্বান শরীফ">
+                        <input class="form-check-input" type="radio" name="question1" value="৭ম রমাদ্বান শরীফ">
                         <label class="form-check-label">৭ম রমাদ্বান শরীফ</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q1" value="৯ম রমাদ্বান শরীফ">
+                        <input class="form-check-input" type="radio" name="question1" value="৯ম রমাদ্বান শরীফ">
                         <label class="form-check-label">৯ম রমাদ্বান শরীফ</label>
                     </div>
                 </div>
@@ -92,51 +92,31 @@
                 <div class="quiz-step">
                     <h5 class="mb-3">২। সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম উনার মুবারক শানে লকব মুবারক লিখুন</h5>
                     <div class="form-check option-box">
-                        <input type="text" id="lakab" name="lakab" value=""
+                        <input type="text" id="lakab" name="question2" value=""
                             placeholder="এখানে লক্বব মুবারক লিখুন" />
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <!--
-                    <div class="quiz-step">
-                        <h5 class="mb-3">৩। আইয়্যামে নূর উনার নামকরণ কে করেছেন? </h5>
-                        <div class="form-check option-box">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">Laravel</label>
-                        </div>
-                        <div class="form-check option-box">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">React</label>
-                        </div>
-                        <div class="form-check option-box">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">Vue</label>
-                        </div>
-                    </div>
-                -->
-
-
-                <!-- Step 3 -->
                 <div class="quiz-step">
                     <h5 class="mb-3">৩। আইয়্যামে নূর উনার নামকরণ কে করেছেন? </h5>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q3"
+                        <input class="form-check-input" type="radio" name="question3"
                             value="সাইয়্যিদুনা ইমামুল উমাম আলাইহিস সালাম">
                         <label class="form-check-label">সাইয়্যিদুনা ইমামুল উমাম আলাইহিস সালাম</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q3"
+                        <input class="form-check-input" type="radio" name="question3"
                             value="সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম">
                         <label class="form-check-label">সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q3"
+                        <input class="form-check-input" type="radio" name="question3"
                             value="সাইয়্যিদুনা শাফিউল উমাম আলাইহিস সালাম">
                         <label class="form-check-label">সাইয়্যিদুনা শাফিউল উমাম আলাইহিস সালাম</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="q3"
+                        <input class="form-check-input" type="radio" name="question3"
                             value="সাইয়্যিদুনা হাদিউল উমাম আলাইহিস সালাম">
                         <label class="form-check-label">সাইয়্যিদুনা হাদিউল উমাম আলাইহিস সালাম</label>
                     </div>
@@ -146,7 +126,7 @@
                 <div class="quiz-step">
                     <h5 class="mb-3">৪। খলীফাতুল উমাম আলাইহিস সালাম উনার মুবারক শানে যেকোন একটি ক্বাছীদাহ শরীফ থেকে ৪
                         লাইন লিখুন।</h5>
-                    <textarea class="form-control rounded-3" name="q4" rows="5" placeholder="Write something here..."></textarea>
+                    <textarea class="form-control rounded-3" name="question4" rows="5" placeholder="Write something here..."></textarea>
                 </div>
 
                 <!-- Step 5  -->
@@ -154,21 +134,21 @@
                     <h5 class="mb-3"> ৫। নিচের লাইন গুলো থেকে শব্দ গুছিয়ে একটি বাক্য সাজান। শব্দে ক্লিক করলে উপরের
                         লাইনে বসবে।</h5>
                     <div class="mb-5 word_box">
-                        <input type="text" name="" id="" value="" class="form-control">
+                        <input type="text" name="question5_1" id="" value="" class="form-control">
                         <div class="mt-3">
                             <span class="shuffleWord">উপরের</span> <span class="shuffleWord">লাইনে</span> <span
                                 class="shuffleWord">বসবে</span>
                         </div>
                     </div>
                     <div class="mb-5 word_box">
-                        <input type="text" name="" id="" value="" class="form-control">
+                        <input type="text" name="question5_2" id="" value="" class="form-control">
                         <div class="mt-3">
                             <span class="shuffleWord">উপরের</span> <span class="shuffleWord">লাইনে</span> <span
                                 class="shuffleWord">বসবে</span>
                         </div>
                     </div>
                     <div class="mb-1 word_box">
-                        <input type="text" name="" id="" value="" class="form-control">
+                        <input type="text" name="question5_3" id="" value="" class="form-control">
                         <div class="mt-3">
                             <span class="shuffleWord">উপরের</span> <span class="shuffleWord">লাইনে</span> <span
                                 class="shuffleWord">বসবে</span>
@@ -180,22 +160,52 @@
                 <div class="quiz-step">
                     <h5 class="mb-3">৬। সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম উনার এখন পর্যন্ত সর্বশেষ লিখিত কিতাব
                         কোনটি?</h5>
-                    <textarea class="form-control rounded-3 mb-3" name="q6" rows="5" placeholder="Write something here..."></textarea>
+                    <textarea class="form-control rounded-3 mb-3" name="question6" rows="5" placeholder="Write something here..."></textarea>
                 </div>
 
                 <!-- Step 7 -->
                 <div class="quiz-step">
-                    <h5 class="mb-3">৭। সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম উনার এখন পর্যন্ত সর্বশেষ লিখিত কিতাব
-                        কোনটি?</h5>
-                    <textarea class="form-control rounded-3" name="q7" rows="5" placeholder="Write something here..."></textarea>
+                    <h5 class="mb-3">৭। নিচের অক্ষর গুলো দিয়ে ক্বাছীদাহ শরীফ থেকে শুরুর একটি লাইন লিখুন।</h5>
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5"> শ</label>
+                        <input type="text" name="question7" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5">হ</label>
+                        <input type="text" name="question7" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5">য</label>
+                        <input type="text" name="question7" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label fs-5">দ</label>
+                        <input type="text" name="question7" class="form-control">
+                    </div>
                 </div>
 
                 <!-- Step 8 -->
                 <div class="quiz-step">
-                    <h5 class="mb-3">৮। সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম উনার একখানা কারামত লিখুন।</h5>
-                    <div class="mb-3">
-                        <label for="" class="form-label"> শ</label>
-                        <input type="text" name="q8" class="form-control">
+                    <h5 class="mb-3">৮। আইয়্যামে নূর উনার নামকরণ কে করেছেন? </h5>
+                    <div class="form-check option-box">
+                        <input class="form-check-input" type="radio" name="question8"
+                            value="সাইয়্যিদুনা ইমামুল উমাম আলাইহিস সালাম">
+                        <label class="form-check-label">সাইয়্যিদুনা ইমামুল উমাম আলাইহিস সালাম</label>
+                    </div>
+                    <div class="form-check option-box">
+                        <input class="form-check-input" type="radio" name="question8"
+                            value="সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম">
+                        <label class="form-check-label">সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম</label>
+                    </div>
+                    <div class="form-check option-box">
+                        <input class="form-check-input" type="radio" name="question8"
+                            value="সাইয়্যিদুনা শাফিউল উমাম আলাইহিস সালাম">
+                        <label class="form-check-label">সাইয়্যিদুনা শাফিউল উমাম আলাইহিস সালাম</label>
+                    </div>
+                    <div class="form-check option-box">
+                        <input class="form-check-input" type="radio" name="question8"
+                            value="সাইয়্যিদুনা হাদিউল উমাম আলাইহিস সালাম">
+                        <label class="form-check-label">সাইয়্যিদুনা হাদিউল উমাম আলাইহিস সালাম</label>
                     </div>
                 </div>
 
@@ -213,6 +223,7 @@
                         <ul class="pre_img">
                             <li data-bid="0"><img src="https://preview.ibb.co/kMdsfm/kfp.png"></li>
                             <input type="hidden" id="puzzle_result" name="puzzle_result" value="incomplete">
+                            <input type="hidden" id="solved_time" name="solved_time">
                         </ul>
                     </div>
                 </div>

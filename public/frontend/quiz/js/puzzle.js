@@ -166,6 +166,7 @@ $(document).ready(function () {
         $("#sec").html(ss);
         $("#moves").html(moves);
         $("#puzzle_result").val("complete");
+        $("#solved_time").val(mm + ":" + ss);
         setTimeout(function () {
             $(".cover").css("display", "flex").hide().fadeIn(300);
         }, 1050);
