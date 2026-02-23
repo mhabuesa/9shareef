@@ -37,7 +37,7 @@
                 <div class="timer text-end fw-bold fs-5">
                     <i class="fas fa-stopwatch"></i>
                     <span class="countdown">00:00</span>
-                    <div class="set_timer d-none">2026:02:23 04:55 PM</div>
+                    <div class="set_timer d-none">2026:02:23 05:55 PM</div>
                 </div>
                 <img class="img-fluid" src="{{ asset('frontend') }}/image/noor.png" alt="">
                 <h2 class="text-center fw-bold" id="welcome">আহলাও ওয়া সাহলান</h2>
