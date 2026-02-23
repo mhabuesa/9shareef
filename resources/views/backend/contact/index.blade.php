@@ -7,6 +7,7 @@
     <div class="row">
         {{-- Sidebar --}}
         @include('backend.contact.partials.sidebar')
+        @include('backend.contact.partials.newMessage')
         {{-- Message Box --}}
         <div class="col-md-7 col-xl-9" id="messageBox">
             <form action="{{ route('admin.contact.delete') }}" method="POST">

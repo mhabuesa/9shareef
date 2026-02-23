@@ -1,0 +1,441 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+body {
+    font-family: "Montserrat", "Segoe UI", sans-serif;
+}
+
+/* ====== BACKGROUND ====== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2, #6b73ff);
+    background-size: 300% 300%;
+    animation: gradientMove 12s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ====== CONTAINER ====== */
+.quiz-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+}
+
+/* ====== GLASS CARD ====== */
+.card {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 32px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 12px 48px 0 rgba(80, 80, 180, 0.18),
+        0 2px 8px 0 rgba(0, 0, 0, 0.08);
+    color: #fff;
+    padding: 40px 36px 32px 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-fluid {
+    width: 100px;
+    text-align: center;
+    margin: 0 auto 30px;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #fff6, #6b73ff44 80%);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(8px);
+}
+
+/* ====== QUIZ STEP ====== */
+.quiz-step {
+    display: none;
+}
+
+.quiz-step.active {
+    display: block;
+    animation: fadeSlide 0.5s cubic-bezier(0.4, 2, 0.6, 1);
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ====== OPTIONS ====== */
+.option-box {
+    border: 1.5px solid rgba(255, 255, 255, 0.32);
+    padding: 14px 18px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.25s cubic-bezier(0.4, 2, 0.6, 1);
+    background: rgba(255, 255, 255, 0.18);
+    font-size: 1.08rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px 0 rgba(80, 80, 180, 0.06);
+    margin-bottom: 12px;
+}
+
+.option-box:hover,
+.option-box.selected {
+    background: rgba(255, 255, 255, 0.38);
+    border-color: #fff;
+    color: #6b73ff;
+    box-shadow: 0 4px 16px 0 rgba(80, 80, 180, 0.1);
+}
+
+/* ====== TEXTAREA ====== */
+.form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ====== BUTTONS ====== */
+.btn-custom {
+    border-radius: 16px;
+    padding: 10px 32px;
+    font-weight: 700;
+    font-size: 1.08rem;
+    background: linear-gradient(90deg, #6b73ff 0%, #667eea 100%);
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 8px 0 rgba(80, 80, 180, 0.1);
+    transition:
+        background 0.3s,
+        color 0.3s,
+        box-shadow 0.3s;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(90deg, #667eea 0%, #6b73ff 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px 0 rgba(80, 80, 180, 0.18);
+}
+
+.progress {
+    height: 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.22);
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #fff 0%, #6b73ff 100%);
+    box-shadow: 0 2px 8px 0 rgba(80, 80, 180, 0.1);
+}
+
+/* ====== LOGO & HEADING ====== */
+.quiz-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quiz-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(80, 80, 180, 0.1);
+}
+
+.quiz-desc {
+    text-align: center;
+    color: #e0e0ff;
+    font-size: 1.08rem;
+    margin-bottom: 24px;
+}
+
+/* ====== FIXED RESPONIVE PUZZLE ====== */
+#container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* পাজল বক্সকে ফ্লেক্সবক্স দিয়ে সাজানো হয়েছে */
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+    /* পাজলের অরিজিনাল উইডথ */
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.me {
+    position: relative;
+    /* আপনার অরিজিনাল ইমেজের অনুপাত অনুযায়ী ব্যাকগ্রাউন্ড সাইজ */
+    background-size: 600% 300%;
+    background-repeat: no-repeat;
+    margin: 0.5%;
+    /* সামান্য গ্যাপ */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+    cursor: pointer;
+
+    /* রেসপনসিভ সাইজিং */
+    width: 15.66%;
+    /* ৬টি টাইলসের জন্য */
+    aspect-ratio: 1 / 1;
+    /* টাইলসগুলো সবসময় চারকোণা থাকবে */
+}
+
+/* পাজল ব্যাকগ্রাউন্ড পজিশন (১৮টি টাইলসের জন্য নিখুঁত ম্যাপিং) */
+.me_0 {
+    background-position: 0% 0%;
+}
+
+.me_1 {
+    background-position: 20% 0%;
+}
+
+.me_2 {
+    background-position: 40% 0%;
+}
+
+.me_3 {
+    background-position: 60% 0%;
+}
+
+.me_4 {
+    background-position: 80% 0%;
+}
+
+.me_5 {
+    background-position: 100% 0%;
+}
+
+.me_6 {
+    background-position: 0% 50%;
+}
+
+.me_7 {
+    background-position: 20% 50%;
+}
+
+.me_8 {
+    background-position: 40% 50%;
+}
+
+.me_9 {
+    background-position: 60% 50%;
+}
+
+.me_10 {
+    background-position: 80% 50%;
+}
+
+.me_11 {
+    background-position: 100% 50%;
+}
+
+.me_12 {
+    background-position: 0% 100%;
+}
+
+.me_13 {
+    background-position: 20% 100%;
+}
+
+.me_14 {
+    background-position: 40% 100%;
+}
+
+.me_15 {
+    background-position: 60% 100%;
+}
+
+.me_16 {
+    background-position: 80% 100%;
+}
+
+.me_17 {
+    background-position: 100% 100%;
+}
+
+.full {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 2 / 1;
+    /* ২:১ অনুপাত */
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}
+
+/* অ্যানিমেশন বজায় রাখা হয়েছে */
+.correct {
+    border-radius: 0px;
+    box-shadow: none;
+    animation: corect 0.5s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes corect {
+    0% {
+        transform: scale(1);
+        border-radius: 8px;
+    }
+
+    50% {
+        transform: scale(1.1);
+        border-radius: 4px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    100% {
+        transform: scale(1);
+        border-radius: 0px;
+    }
+}
+
+/* UI Buttons & Preview */
+.pre_img {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.pre_img li {
+    list-style: none;
+}
+
+.pre_img li img {
+    width: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.pre_img li img:hover {
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+.btn-custom {
+    border-radius: 15px;
+    padding: 12px 30px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #6b73ff, #667eea);
+    color: #fff;
+    border: none;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-custom:hover {
+    background: #fff;
+    color: #6b73ff;
+    transform: scale(1.05);
+}
+
+.cover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+
+    /* flex থাকবে কিন্তু display পরে দেবো */
+    align-items: center;
+    justify-content: center;
+}
+
+.score {
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+    animation: popUp 0.4s ease;
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.prevent_click {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.selectize-input {
+    min-height: 100px;
+}
+
+.shuffleWord {
+    cursor: pointer;
+    color: #764ba2;
+    padding: 5px;
+    margin: 0px 4px;
+    background: antiquewhite;
+    border-radius: 5px;
+}

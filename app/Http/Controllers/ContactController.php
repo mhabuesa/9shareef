@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\SendEmailJob;
 use App\Models\Contact;
 use App\Models\ContactReply;
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -34,9 +35,9 @@ class ContactController extends Controller
                 break;
         }
 
-        if($slug == 'sendMessage'){
+        if ($slug == 'sendMessage') {
             $messages = ContactReply::whereNull('contact_id')->latest()->get();
-        }else{
+        } else {
             $messages = $query->select('id', 'name', 'subject', 'created_at')
                 ->latest()->get();
         }
@@ -148,4 +149,14 @@ class ContactController extends Controller
         }
     }
 
+    public function subscriber_search(Request $request)
+    {
+        $search = $request->search;
+
+        $emails = Subscriber::where('email', 'LIKE', "%{$search}%")
+            ->limit(10)
+            ->pluck('email');
+
+        return response()->json($emails);
+    }
 }

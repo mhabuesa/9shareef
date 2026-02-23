@@ -42,6 +42,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::post('/contact/sendMessage', 'sendMessage')->name('contact.sendMessage');
         Route::post('/contact/reply/{id}', 'reply')->name('contact.reply');
         Route::post('/contact/delete', 'delete')->name('contact.delete');
+        Route::get('/contact/subscriber/search', 'subscriber_search')->name('subscriber.search');
     });
 
     // Contact Routes
@@ -76,6 +77,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     ]);
 });
 
-require __DIR__.'/auth.php';
-require __DIR__.'/frontend.php';
-require __DIR__.'/quiz.php';
+require __DIR__ . '/auth.php';
+require __DIR__ . '/frontend.php';
+require __DIR__ . '/quiz.php';
