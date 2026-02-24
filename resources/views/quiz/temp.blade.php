@@ -144,7 +144,7 @@
                     </div>
                     <div class="form-check option-box">
                         <input class="form-check-input" type="radio" name="question4"
-                            value="দনিয়াতে তাশরীফ আনেন মারহাবা ইয়া শাহযাদা">
+                            value="শাহযাদাজী আছ ছলাতু আস সালাম">
                         <label class="form-check-label">দনিয়াতে তাশরীফ আনেন মারহাবা ইয়া শাহযাদা</label>
                     </div>
                 </div>
@@ -211,22 +211,22 @@
                     <h5 class="mb-3">৭। শাহ নাওয়াদী আলাইহাস সালাম উনার সুমহান বিলাদত শরীফ কত তারিখ ও কি বার?</h5>
                     <div class="form-check option-box">
                         <input class="form-check-input" type="radio" name="question7"
-                            value="১৯ শে শাওওয়াল শরীফ - ইছনাইনিল আযীম শরীফ।">
+                            value="শানে বিলাদত শাহযাদা আক্বার">
                         <label class="form-check-label">১৯ শে শাওওয়াল শরীফ - ইছনাইনিল আযীম শরীফ।</label>
                     </div>
                     <div class="form-check option-box">
                         <input class="form-check-input" type="radio" name="question7"
-                            value="২২ শে শাওওয়াল শরীফ - খ্বমীস">
+                            value="খলীফাতুল উমাম আস সালাম">
                         <label class="form-check-label">২২ শে শাওওয়াল শরীফ - খ্বমীস</label>
                     </div>
                     <div class="form-check option-box">
                         <input class="form-check-input" type="radio" name="question7"
-                            value="১৯ শে যিলহজ্জ শরীফ - ইছনাইনিল আযীম শরীফ।">
+                            value="লাব্বাইক শাহযাদা ক্বিবলা">
                         <label class="form-check-label">১৯ শে যিলহজ্জ শরীফ - ইছনাইনিল আযীম শরীফ।</label>
                     </div>
                     <div class="form-check option-box">
                         <input class="form-check-input" type="radio" name="question7"
-                            value="২০ শে যিলহজ্জ শরীফ - ছুলাছা">
+                            value="শাহযাদাজী আছ ছলাতু আস সালাম">
                         <label class="form-check-label">২০ শে যিলহজ্জ শরীফ - ছুলাছা</label>
                     </div>
                 </div>

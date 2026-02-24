@@ -22,6 +22,7 @@ class QuizController extends Controller
     }
     public function store(Request $request)
     {
+        dd($request->all());
         $quizInfo = QuizAnswer::create($request->all());
         return redirect()->route('quiz.complete');
     }
