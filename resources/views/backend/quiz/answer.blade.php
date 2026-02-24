@@ -66,7 +66,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-lg-10 col-xl-10 m-auto">
+                    <div class="col-lg-12 col-xl-12 m-auto">
                         <div class="mb-4">
                             <table class="table table-bordered table-striped table-vcenter">
                                 <thead>
@@ -81,6 +81,7 @@
                                         <th>question 6</th>
                                         <th>question 7</th>
                                         <th>question 8</th>
+                                        <th>question 9</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,7 +98,17 @@
                                             <td class="text-center fs-sm">{{ $answer->question3 }}</td>
                                             <td class="text-center fs-sm">{{ $answer->question4 }}</td>
                                             <td class="text-center fs-sm">
-                                                {{ $answer->question4 }}</td>
+                                                {{ $answer->question5_1 }}, <br>
+                                                {{ $answer->question5_2 }}, <br>
+                                                {{ $answer->question5_3 }}
+                                            </td>
+                                            <td class="text-center fs-sm">{{ $answer->question6 }}</td>
+                                            <td class="text-center fs-sm">{{ $answer->question7 }}</td>
+                                            <td class="text-center fs-sm">{{ $answer->question8 }}</td>
+                                            <td class="text-center fs-sm">
+                                                {{ $answer->puzzle_result }}, <br>
+                                                {{ $answer->solved_time }}
+                                            </td>
 
                                         </tr>
                                     @endforeach
