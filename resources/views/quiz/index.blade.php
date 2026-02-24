@@ -314,7 +314,7 @@
         function showToast(text) {
             Toastify({
                 text,
-                duration: 300000,
+                duration: 3000,
                 gravity: "top",
                 position: "right",
                 close: true,
