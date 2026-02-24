@@ -47,9 +47,9 @@ function showStep(index) {
     }
 
     if (index === steps.length - 1) {
-        nextBtn.innerText = "Submit";
+        nextBtn.innerText = "প্রেরণ করুন";
     } else {
-        nextBtn.innerText = "Next Step →";
+        nextBtn.innerText = "পরবর্তী প্রশ্ন →";
     }
 }
 
@@ -72,9 +72,8 @@ nextBtn.addEventListener("click", function () {
     // Step 0 (Name Required)
     if (currentStep === 0) {
         const name = document.getElementById("name").value.trim();
-        const phone = document.getElementById("phone").value.trim();
         const address = document.getElementById("address").value.trim();
-        if (name === "" || phone === "" || address === "") {
+        if (name === "" || address === "") {
             showToast("আপনার তথ্য পূরণ করুন", "error");
             return;
         }
@@ -101,16 +100,15 @@ nextBtn.addEventListener("click", function () {
     // Step 3 (question3 required)
     if (currentStep === 3) {
         if (!$("input[name='question3']:checked").length) {
-            showToast("এই প্রশ্নের উত্তর নির্বাচন করুন", "error");
+            showToast("প্রশ্নের উত্তর নির্বাচন করুন", "error");
             return;
         }
     }
 
     // Step 4 (Textarea Required)
     if (currentStep === 4) {
-        const textarea = steps[currentStep].querySelector("textarea");
-        if (textarea.value.trim() === "") {
-            showToast("৪ লাইন ক্বাছীদাহ শরীফ লিখুন", "error");
+        if (!$("input[name='question4']:checked").length) {
+            showToast("প্রশ্নের উত্তর নির্বাচন করুন", "error");
             return;
         }
     }
@@ -141,13 +139,12 @@ nextBtn.addEventListener("click", function () {
         }
     }
 
-
     // ================= PUZZLE CHECK =================
     if (currentStep === steps.length - 1) {
-        if ($("#puzzle_result").val() !== "complete") {
-            showToast("পাজল সমাধান করুন", "error");
-            return;
-        }
+        // if ($("#puzzle_result").val() !== "complete") {
+        //     showToast("পাজল সমাধান করুন", "error");
+        //     return;
+        // }
 
         form.submit();
         return;
@@ -270,65 +267,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    const countdownEl = document.querySelector(".countdown");
+    if (!countdownEl) return;
 
-    const timerContainer = document.querySelector(".timer");
-    if (!timerContainer) return;
+    const TOTAL_TIME = 9 * 60; // 9 minutes in seconds
+    let timeLeft = TOTAL_TIME;
 
-    const setTimerEl = timerContainer.querySelector(".set_timer");
-    const countdownEl = timerContainer.querySelector(".countdown");
+    function updateTimer() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
 
-    if (!setTimerEl || !countdownEl) return;
+        countdownEl.innerText =
+            String(minutes).padStart(2, "0") +
+            ":" +
+            String(seconds).padStart(2, "0");
 
-    let raw = setTimerEl.innerText.trim();
-    if (!raw) return;
-
-    // FIX common format mistake
-    raw = raw.replace(/\s+/g, " ");
-
-    const parts = raw.split(" ");
-    if (parts.length < 3) return;
-
-    const datePart = parts[0];
-    const timePart = parts[1];
-    const ampm = parts[2];
-
-    const dateSplit = datePart.split(":");
-    const timeSplit = timePart.split(":");
-
-    if (dateSplit.length !== 3 || timeSplit.length !== 2) return;
-
-    let year = parseInt(dateSplit[0]);
-    let month = parseInt(dateSplit[1]) - 1;
-    let day = parseInt(dateSplit[2]);
-
-    let hour = parseInt(timeSplit[0]);
-    let minute = parseInt(timeSplit[1]);
-
-    if (ampm === "PM" && hour < 12) hour += 12;
-    if (ampm === "AM" && hour === 12) hour = 0;
-
-    const targetDate = new Date(year, month, day, hour, minute, 0);
-
-    const timerInterval = setInterval(function () {
-
-        const now = new Date();
-        const distance = targetDate - now;
-
-        if (distance <= 0) {
-            countdownEl.innerText = "00:00:00";
+        if (timeLeft <= 0) {
             clearInterval(timerInterval);
+
+            // Optional: ছোট delay দিয়ে reload
+            setTimeout(() => {
+                location.reload();
+            }, 500);
+
             return;
         }
 
-        const hours = Math.floor(distance / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        timeLeft--;
+    }
 
-        countdownEl.innerText =
-            String(hours).padStart(2, "0") + ":" +
-            String(minutes).padStart(2, "0") + ":" +
-            String(seconds).padStart(2, "0");
+    // First run instantly
+    updateTimer();
 
-    }, 1000);
-
+    const timerInterval = setInterval(updateTimer, 1000);
 });

@@ -4,7 +4,7 @@
             <span class="smini-visible">
                 <i class="fa fa-circle-notch text-primary"></i>
             </span>
-            <span class="smini-hide fs-5 tracking-wider">{{config('app.name')}}</span>
+            <span class="smini-hide fs-5 tracking-wider">{{ config('app.name') }}</span>
         </a>
         <div>
             <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
@@ -148,6 +148,32 @@
                             <i class="fas fa-users me-2"></i>Social Pic
                         </span>
                     </a>
+                </li>
+                <li class="nav-main-item {{ request()->routeIs('admin.quiz.*') ? 'open' : '' }}">
+                    <a class="nav-main-link nav-main-link-submenu {{ request()->routeIs('admin.quiz.*') ? 'active' : '' }}"
+                        data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                        <i class="nav-main-link-icon fas fa-question"></i>
+                        <span class="nav-main-link-name">Quiz</span>
+                    </a>
+                    <ul class="nav-main-submenu">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->routeIs('admin.quiz.index') ? 'active' : '' }}"
+                                href="{{ route('admin.quiz.index') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-circle-plus me-2"></i> Quiz Info
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->routeIs('admin.quiz.answer') ? 'active': '' }}"
+                                href="{{ route('admin.quiz.answer') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-file-invoice me-2"></i> Quiz Answer
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
                 </li>
             </ul>
         </div>

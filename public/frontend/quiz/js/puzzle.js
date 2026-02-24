@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    var images = [];
+
+    $(".pre_img li img").each(function () {
+        images.push($(this).attr("src"));
+    });
+
     var box = $(".box"),
         orginal = [
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
@@ -12,11 +18,7 @@ $(document).ready(function () {
         mm = 0,
         ss = 0,
         upIMG,
-        images = [
-            "https://preview.ibb.co/kMdsfm/kfp.png",
-            "https://preview.ibb.co/kWOEt6/minion.png",
-            "https://preview.ibb.co/e0Rv0m/ab.jpg",
-        ];
+        // images = ["https://preview.ibb.co/kMdsfm/kfp.png"];
     img = 0;
 
     $(".me").css({

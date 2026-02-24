@@ -7,7 +7,7 @@ body {
 /* ====== BACKGROUND ====== */
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2, #6b73ff);
+    background: linear-gradient(135deg, #06bd8c, #065f46, #00b682, #059669);
     background-size: 300% 300%;
     animation: gradientMove 12s ease infinite;
     display: flex;
@@ -58,18 +58,7 @@ body {
     margin: 0 auto 30px;
 }
 
-.card::before {
-    content: "";
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 180px;
-    height: 180px;
-    background: linear-gradient(135deg, #fff6, #6b73ff44 80%);
-    border-radius: 50%;
-    z-index: 0;
-    filter: blur(8px);
-}
+
 
 /* ====== QUIZ STEP ====== */
 .quiz-step {
@@ -212,9 +201,9 @@ body {
     /* আপনার অরিজিনাল ইমেজের অনুপাত অনুযায়ী ব্যাকগ্রাউন্ড সাইজ */
     background-size: 600% 300%;
     background-repeat: no-repeat;
-    margin: 0.5%;
+    margin: 0.2%;
     /* সামান্য গ্যাপ */
-    border-radius: 8px;
+    /* border-radius: 8px; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition:
         transform 0.2s,
