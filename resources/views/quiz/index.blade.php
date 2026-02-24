@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz & Puzzle</title>
+    <title>প্রশ্নোত্তর প্রতিযোগিতা</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -56,7 +56,8 @@
                             placeholder="আপনার নাম লিখুন" required>
                     </div>
                     <div class="mt-2">
-                        <label for="phone" class="form-label">ফোন নম্বর বা ইমেইল <small class="mx-2"> (ঐচ্ছিক)</small></label>
+                        <label for="phone" class="form-label">ফোন নম্বর বা ইমেইল <small class="mx-2">
+                                (ঐচ্ছিক)</small></label>
                         <input type="phone" class="form-control" id="phone" name="phone"
                             placeholder="ফোন নম্বর বা ইমেইল">
                     </div>
@@ -71,15 +72,18 @@
                 <div class="quiz-step">
                     <h5 class="mb-3">১। আইয়্যামে নূর শরীফে আমাদের আগামীকালের কার্যক্রম কি?</h5>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="question1" value="খলীফাজী উনার মুবারক দিদার">
+                        <input class="form-check-input" type="radio" name="question1"
+                            value="খলীফাজী উনার মুবারক দিদার">
                         <label class="form-check-label">খলীফাজী উনার মুবারক দিদার।</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="question1" value="মুবারক দিদারই দাওয়্যাত ছড়ানো।">
+                        <input class="form-check-input" type="radio" name="question1"
+                            value="মুবারক দিদারই দাওয়্যাত ছড়ানো।">
                         <label class="form-check-label">মুবারক দিদারই দাওয়্যাত ছড়ানো।</label>
                     </div>
                     <div class="form-check option-box">
-                        <input class="form-check-input" type="radio" name="question1" value="মুবারক স্মৃতিচারণ বিষয়ক পডকাষ্ট।">
+                        <input class="form-check-input" type="radio" name="question1"
+                            value="মুবারক স্মৃতিচারণ বিষয়ক পডকাষ্ট।">
                         <label class="form-check-label">মুবারক স্মৃতিচারণ বিষয়ক পডকাষ্ট।</label>
                     </div>
                     <div class="form-check option-box">
@@ -90,11 +94,9 @@
 
                 <!-- Step 2 -->
                 <div class="quiz-step">
-                    <h5 class="mb-3">২। সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম উনার <span class="fw-bold fs-5" style="text-decoration: underline">উমাম</span> শব্দ যুক্ত লকব মুবারক লিখুন</h5>
-                    <div class="form-check option-box">
-                        <input type="text" id="lakab" name="question2" value=""
-                            placeholder="এখানে লক্বব মুবারক লিখুন এবং ট্যাপ করুন" />
-                    </div>
+                    <h5 class="mb-3">২। সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম উনার <span class="fw-bold fs-5"
+                            style="text-decoration: underline">উমাম</span> শব্দ যুক্ত লকব মুবারক লিখুন। কমা (,) দিয়ে লকব মুবারক আলাদা করুন।</h5>
+                    <textarea class="form-control rounded-3 mb-3" name="question2" rows="5" placeholder="এখানে লিখুন..."></textarea>
                 </div>
 
                 <!-- Step 3 -->
@@ -123,7 +125,7 @@
                 </div>
 
                 <!-- Step 4 -->
-                 <div class="quiz-step">
+                <div class="quiz-step">
                     <h5 class="mb-3">৪। গতবছর ৯ই রমাদ্বান শরীফ উনার থিম ক্বাছীদাহ শরীফ কি ছিলেন? </h5>
                     <div class="form-check option-box">
                         <input class="form-check-input" type="radio" name="question4"
@@ -143,7 +145,7 @@
                     <div class="form-check option-box">
                         <input class="form-check-input" type="radio" name="question4"
                             value="শাহযাদাজী আছ ছলাতু আস সালাম">
-                        <label class="form-check-label">শাহযাদাজী আছ ছলাতু আস সালাম</label>
+                        <label class="form-check-label">দনিয়াতে তাশরীফ আনেন মারহাবা ইয়া শাহযাদা</label>
                     </div>
                 </div>
 
@@ -152,35 +154,47 @@
                     <h5 class="mb-3"> ৫। নিচের লাইন গুলো থেকে শব্দ গুছিয়ে একটি বাক্য সাজান। শব্দে ক্লিক করলে উপরের
                         লাইনে বসবে।</h5>
                     <div class="mb-5 word_box">
-                        <input type="text" name="question5_1" id="" value="" class="form-control">
-                        <div class="mt-3">
+                        <input type="text" name="question5_1" id="" value=""
+                            class="form-control">
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
                             <span class="shuffleWord">শাহযাদা</span>
                             <span class="shuffleWord">বিলাদত</span>
                             <span class="shuffleWord">তুলনা যে</span>
                             <span class="shuffleWord">নেইকো</span>
                             <span class="shuffleWord">জানের</span>
                             <span class="shuffleWord">শানে</span>
+                            <span class="shuffleWord reset bg-danger text-white">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </span>
                         </div>
                     </div>
                     <div class="mb-5 word_box">
-                        <input type="text" name="question5_2" id="" value="" class="form-control">
-                        <div class="mt-3">
-                             <span class="shuffleWord">শাহযাদা ক্বিবলা</span>
-                             <span class="shuffleWord">চড়ে</span>
-                             <span class="shuffleWord">ঘোড়ায়</span>
-                             <span class="shuffleWord">আজ</span>
-                             <span class="shuffleWord">আসবেন</span>
+                        <input type="text" name="question5_2" id="" value=""
+                            class="form-control">
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="shuffleWord">শাহযাদা ক্বিবলা</span>
+                            <span class="shuffleWord">চড়ে</span>
+                            <span class="shuffleWord">ঘোড়ায়</span>
+                            <span class="shuffleWord">আজ</span>
+                            <span class="shuffleWord">আসবেন</span>
+                            <span class="shuffleWord reset bg-danger text-white">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </span>
                         </div>
                     </div>
                     <div class="mb-1 word_box">
-                        <input type="text" name="question5_3" id="" value="" class="form-control">
-                        <div class="mt-3">
+                        <input type="text" name="question5_3" id="" value=""
+                            class="form-control">
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
                             <span class="shuffleWord">আজ</span>
-                           <span class="shuffleWord">দেখ</span>
-                           <span class="shuffleWord">চাঁদ ঐ</span>
-                           <span class="shuffleWord">হেসেছেন</span>
-                             <span class="shuffleWord">নবমী</span>
-                             <span class="shuffleWord">মুচকি</span>
+                            <span class="shuffleWord">দেখ</span>
+                            <span class="shuffleWord">চাঁদ ঐ</span>
+                            <span class="shuffleWord">হেসেছেন</span>
+                            <span class="shuffleWord">নবমী</span>
+                            <span class="shuffleWord">মুচকি</span>
+                            <span class="shuffleWord reset bg-danger text-white">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -189,7 +203,7 @@
                 <div class="quiz-step">
                     <h5 class="mb-3">৬। সাইয়্যিদুনা খলীফাতুল উমাম আলাইহিস সালাম উনার এখন পর্যন্ত সর্বশেষ লিখিত কিতাব
                         কোনটি?</h5>
-                    <textarea class="form-control rounded-3 mb-3" name="question6" rows="5" placeholder="Write something here..."></textarea>
+                    <textarea class="form-control rounded-3 mb-3" name="question6" rows="5" placeholder="এখানে লিখুন..."></textarea>
                 </div>
 
                 <!-- Step 7 -->
@@ -255,7 +269,8 @@
                         </div>
 
                         <ul class="pre_img">
-                            <li data-bid="0"><img src="{{ asset('frontend') }}/image/cycle.jpg" alt=""></li>
+                            <li data-bid="0"><img src="{{ asset('frontend') }}/image/cycle.jpg" alt="">
+                            </li>
                             <input type="hidden" id="puzzle_result" name="puzzle_result" value="incomplete">
                             <input type="hidden" id="solved_time" name="solved_time">
                         </ul>
@@ -299,17 +314,6 @@
     <script></script>
 
     <script>
-        // Selectize
-        $("#lakab").selectize({
-            delimiter: ",",
-            persist: false,
-            create: function(input) {
-                return {
-                    value: input,
-                    text: input,
-                };
-            },
-        });
         // Toast
         function showToast(text) {
             Toastify({

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz & Puzzle</title>
+   <title>প্রশ্নোত্তর প্রতিযোগিতা</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -30,16 +30,13 @@
 
 <body>
 
-    <form action="{{ route('quiz.store') }}" method="POST">
-        @csrf
-        <div class="quiz-container">
-            <div class="card shadow-lg">
-                <img class="img-fluid" src="{{ asset('frontend') }}/image/noor.png" alt="">
-                <h2 class="text-center fw-bold" id="welcome">অভিনন্দন!</h2>
-                <h4 class="text-center fw-bold">আপনি যথাযথ ভাবে প্রশ্নোত্তর প্রতিযোগিতা সম্পূর্ণ করেছেন।</h4>
-            </div>
+    <div class="quiz-container">
+        <div class="card shadow-lg">
+            <img class="img-fluid" src="{{ asset('frontend') }}/image/noor.png" alt="">
+            <h2 class="text-center fw-bold" id="welcome">অভিনন্দন!</h2>
+            <h4 class="text-center fw-bold">আপনি যথাযথ ভাবে প্রশ্নোত্তর প্রতিযোগিতা সম্পূর্ণ করেছেন।</h4>
         </div>
-    </form>
+    </div>
 
 
     {{-- js --}}

@@ -57,7 +57,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::controller(QuizController::class)->name('quiz.')->prefix('quiz')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/update', 'quiz_update')->name('update');
-        Route::post('/answer', 'answer')->name('answer');
+        Route::get('/answer', 'answer')->name('answer');
     });
 
     // Extra Routes of resource controllers can be defined here

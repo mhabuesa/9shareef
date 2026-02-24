@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QuizAnswer;
 use App\Models\QuizInfo;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
@@ -29,5 +30,11 @@ class QuizController extends Controller
             ]
         );
         return redirect()->route('admin.quiz.index')->with('success', 'Quiz Info Updated Successfully');
+    }
+
+    public function answer()
+    {
+        $quizAnswers = QuizAnswer::all();
+        return view("backend.quiz.answer", compact("quizAnswers"));
     }
 }

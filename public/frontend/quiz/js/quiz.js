@@ -89,9 +89,8 @@ nextBtn.addEventListener("click", function () {
 
     // Step 2 (question2 required)
     if (currentStep === 2) {
-        const lakabValue = $("#lakab").val().trim();
-
-        if (lakabValue === "") {
+        const textarea = steps[currentStep].querySelector("textarea");
+        if (textarea.value.trim() === "") {
             showToast("লকব মুবারক লিখুন", "error");
             return;
         }
@@ -198,30 +197,19 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".word_box").forEach(function (block) {
         const input = block.querySelector("input");
         const words = block.querySelectorAll(".shuffleWord");
+        const resetBtn = block.querySelector(".reset");
 
         /* --------------------
-                   INPUT FULL LOCK
-                -------------------- */
+           INPUT FULL LOCK
+        -------------------- */
 
-        // Typing block
         input.addEventListener("keypress", (e) => e.preventDefault());
-
-        // Paste block
         input.addEventListener("paste", (e) => e.preventDefault());
-
-        // Copy block
         input.addEventListener("copy", (e) => e.preventDefault());
-
-        // Cut block
         input.addEventListener("cut", (e) => e.preventDefault());
-
-        // Right click block
         input.addEventListener("contextmenu", (e) => e.preventDefault());
-
-        // Drag drop block
         input.addEventListener("drop", (e) => e.preventDefault());
 
-        // Ctrl/Cmd shortcuts block
         input.addEventListener("keydown", function (e) {
             if (e.ctrlKey || e.metaKey) {
                 e.preventDefault();
@@ -247,10 +235,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         /* --------------------
-                   WORD CLICK SYSTEM
-                -------------------- */
+           WORD CLICK SYSTEM
+        -------------------- */
 
         words.forEach(function (word) {
+            // Skip reset button
+            if (word.classList.contains("reset")) return;
+
             word.addEventListener("click", function () {
                 const text = this.innerText;
 
@@ -263,6 +254,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.style.display = "none";
             });
         });
+
+        /* --------------------
+           RESET SYSTEM
+        -------------------- */
+
+        if (resetBtn) {
+            resetBtn.addEventListener("click", function () {
+                // input clear
+                input.value = "";
+
+                // সব শব্দ show
+                words.forEach(function (word) {
+                    if (!word.classList.contains("reset")) {
+                        word.style.display = "inline-block";
+                    }
+                });
+            });
+        }
     });
 });
 
