@@ -126,17 +126,17 @@ class HomeController extends Controller
 
     public function spinner()
     {
-        return view('frontend.picWinner.spinner');
+        $winners = PicWinner::where('is_winner', 1)->get();
+        return view('frontend.picWinner.spinner', [
+            'winners' => $winners,
+        ]);
     }
 
     public function spinWinner(Request $request)
     {
-        $excludeIds = [];
+        $excludeIds = $request->exclude_ids ? explode(',', $request->exclude_ids) : [];
 
-        if ($request->exclude_ids) {
-            $excludeIds = explode(',', $request->exclude_ids);
-        }
-
+        // Always exclude already confirmed winners (is_winner = 1)
         $participant = PicWinner::where('is_winner', 0)
             ->whereNotIn('id', $excludeIds)
             ->inRandomOrder()
@@ -159,23 +159,33 @@ class HomeController extends Controller
     {
         $winnerIds = $request->winner_ids;
 
-        PicWinner::whereIn('id', $winnerIds)->update([
-            'is_winner' => 1
-        ]);
+        $winners = PicWinner::where('is_winner', 1)->get();
 
-        return response()->json([
-            'status' => true
-        ]);
+        if (count($winners) < 9) {
+            PicWinner::whereIn('id', $winnerIds)->update([
+                'is_winner' => 1
+            ]);
+
+            return response()->json([
+                'status' => true
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'আর কেউ বাকি নেই'
+            ]);
+        }
     }
 
     public function picWinner(Request $request)
     {
         $names = PicWinner::all();
-        return view('frontend.picWinner.picWinner',[
+        return view('frontend.picWinner.picWinner', [
             'names' => $names
         ]);
     }
-    public function picWinnerStore(Request $request) {
+    public function picWinnerStore(Request $request)
+    {
         $request->validate([
             'name.*' => 'required|unique:pic_winners,name',
             'info.*' => 'nullable',
@@ -186,6 +196,6 @@ class HomeController extends Controller
                 'info' => $request->info[$key] ?? null
             ]);
         }
-        return back()->with('success','Store Successfully');
+        return back()->with('success', 'Store Successfully');
     }
 }

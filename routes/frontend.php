@@ -19,6 +19,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/confirm-winner', 'confirmWinner')->name('confirm.winner');
     Route::get('/pic/winner', 'picWinner')->name('pic.winner');
     Route::post('/pic/winner/store', 'picWinnerStore')->name('pic.winner.store');
+    Route::get('/get/confirmed/winners', 'getConfirmedWinners')->name('get.confirmed.winners');
 });
 
 Route::controller(PostController::class)->group(function () {

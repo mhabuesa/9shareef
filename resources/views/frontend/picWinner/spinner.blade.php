@@ -161,6 +161,12 @@
                                             </tr>
                                         </thead>
                                         <tbody id="resultTable">
+                                            @foreach ($winners as $winner)
+                                                <tr>
+                                                    <td>{{ $winner->name }}</td>
+                                                    <td>{{ $winner->info }}</td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <div class="d-flex justify-content-center mt-5">
@@ -188,13 +194,22 @@
             const resetBtn = document.getElementById('resetBtn');
 
             const MAX_WINNERS = 9; // maximum winners
-            let winners = JSON.parse(localStorage.getItem('winners')) || [];
 
-            // Load saved winners on reload
+            // DB theke already confirmed winners
+            let dbWinners = @json($winners); // Blade e pass kora $winners
+            // LocalStorage e spinner select kora winners
+            let localWinners = JSON.parse(localStorage.getItem('winners')) || [];
+
+            // Load winners (DB + localStorage)
             function loadSavedWinners() {
                 resultTable.innerHTML = '';
-                winners.forEach((winner, index) => {
+                // DB winners
+                dbWinners.forEach((winner, index) => {
                     appendRow(winner, index + 1);
+                });
+                // Local winners
+                localWinners.forEach((winner, index) => {
+                    appendRow(winner, dbWinners.length + index + 1);
                 });
             }
 
@@ -216,9 +231,10 @@
                 e.appendChild(document.createElement('div'));
             });
 
+            // Start spin function
             function startSpin() {
 
-                if (winners.length >= MAX_WINNERS) {
+                if ((dbWinners.length + localWinners.length) >= MAX_WINNERS) {
                     alert(`সর্বোচ্চ ${MAX_WINNERS} জন বিজয়ী নির্বাচন করা হয়েছে`);
                     return;
                 }
@@ -227,7 +243,8 @@
                 startBtn.style.display = 'none';
                 spinnerBox.style.display = 'flex';
 
-                let excludeIds = winners.map(w => w.id);
+                // IDs to exclude from selection (DB + spinner winners)
+                let excludeIds = dbWinners.map(w => w.id).concat(localWinners.map(w => w.id));
 
                 fetch("{{ route('spin.winner') }}?exclude_ids=" + excludeIds.join(','))
                     .then(res => res.json())
@@ -249,13 +266,12 @@
                             startBtn.style.display = 'flex';
                             startBtn.disabled = false;
 
-                            winnerText.innerHTML =
-                                `🏆 সম্ভাব্য বিজয়ী: <strong>${winner.name}</strong>`;
+                            winnerText.innerHTML = `🏆 সম্ভাব্য বিজয়ী: <strong>${winner.name}</strong>`;
 
-                            winners.push(winner);
-                            localStorage.setItem('winners', JSON.stringify(winners));
+                            localWinners.push(winner);
+                            localStorage.setItem('winners', JSON.stringify(localWinners));
 
-                            appendRow(winner, winners.length);
+                            appendRow(winner, dbWinners.length + localWinners.length);
 
                         }, 5000);
                     });
@@ -266,12 +282,12 @@
             // Confirm Winners (DB Update)
             confirmBtn.addEventListener('click', function() {
 
-                if (winners.length === 0) {
+                if (localWinners.length === 0) {
                     alert("কোন বিজয়ী নেই");
                     return;
                 }
 
-                let ids = winners.map(w => w.id);
+                let ids = localWinners.map(w => w.id);
 
                 fetch("{{ route('confirm.winner') }}", {
                         method: "POST",
@@ -287,16 +303,23 @@
                     .then(response => {
                         if (response.status) {
                             alert("বিজয়ী নিশ্চিত হয়েছে ✅");
+
+                            // Move local winners to DB winners array
+                            dbWinners = dbWinners.concat(localWinners);
+                            localWinners = [];
+                            localStorage.removeItem('winners');
+                            loadSavedWinners();
+                            winnerText.innerHTML = '';
                         }
                     });
             });
 
-            // Reset Button
+            // Reset Button (only clears spinner winners, DB winners stay)
             resetBtn.addEventListener('click', function() {
                 localStorage.removeItem('winners');
-                winners = [];
-                resultTable.innerHTML = '';
+                localWinners = [];
                 winnerText.innerHTML = '';
+                loadSavedWinners(); // only DB winners show
                 alert("Reset Successful");
             });
 
