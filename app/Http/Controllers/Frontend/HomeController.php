@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
+use App\Models\PicWinner;
 use App\Models\Post;
 use App\Models\Socialize;
 use App\Models\Subscriber;
@@ -121,5 +122,70 @@ class HomeController extends Controller
     public function mobile_wallpaper()
     {
         return view('frontend.socialize.mobile_wallpaper');
+    }
+
+    public function spinner()
+    {
+        return view('frontend.picWinner.spinner');
+    }
+
+    public function spinWinner(Request $request)
+    {
+        $excludeIds = [];
+
+        if ($request->exclude_ids) {
+            $excludeIds = explode(',', $request->exclude_ids);
+        }
+
+        $participant = PicWinner::where('is_winner', 0)
+            ->whereNotIn('id', $excludeIds)
+            ->inRandomOrder()
+            ->first();
+
+        if (!$participant) {
+            return response()->json([
+                'status' => false,
+                'message' => 'আর কেউ বাকি নেই'
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'data' => $participant
+        ]);
+    }
+
+    public function confirmWinner(Request $request)
+    {
+        $winnerIds = $request->winner_ids;
+
+        PicWinner::whereIn('id', $winnerIds)->update([
+            'is_winner' => 1
+        ]);
+
+        return response()->json([
+            'status' => true
+        ]);
+    }
+
+    public function picWinner(Request $request)
+    {
+        $names = PicWinner::all();
+        return view('frontend.picWinner.picWinner',[
+            'names' => $names
+        ]);
+    }
+    public function picWinnerStore(Request $request) {
+        $request->validate([
+            'name.*' => 'required|unique:pic_winners,name',
+            'info.*' => 'nullable',
+        ]);
+        foreach ($request->name as $key => $name) {
+            PicWinner::create([
+                'name' => $name,
+                'info' => $request->info[$key] ?? null
+            ]);
+        }
+        return back()->with('success','Store Successfully');
     }
 }

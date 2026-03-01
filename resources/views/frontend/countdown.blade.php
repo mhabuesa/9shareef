@@ -93,25 +93,25 @@
 
                         <div id="countdown" class="post-card__title-link">
                             <div class="number">
-                                <span class="days time" id="days">00</span>
-                                <span class="text">Days</span>
+                                <span class="days time" id="days">০০</span>
+                                <span class="text">দিন</span>
                             </div>
                             <div class="number">
-                                <span class="hours time" id="hours">00</span>
-                                <span class="text">Hours</span>
+                                <span class="hours time" id="hours">০০</span>
+                                <span class="text">ঘণ্টা</span>
                             </div>
                             <div class="number">
-                                <span class="minutes time" id="minutes">00</span>
-                                <span class="text">Minutes</span>
+                                <span class="minutes time" id="minutes">০০</span>
+                                <span class="text">মিনিট</span>
                             </div>
                             <div class="number">
-                                <span class="seconds time" id="seconds">00</span>
-                                <span class="text">Seconds</span>
+                                <span class="seconds time" id="seconds">০০</span>
+                                <span class="text">সেকেন্ড</span>
                             </div>
 
                         </div>
 
-                        <p class="date"> 2026.02.26 18:06 </p>
+                        <p class="date"> 2027.02.16 18:06 </p>
                         <audio id="myAudio" src="https://9shareef.com/frontend/assets/audio/audio.mp3"></audio>
 
 

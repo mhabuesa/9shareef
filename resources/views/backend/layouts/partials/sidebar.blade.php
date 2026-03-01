@@ -165,15 +165,22 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link {{ request()->routeIs('admin.quiz.answer') ? 'active': '' }}"
+                            <a class="nav-main-link {{ request()->routeIs('admin.quiz.answer') ? 'active' : '' }}"
                                 href="{{ route('admin.quiz.answer') }}">
                                 <span class="nav-main-link-name">
                                     <i class="fas fa-file-invoice me-2"></i> Quiz Answer
                                 </span>
                             </a>
                         </li>
-
                     </ul>
+                <li class="nav-main-item">
+                    <a class="nav-main-link"
+                        href="{{ route('pic.winner') }}">
+                        <span class="nav-main-link-name">
+                            <i class="fas fa-star me-2"></i>Pic Winner
+                        </span>
+                    </a>
+                </li>
                 </li>
             </ul>
         </div>

@@ -14,6 +14,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/socialPic/download/{data}', 'social_pic_download')->name('social.pic.download');
     Route::get('/themeQs', 'themeQs')->name('themeQs');
     Route::get('/mobile/wallpaper', 'mobile_wallpaper')->name('mobile.wallpaper');
+    Route::get('/spinner', 'spinner')->name('spinner');
+    Route::get('/spin-winner', 'spinWinner')->name('spin.winner');
+    Route::post('/confirm-winner', 'confirmWinner')->name('confirm.winner');
+    Route::get('/pic/winner', 'picWinner')->name('pic.winner');
+    Route::post('/pic/winner/store', 'picWinnerStore')->name('pic.winner.store');
 });
 
 Route::controller(PostController::class)->group(function () {
