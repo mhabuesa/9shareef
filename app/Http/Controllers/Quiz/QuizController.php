@@ -41,7 +41,9 @@ class QuizController extends Controller
     public function result()
     {
         $cover = Socialize::first()->cover_pic;
-        $winners = QuizAnswer::where('qualified', '1')->get();
+        $winners = QuizAnswer::where('qualified', '1')
+            ->orderByRaw("STR_TO_DATE(solved_time, '%i:%s') ASC")
+            ->get();
         return view('quiz.result', compact('cover', 'winners'));
     }
 }

@@ -106,7 +106,7 @@
                                             <div
                                                 class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4">
                                                 <div class="user-profile-info">
-                                                    <h4>SAAB</h4>
+                                                    <h4 class="fw-bold mb-1">SAAB</h4>
                                                 </div>
 
                                             </div>
@@ -211,17 +211,33 @@
 
                     let value = el.innerText.trim();
 
-                    // Bangla → English convert
+                    // Bangla → English number convert
                     value = convertBanglaToEnglishNumber(value);
 
-                    // ✅ Phone number হলে শুধু English করে দাও
-                    if (/^\d+$/.test(value)) {
-                        el.innerText = value;
-                    }
+                    // ✅ Email
+                    if (value.includes("@")) {
 
-                    // ✅ Email হলে যেমন আছে তেমনই রাখো
-                    else if (value.includes("@")) {
-                        el.innerText = value;
+                        let parts = value.split("@");
+                        let username = parts[0];
+                        let domain = parts[1];
+
+                        if (domain === "gmail.com") {
+                            let first = username.substring(0, 2);
+                            let last = username.substring(username.length - 2);
+                            el.innerText = first + "...." + last + "@gmail.com";
+                        } else {
+                            el.innerText = value;
+                        }
+
+                    }
+                    // ✅ Phone
+                    else if (/^\d+$/.test(value) && value.length >= 8) {
+
+                        // middle 6 digits
+                        let start = Math.floor((value.length - 0) / 2);
+                        let middleSix = value.substring(start, start + 6);
+
+                        el.innerText = "....." + middleSix ;
                     }
 
                 });
