@@ -45,17 +45,7 @@
                                                     onchange="updateCategoryStatus(this)">
                                             </div>
                                         </td>
-                                        <td class="text-center">
-                                            <button type="button" class="border-0 btn btn-sm editCategoryBtn"
-                                                data-id="{{ $category->id }}" data-name="{{ $category->name }}"
-                                                data-slug="{{ $category->slug }}"
-                                                data-priority="{{ $category->priority }}">
-                                                <i class="fa fa-pencil text-secondary fa-xl"></i>
-                                            </button>
-                                            <button type="button" class="border-0 btn btn-sm"
-                                                onclick="deleteCategory(this)" data-id="{{ $category->id }}"><i
-                                                    class="fa fa-trash text-danger fa-xl"></i></button>
-                                        </td>
+                                        c
                                     </tr>
                                 @endforeach
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Quiz;
 use App\Http\Controllers\Controller;
 use App\Models\QuizAnswer;
 use App\Models\QuizInfo;
+use App\Models\SocialPic;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -34,5 +35,12 @@ class QuizController extends Controller
     public function timeout()
     {
         return view('quiz.timeout');
+    }
+
+    public function result()
+    {
+        $cover = SocialPic::first()->cover_pic;
+        $winners = QuizAnswer::where('qualified', '1')->get();
+        return view('quiz.result', compact('cover', 'winners'));
     }
 }

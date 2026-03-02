@@ -58,6 +58,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/update', 'quiz_update')->name('update');
         Route::get('/answer', 'answer')->name('answer');
+        Route::post('/qualified/{id}', 'qualified')->name('qualified');
+        Route::get('/winners', 'winners')->name('winners');
+        Route::delete('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/lakab/update/{id}', 'lakab_update')->name('lakab.update');
     });
 
     // Extra Routes of resource controllers can be defined here

@@ -172,6 +172,14 @@
                                 </span>
                             </a>
                         </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->routeIs('admin.quiz.winners') ? 'active' : '' }}"
+                                href="{{ route('admin.quiz.winners') }}">
+                                <span class="nav-main-link-name">
+                                    <i class="fas fa-file-invoice me-2"></i> Quiz Winners
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 <li class="nav-main-item">
                     <a class="nav-main-link"

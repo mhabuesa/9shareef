@@ -82,6 +82,7 @@
                                         <th>question 7</th>
                                         <th>question 8</th>
                                         <th>question 9</th>
+                                        <th>Qualified</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -109,6 +110,14 @@
                                                 {{ $answer->puzzle_result }}, <br>
                                                 {{ $answer->solved_time }}
                                             </td>
+                                            <td class="fw-semibold fs-sm">
+                                                <div class="form-check form-switch text-center">
+                                                    <input class="form-check-input" id="status" type="checkbox"
+                                                        {{ $answer->qualified == '1' ? 'checked' : '' }} name="status"
+                                                        data-id="{{ $answer->id }}" data-status="{{ $answer->status }}"
+                                                        onchange="updateAnswerQualified(this)">
+                                                </div>
+                                            </td>
 
                                         </tr>
                                     @endforeach
@@ -123,4 +132,50 @@
         </div>
     </div>
 @endsection
-@include('backend.post.partials.footer_script')
+@push('footer_scripts')
+    <script>
+        function updateAnswerQualified(element) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "Will update answer qualified",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, update it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    updateAnswerQualifiedAjax(element);
+                } else {
+                    element.checked = !element.checked;
+                }
+            })
+        }
+
+        function updateAnswerQualifiedAjax(element) {
+            const id = $(element).data('id');
+            let url = "{{ route('admin.quiz.qualified', ':id') }}";
+            url = url.replace(':id', id);
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    if (data.success) {
+                        showToast(data.message, "success");
+                    } else {
+                        showToast(data.message, "error");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log('xhr.responseText, status, error', xhr.responseText, status, error);
+                    showToast('Something went wrong', "error");
+                }
+            });
+        }
+    </script>
+@endpush
