@@ -10,4 +10,5 @@ use Illuminate\Support\Facades\Route;
     Route::get('/complete', 'quiz_complete')->name('complete');
     Route::get('/timeout', 'timeout')->name('timeout');
     Route::get('/result', 'result')->name('result');
+    Route::get('/picResult', 'picResult')->name('picResult');
 });

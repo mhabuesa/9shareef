@@ -7,7 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>9 Shareef Quiz Result</title>
+    <title>9 Shareef Photo Competetion Result</title>
 
 
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 5" />
@@ -120,10 +120,10 @@
                         <div class="row">
                             <div class="col-lg-6 m-auto">
                                 <div class="card table-responsive">
-                                   <div class="card-header">
+                                    <div class="card-header">
                                         <h5 class="text-center fw-bold text-success">৯ই রমাদ্বান শরীফ উনার সম্মানার্থে
                                             অনুষ্ঠিত</h5>
-                                        <h4 class="text-center fw-bold">“অনলাইন প্রশ্নোত্তর” প্রতিযোগিতায় উত্তীর্ণ
+                                        <h4 class="text-center fw-bold">“মনের দেয়ালে কারুকাজ” প্রতিযোগিতায় উত্তীর্ণ
                                             হওয়ায়</h4>
                                         <h5 class="text-center fw-bold">আপনাকে জানাই মুবারকবাদ</h5>
                                     </div>
@@ -132,8 +132,7 @@
                                             <tr style="font-weight: 650">
                                                 <th>প্রাপ্তস্থান</th>
                                                 <th>নাম</th>
-                                                <th>কাতিফ</th>
-                                                <th>ছবি মিলানোর সময়</th>
+                                                <th>তথ্য</th>
                                             </tr>
                                             @php
                                                 function banglaSerial($number)
@@ -157,14 +156,14 @@
                                                     return $result . 'তম';
                                                 }
                                             @endphp
+
                                             @foreach ($winners as $winner)
                                                 <tr style="font-weight: 500">
                                                     <td>{{ banglaSerial($loop->iteration) }}</td>
                                                     <td class="text-capitalize">{{ $winner->name }}</td>
                                                     <td>
-                                                        <span id="info">{{ $winner->phone }}</span>
+                                                        <span id="info">{{ $winner->info }}</span>
                                                     </td>
-                                                    <td>{{ $winner->solved_time }}</td>
                                                 </tr>
                                             @endforeach
                                         </table>

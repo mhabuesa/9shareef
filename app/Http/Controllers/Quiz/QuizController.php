@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Quiz;
 
 use App\Http\Controllers\Controller;
+use App\Models\PicWinner;
 use App\Models\QuizAnswer;
 use App\Models\QuizInfo;
 use App\Models\Socialize;
@@ -45,5 +46,11 @@ class QuizController extends Controller
             ->orderByRaw("STR_TO_DATE(solved_time, '%i:%s') ASC")
             ->get();
         return view('quiz.result', compact('cover', 'winners'));
+    }
+    public function picResult()
+    {
+        $cover = Socialize::first()->cover_pic;
+        $winners = PicWinner::where('is_winner', 1)->orderBy('created_at', 'asc')->get();
+        return view('quiz.pic_result', compact('cover', 'winners'));
     }
 }
