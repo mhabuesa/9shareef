@@ -120,7 +120,7 @@
                         <div class="row">
                             <div class="col-lg-6 m-auto">
                                 <div class="card table-responsive">
-                                   <div class="card-header">
+                                    <div class="card-header">
                                         <h5 class="text-center fw-bold text-success">৯ই রমাদ্বান শরীফ উনার সম্মানার্থে
                                             অনুষ্ঠিত</h5>
                                         <h4 class="text-center fw-bold">“অনলাইন প্রশ্নোত্তর” প্রতিযোগিতায় উত্তীর্ণ
@@ -135,31 +135,9 @@
                                                 <th>কাতিফ</th>
                                                 <th>ছবি মিলানোর সময়</th>
                                             </tr>
-                                            @php
-                                                function banglaSerial($number)
-                                                {
-                                                    $bn = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-                                                    $num = str_split($number);
-                                                    $result = '';
-                                                    foreach ($num as $n) {
-                                                        $result .= $bn[$n];
-                                                    }
-
-                                                    if ($number == 1) {
-                                                        return $result . 'ম';
-                                                    }
-                                                    if ($number == 2) {
-                                                        return $result . 'য়';
-                                                    }
-                                                    if ($number == 3) {
-                                                        return $result . 'য়';
-                                                    }
-                                                    return $result . 'তম';
-                                                }
-                                            @endphp
                                             @foreach ($winners as $winner)
                                                 <tr style="font-weight: 500">
-                                                    <td>{{ banglaSerial($loop->iteration) }}</td>
+                                                    <td class="serial"></td>
                                                     <td class="text-capitalize">{{ $winner->name }}</td>
                                                     <td>
                                                         <span id="info">{{ $winner->phone }}</span>
@@ -266,6 +244,53 @@
                         el.innerText = "....." + middleSix;
                     }
 
+                });
+
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+
+                function getBanglaNumber(num) {
+                    const bn = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+                    return num.toString().split('').map(d => bn[d]).join('');
+                }
+
+                function getBanglaOrdinal(num) {
+                    const bnNum = getBanglaNumber(num);
+
+                    // ১১ থেকে সব তম
+                    if (num >= 11) return bnNum + 'তম';
+
+                    switch (num) {
+                        case 1:
+                            return bnNum + 'ম';
+                        case 2:
+                            return bnNum + 'য়';
+                        case 3:
+                            return bnNum + 'য়';
+                        case 4:
+                            return bnNum + 'র্থ';
+                        case 5:
+                            return bnNum + 'ম';
+                        case 6:
+                            return bnNum + 'ষ্ঠ';
+                        case 7:
+                            return bnNum + 'ম';
+                        case 8:
+                            return bnNum + 'ম';
+                        case 9:
+                            return bnNum + 'ম';
+                        case 10:
+                            return bnNum + 'ম';
+                        default:
+                            return bnNum;
+                    }
+                }
+
+                document.querySelectorAll('.serial').forEach((td, index) => {
+                    td.innerText = getBanglaOrdinal(index + 1);
                 });
 
             });
