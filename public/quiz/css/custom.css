@@ -1,0 +1,166 @@
+.word-btn {
+    margin: 5px;
+}
+
+.bn_font {
+    font-family: "QyyumBook";
+}
+
+/* number of columns/rows, don't forget to adjust the HTML value */
+g {
+    --s: 250px;
+    /* size of the puzzle */
+    display: grid;
+    max-width: var(--s);
+    border: 1px solid;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+g:before {
+    content: "";
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: calc(var(--s)*0.6);
+    aspect-ratio: 1;
+    -webkit-mask: repeating-linear-gradient(-45deg, #000 0 10%, #000d 0 20%);
+    background: var(--i) 0/100% 100%;
+    display: none;
+    place-content: center;
+}
+
+z {
+    aspect-ratio: 1;
+    outline: 1px dashed;
+    display: grid;
+    position: relative;
+    pointer-events: none;
+}
+
+a {
+    grid-area: 1/1;
+    width: 0;
+    transition: 0s 0.2s;
+    pointer-events: initial;
+}
+
+b {
+    grid-area: 1/1;
+    background: var(--i) 0/var(--s) var(--s);
+    box-shadow: 0 0 4px 1px red;
+    z-index: 2;
+    cursor: grab;
+    pointer-events: initial;
+}
+
+z:nth-of-type(1) b {
+    background-position: 0% 0%;
+    transform: translate(150%, 150%) rotate(58deg) translate(334%) rotate(-61deg);
+}
+
+z:nth-of-type(2) b {
+    background-position: 33.3333333333% 0%;
+    transform: translate(50%, 150%) rotate(44deg) translate(359%) rotate(-49deg);
+}
+
+z:nth-of-type(3) b {
+    background-position: 66.6666666667% 0%;
+    transform: translate(-50%, 150%) rotate(114deg) translate(376%) rotate(-112deg);
+}
+
+z:nth-of-type(4) b {
+    background-position: 100% 0%;
+    transform: translate(-150%, 150%) rotate(28deg) translate(333%) rotate(-24deg);
+}
+
+z:nth-of-type(5) b {
+    background-position: 0% 33.3333333333%;
+    transform: translate(150%, 50%) rotate(118deg) translate(344%) rotate(-126deg);
+}
+
+z:nth-of-type(6) b {
+    background-position: 33.3333333333% 33.3333333333%;
+    transform: translate(50%, 50%) rotate(66deg) translate(340%) rotate(-68deg);
+}
+
+z:nth-of-type(7) b {
+    background-position: 66.6666666667% 33.3333333333%;
+    transform: translate(-50%, 50%) rotate(21deg) translate(303%) rotate(-28deg);
+}
+
+z:nth-of-type(8) b {
+    background-position: 100% 33.3333333333%;
+    transform: translate(-150%, 50%) rotate(33deg) translate(399%) rotate(-41deg);
+}
+
+z:nth-of-type(9) b {
+    background-position: 0% 66.6666666667%;
+    transform: translate(150%, -50%) rotate(80deg) translate(316%) rotate(-76deg);
+}
+
+z:nth-of-type(10) b {
+    background-position: 33.3333333333% 66.6666666667%;
+    transform: translate(50%, -50%) rotate(118deg) translate(302%) rotate(-119deg);
+}
+
+z:nth-of-type(11) b {
+    background-position: 66.6666666667% 66.6666666667%;
+    transform: translate(-50%, -50%) rotate(41deg) translate(384%) rotate(-40deg);
+}
+
+z:nth-of-type(12) b {
+    background-position: 100% 66.6666666667%;
+    transform: translate(-150%, -50%) rotate(112deg) translate(390%) rotate(-106deg);
+}
+
+z:nth-of-type(13) b {
+    background-position: 0% 100%;
+    transform: translate(150%, -150%) rotate(70deg) translate(380%) rotate(-60deg);
+}
+
+z:nth-of-type(14) b {
+    background-position: 33.3333333333% 100%;
+    transform: translate(50%, -150%) rotate(88deg) translate(392%) rotate(-91deg);
+}
+
+z:nth-of-type(15) b {
+    background-position: 66.6666666667% 100%;
+    transform: translate(-50%, -150%) rotate(58deg) translate(333%) rotate(-55deg);
+}
+
+z:nth-of-type(16) b {
+    background-position: 100% 100%;
+    transform: translate(-150%, -150%) rotate(84deg) translate(334%) rotate(-86deg);
+}
+
+z b {
+    transition: 9999s 9999s;
+}
+
+z:active a {
+    width: 100%;
+    transition: 0s;
+}
+
+z a:hover~b {
+    transform: translate(0);
+    box-shadow: none;
+    transition: 0s;
+}
+
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+    text-align: center;
+}

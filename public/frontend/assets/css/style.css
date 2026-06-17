@@ -1,0 +1,1086 @@
+
+  #countdown {
+
+    font-family: 'Alinur';
+    color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 170px;
+
+
+      .number {
+          font-size: 4.5vw;
+          position: relative;
+          padding-bottom: 4vw;
+
+          &:not(:last-child) {
+              margin-right: 4vw;
+
+              &::after {
+                  content: ":";
+                  position: absolute;
+                  right: -2.5vw;
+                  top: -0.5vw;
+              }
+          }
+      }
+
+      .text {
+          font-size: 1.3vw;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          color: rgba(#000, 0.65);
+      }
+  }
+
+
+
+  #countdown2 {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 180px;
+
+      .number2 {
+          font-size: 4.5vw;
+          position: relative;
+          padding-bottom: 4vw;
+
+          &:not(:last-child) {
+              margin-right: 4vw;
+
+              &::after {
+                  content: ":";
+                  position: absolute;
+                  right: -2.5vw;
+                  top: -0.5vw;
+              }
+          }
+      }
+
+      .text2 {
+          font-size: 1.3vw;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          color: rgba(#000, 0.65);
+      }
+  }
+
+  .dis {
+      margin-top: 20%;
+  }
+
+
+  .date {
+      display: none;
+  }
+
+  .date2 {
+      display: none;
+  }
+
+
+.mrgn{
+    margin-bottom: 150px;
+}
+
+
+
+
+
+
+  /* Particles */
+
+  .container {
+
+      position: relative;
+      z-index: 1;
+      /* Ensure paragraphs are on top of the canvas container */
+  }
+
+  .canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      /* Set a lower z-index value */
+      pointer-events: none;
+      /* Prevent interaction with the particle container */
+  }
+
+  #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+  }
+
+
+
+  /* Header Text */
+  .first_content {
+      margin-top: -65px;
+  }
+
+  .second_content {
+      margin-top: -85px;
+  }
+
+  .text-svg {
+      font-family: 'CharuChandan3D', sans-serif;
+      font-size: 50px;
+      fill: transparent;
+      /* Transparent fill */
+      stroke: #ffffff;
+      /* Stroke color */
+      stroke-width: 1;
+      /* Stroke width */
+      stroke-dasharray: 900;
+      stroke-dashoffset: 950;
+      animation: dash 4s infinite alternate;
+      margin-top: -50px;
+      text-shadow: 0 0 5px #4FC3F7, 0 0 10px #4FC3F7, 0 0 15px #4FC3F7, 0 0 20px #4FC3F7, 0 0 25px #009688, 0 0 30px #009688;
+  }
+
+  .text-svg2 {
+      font-family: 'CharuChandan3D', sans-serif;
+      font-size: 33px;
+      fill: transparent;
+      /* Transparent fill */
+      stroke: #ffffff;
+      /* Stroke color */
+      stroke-width: 0.5;
+      /* Stroke width */
+      stroke-dasharray: 900;
+      stroke-dashoffset: 950;
+      animation: dash 4s infinite alternate;
+      text-shadow: 0 0 5px #ffa500, 0 0 10px #ffa500, 0 0 15px #ffa500, 0 0 20px #ff0000, 0 0 25px #ff8d00, 0 0 30px #ff0000;
+
+  }
+
+
+
+  @keyframes dash {
+      0% {
+          stroke-dashoffset: 950;
+      }
+
+      100% {
+          stroke-dashoffset: 50;
+      }
+  }
+
+  /* .head-text{
+  display: none;
+} */
+
+
+
+  .neonText-Lightgreen {
+      font-family: Sirajee_Humayra;
+      font-size: 80px;
+
+      color: #fff;
+      text-align: center;
+      text-shadow:
+          0 0 5px #00ff66,
+          0 0 10px #00ff66,
+          0 0 15px #00ff66,
+          0 0 20px #00ff66,
+          0 0 25px #00ff66,
+          0 0 30px #00ff66;
+  }
+
+  .neonText-lightBlue {
+      font-family: 'Alinur', sans-serif;
+      font-size: 70px;
+      padding-top: 60px;
+      color: #fff;
+      text-align: center;
+      text-shadow:
+          0 0 5px #25d7fb,
+          0 0 10px #25d7fb,
+          0 0 15px #25d7fb,
+          0 0 20px #25d7fb,
+          0 0 25px #25d7fb,
+          0 0 30px #25d7fb;
+  }
+
+
+  .third{
+    font-family: 'Alinur', sans-serif;
+    font-size: 25px;
+    margin-top: 42px;
+    color: #fff;
+    text-align: center;
+    text-shadow:
+        0 0 5px #25d7fb,
+        0 0 10px #25d7fb,
+        0 0 15px #25d7fb,
+        0 0 20px #25d7fb,
+        0 0 25px #25d7fb,
+        0 0 30px #25d7fb;
+  }
+
+
+
+
+  .title1 h4 {
+
+      margin: 35px 0 30px 0;
+      font-family: 'Bangla', sans-serif;
+      font-size: 55px;
+      color: #00dd46;
+      text-shadow: 2px 2px 2px #ffffff;
+
+      margin-bottom: -100px;
+
+  }
+
+
+  .title2 {
+      justify-content: center;
+      display: flex;
+  }
+
+  .title2 h3 {
+
+      margin: 40px 0 0 0;
+      font-family: 'Bangla', sans-serif;
+      font-size: 80px;
+      color: #00dd46;
+      text-shadow: 2px 2px 3px #ffffff
+  }
+
+  .title2 h3 span {
+      font-size: 150px;
+      padding-right: 20px;
+  }
+
+
+  .title3 p {
+
+      margin: 65px 0 0 0;
+      font-family: 'Alinur';
+      font-size: 40px;
+      color: #ffffff;
+      font-weight: 500;
+      /* text-shadow: 2px 2px 6px #ffffff */
+      -webkit-text-stroke: .5px #ffffff;
+      -webkit-text-fill-color: #ffffff;
+      margin-bottom: -50px;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Second Content */
+
+
+
+  .secondTitle1 h4 {
+
+      margin: 35px 0 30px 0;
+      font-family: 'Bangla', sans-serif;
+      font-size: 55px;
+      color: #00dd46;
+      text-shadow: 2px 2px 2px #ffffff;
+
+      margin-bottom: -100px;
+
+  }
+
+
+
+  .secondTitle2 h3 {
+
+      margin: 120px 0 15px 0;
+      font-family: 'Bangla', sans-serif;
+      font-size: 90px;
+      color: #00dd46;
+      text-shadow: 2px 2px 2px #ffffff;
+
+  }
+
+  .secondTitle2 h3 span {
+      font-size: 150px;
+      padding-right: 20px;
+  }
+
+
+  .secondTitle3 p {
+
+      margin: 24px 0 0 0;
+      font-family: 'Bangla', sans-serif;
+      font-size: 60px;
+      color: #ffffff;
+      font-weight: 500;
+      /* text-shadow: 2px 2px 6px #ffffff */
+      -webkit-text-stroke: .5px #ffffff;
+      -webkit-text-fill-color: #ffffff;
+      margin-bottom: -110px;
+
+  }
+
+
+
+  .webdev {
+    font-size: 75px;
+    font-family: Alinur;
+    color: #ffffff;
+    text-shadow:
+          0 0 5px #00ff66,
+          0 0 10px #00ff66,
+          0 0 15px #00ff66,
+          0 0 20px #00ff66;
+    -webkit-animation: buzz 0.01s infinite alternate;
+    animation: buzz 0.01s infinite alternate;
+  }
+
+  .socod {
+        font-family: Sirajee_Humayra;
+        font-size: 63px;
+        color: #d4eaff;
+        margin-top: 82px;
+        text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+        -webkit-animation: blink 4s infinite alternate;
+        animation: blink 4s infinite alternate;
+  }
+
+
+
+
+  @-webkit-keyframes buzz {
+      70% {
+          opacity: 0.80;
+      }
+  }
+
+  @keyframes buzz {
+      70% {
+          opacity: 0.80;
+      }
+  }
+
+  @-webkit-keyframes blink {
+      40% {
+          opacity: 1;
+      }
+
+      42% {
+          opacity: 0.8;
+      }
+
+      43% {
+          opacity: 1;
+      }
+
+      45% {
+          opacity: 0.2;
+      }
+
+      46% {
+          opacity: 1;
+      }
+  }
+
+  @keyframes blink {
+      40% {
+          opacity: 1;
+      }
+
+      42% {
+          opacity: 0.8;
+      }
+
+      43% {
+          opacity: 1;
+      }
+
+      45% {
+          opacity: 0.2;
+      }
+
+      46% {
+          opacity: 1;
+      }
+  }
+
+
+
+
+
+
+
+
+
+  /* Responsive */
+  @media only screen and (min-width: 1400px) {
+      .dis {
+          margin-top: 22%;
+      }
+
+  }
+
+  @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+      .dis {
+          margin-top: 28%;
+      }
+
+      .title2 h3 {
+          font-size: 70px;
+      }
+
+      .text-svg {
+          font-size: 39px;
+          stroke-width: 1;
+      }
+
+      .text-svg2 {
+          font-size: 36px;
+          stroke-width: .5;
+          margin-top: -55px;
+      }
+
+      .comn p {
+          font-size: 70px;
+      }
+
+      .comn p span {
+          font-size: 115px;
+          padding-right: 5px;
+      }
+  }
+
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+      .dis {
+          margin-top: 30%;
+      }
+
+
+      .webdev{
+        font-size: 60px;
+      }
+      .socod{
+        font-size: 70px;
+      }
+
+
+
+      .text-svg {
+          font-size: 40px;
+          stroke-width: 1;
+          margin-left: -80px;
+          margin-top: -70px;
+      }
+
+      .text-svg2 {
+          font-size: 36px;
+          stroke-width: .5;
+          margin-top: -55px;
+          margin-left: -80px;
+      }
+
+
+
+      .title1 h4 {
+          font-size: 45px;
+      }
+
+      .secondTitle1 h4 {
+          font-size: 45px;
+      }
+
+
+      .title2 h3 {
+          font-size: 60px;
+          margin-top: 55px;
+      }
+
+      .secondTitle2 h3 {
+          font-size: 70px;
+          margin-top: 97px;
+      }
+
+      .title2 h3 span {
+          font-size: 100px;
+      }
+
+      .title3 p {
+          margin-top: 71px;
+      }
+
+      .secondTitle3 p {
+          margin-top: 55px;
+      }
+
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+
+      .dis {
+          margin-top: 20%;
+      }
+
+
+      .webdev{
+        font-size: 60px;
+      }
+      .socod{
+        font-size: 70px;
+      }
+
+      .text-svg {
+          font-size: 70px;
+          stroke-width: 1;
+          margin-left: -80px;
+          margin-top: -70px;
+      }
+
+      .text-svg2 {
+          font-size: 45px;
+          stroke-width: .5;
+          margin-top: -55px;
+          margin-left: -80px;
+      }
+
+      .neonText-Lightgreen {
+          margin-top: 25px;
+          font-size: 80px;
+          color: #fff;
+
+      }
+
+      .neonText-lightBlue {
+
+          font-size: 70px;
+          padding-top: 60px;
+
+      }
+
+      .second_content {
+          margin-top: -133px;
+      }
+
+
+
+      .title2 h3 {
+
+          margin: -40px 0 30px 0;
+          font-family: 'Bangla', sans-serif;
+          font-size: 80px;
+          color: #00dd46;
+          text-shadow: 2px 2px 3px #ffffff;
+
+
+      }
+
+      .title2 h3 span {
+          font-size: 120px;
+
+      }
+
+      .title1 h4 {
+
+          margin: 10px 0 0 0;
+          font-family: 'Bangla', sans-serif;
+          font-size: 55px;
+          color: #00dd46;
+          text-shadow: 2px 2px 2px #ffffff;
+
+      }
+
+      .secondTitle2 h3 {
+          margin-top: 90px;
+      }
+
+      /* .title3 p {
+
+          margin: 10px 0 0 0;
+          font-family: 'Bangla', sans-serif;
+          font-size: 45px;
+          color: #ffffff;
+          font-weight: 500;
+
+      } */
+
+      .secondTitle3 p {
+          margin-top: 45px;
+      }
+
+
+
+
+      #countdown {
+          margin-top: 100px;
+      }
+
+
+
+
+
+
+
+
+
+  }
+
+
+  @media only screen and (min-width: 500px) and (max-width: 767px) {
+
+      .dis {
+          margin-top: 60%;
+      }
+
+      .webdev{
+        font-size: 40px;
+      }
+
+
+      .socod{
+        margin-top: 50px;
+        font-size: 55px;
+      }
+
+      .text-svg {
+          font-size: 75px;
+          stroke-width: 1;
+          margin-left: -80px;
+          margin-top: -70px;
+      }
+
+      .text-svg2 {
+          font-size: 48px;
+          stroke-width: .5;
+          margin-top: -55px;
+          margin-left: -80px;
+      }
+
+      .neonText-Lightgreen {
+          margin-top: 15px;
+          font-size: 55px;
+          color: #fff;
+
+      }
+
+      .neonText-lightBlue {
+
+          font-size: 55px;
+          padding-top: 60px;
+
+      }
+
+      .second_content {
+          margin-top: -133px;
+      }
+
+
+
+      .title2 h3 {
+          margin: -14px 0 36px 0;
+          font-family: 'Bangla', sans-serif;
+          font-size: 65px;
+          color: #00dd46;
+          text-shadow: 2px 2px 3px #ffffff;
+
+
+      }
+
+      .title2 h3 span {
+          font-size: 100px;
+          padding-right: 20px;
+      }
+
+      .title1 h4 {
+          font-family: 'Alinur', sans-serif;
+          font-size: 50px;
+          color: #00dd46;
+          text-shadow: 2px 2px 2px #ffffff;
+          margin-bottom: -30px;
+
+      }
+
+      .title3 p {
+          font-family: 'Alinur', sans-serif;
+          font-size: 40px;
+          color: #ffffff;
+          font-weight: 500;
+          text-shadow: 2px 2px 2px #ffffff;
+      }
+
+      #countdown {
+          margin-top: 100px;
+      }
+
+      #countdown .number {
+        font-size: 8.5vw;
+        position: relative;
+        padding-bottom: 8vw;
+      }
+
+
+
+      #countdown .number .text {
+        font-size: 2.3vw;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(#000, 0.65);
+    }
+
+
+  }
+
+
+  @media only screen and (min-width: 358px) and (max-width: 412px) {
+
+
+    .webdev{
+        font-size: 25px;
+    }
+    .socod{
+        font-size: 35px;
+        margin-top: 30px;
+    }
+
+    .third {
+        font-family: Alinur;
+        font-size: 20px;
+        margin-top: 16px;
+        color: #fff;
+    }
+
+
+
+      .title2 h3 {
+          margin: -5px 0 22px 0;
+          font-family: 'Bangla', sans-serif;
+          font-size: 45px;
+          color: #00dd46;
+          text-shadow: 2px 2px 1px #ffffff;
+
+
+      }
+
+      .title2 h3 span {
+          font-size: 65px;
+          padding-right: 8px;
+      }
+
+      .title1 h4 {
+          font-family: 'Bangla', sans-serif;
+          font-size: 35px;
+          color: #00dd46;
+          margin-bottom: -30px;
+          text-shadow: 0px 0px 0px #ffffff;
+
+      }
+
+      .title3 p {
+        margin: 80px 0 -50px 0;
+        font-size: 25px;
+
+      }
+
+
+      #countdown {
+          margin-top: 65px;
+      }
+
+
+
+
+
+  #countdown .number {
+          font-size: 8.5vw;
+          position: relative;
+          padding-bottom: 8vw;
+        }
+
+
+
+        #countdown .number .text {
+          font-size: 2.3vw;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          color: rgba(#000, 0.65);
+      }
+
+
+  }
+
+
+  @media only screen and (min-width: 413px) and (max-width: 499px) {
+
+    .webdev{
+        font-size: 30px;
+    }
+    .socod{
+        font-size: 42px;
+        margin-top: 40px;
+    }
+
+
+      .title2 h3 {
+          margin: -5px 0 22px 0;
+          font-family: 'Bangla', sans-serif;
+          font-size: 55px;
+          color: #00dd46;
+          text-shadow: 2px 2px 1px #ffffff;
+
+
+      }
+
+      .title2 h3 span {
+          font-size: 70px;
+          padding-right: 8px;
+      }
+
+      .title1 h4 {
+          font-family: 'Bangla', sans-serif;
+          font-size: 40px;
+          color: #00dd46;
+          margin-bottom: -30px;
+          text-shadow: 1px 1px 2px #ffffff;
+
+      }
+
+      .title3 p {
+          font-family: 'Alinur', sans-serif;
+          font-size: 32px;
+          color: #ffffff;
+          font-weight: 500;
+          text-shadow: 1px 1px 1px #ffffff;
+      }
+
+      #countdown {
+          margin-top: 75px;
+      }
+
+
+      #countdown .number {
+        font-size: 8.5vw;
+        position: relative;
+        padding-bottom: 8vw;
+      }
+
+
+
+      #countdown .number .text {
+        font-size: 2.3vw;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(#000, 0.65);
+    }
+  }
+
+
+
+  /* only header text  */
+
+
+
+  @media only screen and (min-width: 413px) and (max-width: 500px) {
+      .text-svg {
+          font-size: 75px;
+          stroke-width: 1;
+          margin-left: -80px;
+          margin-top: -70px;
+      }
+
+      .text-svg2 {
+          font-size: 48px;
+          stroke-width: .5;
+          margin-top: -55px;
+          margin-left: -80px;
+      }
+
+      .neonText-Lightgreen {
+          margin-top: 15px;
+          font-size: 42px;
+          color: #fff;
+
+      }
+
+      .neonText-lightBlue {
+
+          font-size: 40px;
+          padding-top: 40px;
+
+      }
+
+      .second_content {
+          margin-top: -148px;
+      }
+
+
+  }
+
+  @media only screen and (min-width: 280px) and (max-width: 412px) {
+
+      .dis {
+          margin-top: 80%;
+      }
+
+      .webdev{
+        font-size: 22px;
+    }
+    .socod{
+        font-size: 25px;
+        margin-top: 20px;
+    }
+
+    .title3 p {
+        margin: 30px 0 0 0;
+        font-size: 20px;
+
+    }
+
+
+    #countdown {
+        margin-top: 75px;
+    }
+
+
+
+
+
+#countdown .number {
+        font-size: 8.5vw;
+        position: relative;
+        padding-bottom: 8vw;
+      }
+
+
+
+      #countdown .number .text {
+        font-size: 2.3vw;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(#000, 0.65);
+    }
+
+
+
+      .text-svg {
+          font-family: 'CharuChandan3D', sans-serif;
+          font-size: 85px;
+          fill: transparent;
+          stroke: #ffffff;
+          stroke-width: 0.5px;
+          stroke-dasharray: 900;
+          stroke-dashoffset: 950;
+          animation: dash 4s infinite alternate;
+
+
+
+      }
+
+      .text-svg2 {
+          font-family: 'CharuChandan3D', sans-serif;
+          font-size: 45px;
+          fill: transparent;
+          stroke: #ffffff;
+          stroke-width: 0.5;
+          stroke-dasharray: 900;
+          stroke-dashoffset: 950;
+          animation: dash 4s infinite alternate;
+          margin: -69px 0 0 -12px;
+      }
+
+
+      .neonText-Lightgreen {
+          font-size: 27px;
+
+
+      }
+
+      .neonText-lightBlue {
+
+          font-size: 28px;
+          padding-top: 20px;
+
+      }
+
+      .second_content {
+          margin-top: -155px;
+      }
+
+
+
+  }
+
+  @media only screen and (max-width: 358px) {
+
+
+    /* .webdev{
+        font-size: 25px;
+    }
+    .socod{
+        font-size: 35px;
+        margin-top: 25px;
+    }
+
+    .title3 p {
+        margin: 30px 0 0 0;
+        font-size: 25px;
+
+    }
+
+
+    #countdown {
+        margin-top: 75px;
+    }
+
+
+
+
+
+#countdown .number {
+        font-size: 8.5vw;
+        position: relative;
+        padding-bottom: 8vw;
+      }
+
+
+
+      #countdown .number .text {
+        font-size: 2.3vw;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(#000, 0.65);
+    } */
+  }
+
+
+
+
