@@ -322,6 +322,7 @@ class HomeController extends Controller
 
     public function protijogita_store(Request $request)
     {
+        
         $request->validate([
             'name' => 'required',
             'profile_id' => 'required|unique:participants,profile_id',
@@ -371,9 +372,6 @@ class HomeController extends Controller
         }
 
 
-        dd($request->address);
-
-        
         $participant = Participant::create([
             'name' => $request->name,
             'phone' => $request->phone,
@@ -387,17 +385,18 @@ class HomeController extends Controller
         ]);
 
         foreach ($request->topics as $topic) {
-            $participant->topics()->create([
+            $participant->CreateTopics()->create([
                 'topic_id' => $topic,
             ]);
         }
 
 
+        return redirect()->route('protijogita.applied', ['id' => $participant->profile_id])->with('success', 'আপনার তথ্য সফলভাবে জমা হয়েছে');
+    }
 
-
-
-
-
-        dd($matchedGroup['group_name']);
+    public function protijogita_applied($id)
+    {
+        $participant = Participant::with('topics')->where('profile_id', $id)->firstOrFail();
+        return view('sas.protijogita_applied', compact('participant'));
     }
 }

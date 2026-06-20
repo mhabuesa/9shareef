@@ -7,11 +7,13 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Online Post Report | Love9</title>
+    <title>Protijogita Application Form</title>
 
 
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 5" />
-    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+    <meta name="description" content="40 Days Protijogita Application Form" />
+    <meta name="keywords"
+        content="40 Days Protijogita Application Form, Protijogita Application Form, 40 Days Competition Application Form, Competition Application Form, 40 Days Protijogita, Protijogita, 40 Days Competition, Competition" />
+
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://1.envato.market/vuexy_admin">
 
@@ -183,7 +185,7 @@
                                                 <h4 class="text-center bn_font"> প্রতিযোগিতার বিষয়বস্তু</h4>
                                             </div>
                                             <div class="card-body">
-                                                <h4 class=" bn_font"> আবশ্যিক বিষয়</h4>
+                                                <h4 class=" bn_font"> আবশ্যিক বিষয়সমূহ</h4>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <h5 class="card-title">
@@ -612,7 +614,7 @@
                             document.getElementById('topicBox').innerHTML = `
                             <input type="checkbox"
                                 class="form-check-input me-2"
-                                id="fourteen" name="fourteen">
+                                id="fourteen" name="topics[]" value="14">
 
                             <label for="fourteen">
                                 ${res.data.topic}

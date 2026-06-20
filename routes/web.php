@@ -111,6 +111,7 @@ Route::post('/postReport/store', [HomeController::class, 'postReport_store'])->n
 Route::get('/protijogita', [HomeController::class, 'protijogita'])->name('protijogita');
 Route::post('/protijogita/store', [HomeController::class, 'protijogita_store'])->name('protijogita.store');
 Route::post('/competition/calculate', [HomeController::class, 'calculate'])->name('competition.calculate');
+Route::get('/protijogita/applied/{id}', [HomeController::class, 'protijogita_applied'])->name('protijogita.applied');
 
 
 require __DIR__ . '/auth.php';

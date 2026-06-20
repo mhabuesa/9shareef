@@ -11,8 +11,18 @@ class Participant extends Model
 
     protected $guarded = ['id'];
 
-    public function topics()
+    public function CreateTopics()
     {
         return $this->hasMany(ParticipantTopic::class);
+    }
+    
+     public function topics()
+    {
+        return $this->belongsToMany(
+            CompetitionTopic::class,
+            'participant_topics',
+            'participant_id',
+            'topic_id'
+        );
     }
 }
